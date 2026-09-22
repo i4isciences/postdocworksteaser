@@ -1,0 +1,194 @@
+/* Google Fonts used by the /eyewee page, which is ported with the exact inline-style font-family
+   strings ("Poppins", "Work Sans", "Lora") from the eyewee project. Must precede @import
+   "tailwindcss" -- @import rules have to come before all other rules, tailwindcss included. */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,600&family=Work+Sans:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  --navy: #162b59;
+  --gold: #f4ae27;
+  --ink: #17233f;
+  --paper: #f5f3ee;
+  --muted: #697286;
+  --line: #d9dfe8;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------------------------------------------------------------- */
+/* Shared PostdocWorks-brand chrome: nav, footer, buttons            */
+/* Used by the home, Doc2Postdoc, waitlist, terms, and privacy pages */
+/* ---------------------------------------------------------------- */
+
+.teaser-site { min-height: 100vh; background: var(--paper); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+
+.teaser-nav { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 78px; padding: 10px clamp(18px, 4vw, 64px); border-bottom: 1px solid #e4e6ea; background: rgba(255,255,255,.96); backdrop-filter: blur(6px); }
+.teaser-brand { display: flex; align-items: center; gap: 14px; }
+.teaser-brand img { height: 54px; width: auto; object-fit: contain; }
+.teaser-brand-copy { display: grid; gap: 3px; }
+.teaser-brand-copy small { display: block; max-width: 320px; color: var(--gold); font-family: Arial, sans-serif; font-size: 10px; font-style: italic; letter-spacing: .01em; line-height: 1.25; }
+
+.teaser-nav-links { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 30px); }
+.teaser-nav-link { font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; color: var(--muted); padding-bottom: 3px; border-bottom: 2px solid transparent; }
+.teaser-nav-link:hover { color: var(--navy); }
+.teaser-nav-link[aria-current="page"] { color: var(--navy); border-bottom-color: var(--gold); }
+
+.teaser-pill { display: inline-block; border: 1px solid var(--gold); border-radius: 999px; background: #fbf0db; color: var(--navy); padding: 6px 13px; font-family: Arial, sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+
+.teaser-waitlist-btn { display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; background: var(--gold); color: var(--navy); padding: 11px 20px; font-family: Arial, sans-serif; font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+.teaser-waitlist-btn:hover { background: #ffc34a; }
+.teaser-blink { animation: teaser-blink 1.6s ease-in-out infinite; }
+@keyframes teaser-blink { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(244,174,39,.5); } 50% { opacity: .55; box-shadow: 0 0 0 7px rgba(244,174,39,0); } }
+
+.teaser-mobile-nav { display: none; }
+
+@media (max-width: 860px) {
+  .teaser-nav-links-desktop { display: none; }
+  .teaser-mobile-nav { display: flex; align-items: center; gap: 10px; }
+  .teaser-brand-copy small { display: none; }
+}
+
+/* Generic section rhythm */
+.teaser-section { padding: clamp(56px, 8vw, 110px) clamp(20px, 6vw, 90px); }
+.teaser-section-inner { max-width: 1080px; margin: 0 auto; }
+.teaser-section-narrow { max-width: 760px; margin: 0 auto; }
+.teaser-label { margin: 0 0 16px; color: #a36d0b; font-family: Arial, sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.teaser-eyebrow-center { text-align: center; }
+
+/* Hero (home + doc2postdoc) */
+.teaser-hero { text-align: center; max-width: 880px; margin: 0 auto; padding: clamp(56px, 8vw, 100px) clamp(20px, 6vw, 90px) clamp(40px, 5vw, 60px); }
+.teaser-hero h1 { margin: 18px 0 0; color: var(--navy); font-size: clamp(2.3rem, 5vw, 4.1rem); letter-spacing: -.04em; line-height: 1.08; }
+.teaser-hero-lead { max-width: 52ch; margin: 20px auto 0; color: var(--muted); font-family: Arial, sans-serif; font-size: clamp(16px, 1.7vw, 19px); line-height: 1.6; }
+.teaser-hero-ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+
+.teaser-btn { display: inline-flex; align-items: center; gap: 10px; border: 0; padding: 15px 24px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 800; }
+.teaser-btn-navy { background: var(--navy); color: #fff; }
+.teaser-btn-navy:hover { background: #0e1e40; }
+.teaser-btn-gold { background: var(--gold); color: var(--navy); }
+.teaser-btn-gold:hover { background: #ffc34a; }
+.teaser-btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+.teaser-btn-outline:hover { background: var(--navy); color: #fff; }
+
+/* Product / feature grids */
+.teaser-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 44px; }
+.teaser-card { background: #fff; border: 1px solid var(--line); padding: clamp(26px, 3vw, 40px); }
+.teaser-card-dark { background: var(--navy); color: #fff; border-color: var(--navy); }
+.teaser-card-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.teaser-card-kicker { margin: 0 0 14px; font-family: Arial, sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.teaser-card h3 { margin: 0 0 14px; font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -.03em; line-height: 1.15; }
+.teaser-card p { margin: 0; font-family: Arial, sans-serif; font-size: 14.5px; line-height: 1.7; }
+.teaser-card-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; font-family: Arial, sans-serif; font-size: 12.5px; font-weight: 800; }
+
+.teaser-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.teaser-step { background: #fff; border: 1px solid var(--line); padding: 28px 26px; }
+.teaser-step-num { margin: 0 0 12px; color: var(--gold); font-family: Arial, sans-serif; font-weight: 800; font-size: 13px; }
+.teaser-step-icon { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 16px; background: #fbf0db; color: #a36d0b; }
+.teaser-step h3 { margin: 0 0 10px; color: var(--navy); font-size: 1.05rem; letter-spacing: -.02em; }
+.teaser-step p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 13.5px; line-height: 1.6; }
+
+/* Definition callout (e.g. "Postdoc" term) */
+.teaser-definition { margin: 32px 0 0; padding: 22px 26px; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold); max-width: 640px; }
+.teaser-definition dt { margin: 0 0 6px; color: var(--navy); font-family: Arial, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.teaser-definition dd { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 14.5px; line-height: 1.7; }
+
+/* Checklist (e.g. what-is-PostdocWorks pillars) */
+.teaser-checklist { display: grid; gap: 14px; margin: 28px 0 0; padding: 0; list-style: none; max-width: 560px; }
+.teaser-checklist li { display: flex; gap: 12px; align-items: flex-start; color: var(--ink); font-family: Arial, sans-serif; font-size: 15px; line-height: 1.6; }
+.teaser-checklist svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); }
+
+/* Inline navy callout */
+.teaser-callout { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 40px; padding: 26px 30px; background: var(--navy); color: #fff; }
+.teaser-callout strong { display: block; font-size: 1.05rem; letter-spacing: -.02em; margin-bottom: 4px; }
+.teaser-callout span { display: block; color: #c9d2e6; font-family: Arial, sans-serif; font-size: 13.5px; line-height: 1.5; }
+
+/* Trust badges */
+.teaser-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+.teaser-badge { background: #fff; border: 1px solid var(--line); padding: clamp(26px, 3vw, 34px); }
+.teaser-badge-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 18px; background: var(--navy); color: var(--gold); }
+.teaser-badge h3 { margin: 0 0 6px; color: var(--navy); font-size: 1.15rem; letter-spacing: -.02em; }
+.teaser-badge-tag { margin: 0 0 12px; color: #a36d0b; font-family: Arial, sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: .04em; }
+.teaser-badge p:last-child { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 14px; line-height: 1.65; }
+
+.teaser-band { background: var(--navy); color: #fff; text-align: center; padding: clamp(60px, 8vw, 96px) clamp(20px, 6vw, 90px); }
+.teaser-band h2 { margin: 10px 0 28px; font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -.03em; line-height: 1.2; }
+.teaser-band .teaser-label { color: var(--gold); }
+
+/* Waitlist form (same fields/workflow as postdocworks' own waitlist band) */
+.teaser-waitlist-page { max-width: 620px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 6vw, 24px) clamp(70px, 8vw, 110px); }
+.teaser-waitlist-page h1 { margin: 14px 0 16px; color: var(--navy); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.04em; line-height: 1.05; }
+.teaser-waitlist-page > p { max-width: 52ch; margin: 0 0 36px; color: var(--muted); font-family: Arial, sans-serif; font-size: 15px; line-height: 1.65; }
+.teaser-back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; color: var(--muted); font-family: Arial, sans-serif; font-size: 12.5px; font-weight: 700; }
+.teaser-back-link:hover { color: var(--navy); }
+
+.teaser-form { display: grid; gap: 18px; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; background: #fff; border: 1px solid var(--line); padding: clamp(24px, 4vw, 40px); }
+.teaser-form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.teaser-form label { display: grid; gap: 7px; color: var(--navy); }
+.teaser-form input, .teaser-form select { width: 100%; min-width: 0; padding: 13px 12px; border: 1px solid var(--line); outline: none; background: #fbfbfa; color: var(--ink); font-family: Arial, sans-serif; font-size: 13px; font-weight: 400; }
+.teaser-form input:focus, .teaser-form select:focus { border-color: var(--gold); }
+.teaser-consent-row { display: flex; align-items: flex-start; gap: 9px; margin: 4px 0 0; text-align: left; }
+.teaser-consent-row input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; accent-color: var(--navy); }
+.teaser-consent-row label { font-size: 12.5px; font-weight: 400; line-height: 1.55; color: var(--muted); }
+.teaser-consent-row a { text-decoration: underline; color: var(--navy); }
+.teaser-form-error { margin: 0; color: #ad473b; font-size: 12px; font-weight: 400; }
+.teaser-form-submit { justify-content: center; margin-top: 4px; }
+.teaser-form-success { background: #fff; border: 1px solid var(--line); padding: clamp(34px, 5vw, 52px); text-align: center; }
+.teaser-success-icon { display: grid; place-items: center; width: 50px; height: 50px; margin: 0 auto 24px; background: #e2f0eb; color: #2c6e63; }
+.teaser-form-success h2 { margin: 0 0 14px; color: var(--navy); font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.03em; }
+.teaser-form-success p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 14.5px; line-height: 1.65; }
+
+.teaser-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 26px clamp(20px, 6vw, 90px); border-top: 1px solid var(--line); background: #fff; }
+.teaser-footer-brand { display: flex; align-items: center; gap: 14px; }
+.teaser-footer-brand img { height: 44px; width: auto; object-fit: contain; }
+.teaser-footer-powered { margin-left: auto; color: var(--muted); font-family: Arial, sans-serif; font-size: 11px; }
+.teaser-footer-legal { display: flex; gap: 16px; font-family: Arial, sans-serif; font-size: 11.5px; color: var(--muted); }
+.teaser-footer-legal a:hover { color: var(--navy); }
+.teaser-footer-contact { color: var(--muted); font-family: Arial, sans-serif; font-size: 11.5px; }
+.teaser-footer-contact:hover { color: var(--navy); }
+
+/* Legal pages */
+.teaser-legal-body { max-width: 720px; margin: 0 auto; padding: clamp(50px, 7vw, 84px) clamp(20px, 6vw, 24px) clamp(70px, 8vw, 100px); }
+.teaser-legal-body h1 { margin: 0 0 8px; color: var(--navy); font-size: clamp(1.9rem, 3.6vw, 2.6rem); letter-spacing: -.03em; }
+.teaser-legal-updated { margin: 0 0 40px; color: var(--muted); font-family: Arial, sans-serif; font-size: 13px; }
+.teaser-legal-section { margin-bottom: 32px; }
+.teaser-legal-section h2 { margin: 0 0 10px; color: var(--navy); font-size: 17px; letter-spacing: -.01em; }
+.teaser-legal-section p { margin: 0 0 10px; color: var(--muted); font-family: Arial, sans-serif; font-size: 14.5px; line-height: 1.75; }
+.teaser-legal-section a { text-decoration: underline; color: var(--navy); }
+
+@media (max-width: 760px) {
+  .teaser-grid-2, .teaser-steps, .teaser-badges { grid-template-columns: 1fr; }
+  .teaser-form-grid { grid-template-columns: 1fr; }
+  .teaser-footer { flex-direction: column; align-items: flex-start; }
+  .teaser-footer-powered { margin-left: 0; }
+}
+
+/* ---------------------------------------------------------------- */
+/* The eye mark -- ported from eyewee, used only on the /eyewee page */
+/* ---------------------------------------------------------------- */
+
+.eye-svg .eye-lens, .eye-svg .eye-iris, .eye-svg .eye-pupil, .eye-svg .eye-spark { transform-box: fill-box; transform-origin: center; }
+.eye-svg .eye-spark { opacity: 0; }
+.eye-svg .eye-iris { transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+.eye-svg.behavior-idle .eye-lens { animation: eyeIdleBlink 5.5s ease-in-out infinite; }
+@keyframes eyeIdleBlink { 0%, 92%, 100% { transform: scaleY(1); } 95%, 97% { transform: scaleY(0.05); } }
+
+.eye-svg.eye-enter .eye-lens { animation: eyeEnterLens 0.6s cubic-bezier(0.34, 1.5, 0.4, 1) both; }
+.eye-svg.eye-enter .eye-iris { animation: eyeEnterIris 0.6s cubic-bezier(0.34, 1.5, 0.4, 1) both; }
+@keyframes eyeEnterLens { 0%, 55% { transform: scaleY(0.05); } 100% { transform: scaleY(1); } }
+@keyframes eyeEnterIris { 0%, 55% { transform: scale(0.7); } 85% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+.eye-single { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .eye-svg.behavior-idle .eye-lens, .eye-svg.eye-enter .eye-lens, .eye-svg.eye-enter .eye-iris { animation: none !important; }
+}
