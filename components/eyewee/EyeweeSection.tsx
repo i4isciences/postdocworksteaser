@@ -1,18 +1,12 @@
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Eye } from "@/components/eye/Eye";
-
-export const metadata: Metadata = {
-  title: "eyewee — PostdocWorks",
-  description: "You say it — eyewee carries it, guides it, and cracks the toughest problems. The AI companion for postdocs navigating a new country, a new lab, and an unsolved project.",
-};
 
 const ACCENT = "#F4A725";
 
 // ---------------------------------------------------------------------------------------------
 // Small internal building blocks shared by the preview (chat-mockup) sections below -- kept
-// local rather than exported since they're only meaningful in this page's exact layout.
+// local rather than exported since they're only meaningful in this section's exact layout.
 // ---------------------------------------------------------------------------------------------
 
 function PreviewKicker({ children }: { children: ReactNode }) {
@@ -131,54 +125,18 @@ function QuestionCard({ quote, tone, label, answer }: { quote: string; tone: "br
   );
 }
 
-export default function EyeweePage() {
-  return (
-    <div style={{ width: "100%", boxSizing: "border-box", background: "#FFFFFF", overflow: "hidden", fontFamily: "'Work Sans', sans-serif", color: "#1C2333" }}>
-      {/* ================= NAV ================= */}
-      <div
-        style={{
-          width: "100%",
-          boxSizing: "border-box",
-          padding: "22px 48px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "1px solid #ECE7DD",
-          position: "sticky",
-          top: 0,
-          background: "rgba(255,255,255,0.96)",
-          backdropFilter: "blur(6px)",
-          zIndex: 20,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <Eye state="idle" size={40} interactive={false} />
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "21px", letterSpacing: "-0.01em", color: "#182D5A" }}>
-            eyewee<sup style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "10px", fontWeight: 600, color: "#8A93A6", marginLeft: "1px" }}>SM</sup>
-          </div>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "22px" }}>
-          <div
-            style={{
-              fontFamily: "'Work Sans', sans-serif",
-              fontSize: "13px",
-              fontWeight: 600,
-              color: "#182D5A",
-              background: "#FBF0DB",
-              border: `1px solid ${ACCENT}`,
-              borderRadius: "999px",
-              padding: "6px 14px",
-              letterSpacing: "0.03em",
-            }}
-          >
-            EARLY ACCESS
-          </div>
-          <Link href="/waitlist" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600, fontSize: "15px", color: "#FFFFFF", background: "#182D5A", padding: "11px 22px", borderRadius: "8px", display: "inline-block" }}>
-            Join the waitlist
-          </Link>
-        </div>
-      </div>
+// ---------------------------------------------------------------------------------------------
+// eyewee's full marketing page, ported in as an in-page section that picks up right after the
+// home page's hero -- from eyewee's own hero through its waitlist CTA. Nav/footer are left to the
+// shared SiteNav/SiteFooter that already wrap this section on the home page.
+// ---------------------------------------------------------------------------------------------
 
+export function EyeweeSection() {
+  return (
+    <div
+      id="eyewee"
+      style={{ width: "100%", boxSizing: "border-box", background: "#FFFFFF", overflow: "hidden", fontFamily: "'Work Sans', sans-serif", color: "#1C2333", scrollMarginTop: "90px" }}
+    >
       {/* ================= HERO ================= */}
       <div
         style={{
@@ -412,9 +370,9 @@ export default function EyeweePage() {
                 PostdocWorks gives institutions and researchers a more intelligent way to meet: verified credentials, meaningful context, and a career signal
                 that goes beyond a title.
               </p>
-              <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'Work Sans', sans-serif", fontSize: "13px", fontWeight: 700, color: "#182D5A" }}>
+              <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'Work Sans', sans-serif", fontSize: "13px", fontWeight: 700, color: "#182D5A" }}>
                 About PostdocWorks →
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -562,36 +520,6 @@ export default function EyeweePage() {
           >
             Join the waitlist
           </Link>
-        </div>
-      </div>
-
-      {/* ================= FOOTER ================= */}
-      <div
-        style={{
-          width: "100%",
-          boxSizing: "border-box",
-          padding: "48px",
-          background: "#FFFFFF",
-          borderTop: "1px solid #ECE7DD",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "14px",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Eye state="idle" size={36} interactive={false} />
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "19px", color: "#182D5A" }}>eyewee</div>
-        </div>
-        <div style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "13px", color: "#8A93A6" }}>Powered by i4iSciences&trade;</div>
-        <div style={{ display: "flex", gap: "18px", fontSize: "12.5px", color: "#8A93A6" }}>
-          <Link href="/terms">Terms of Service</Link>
-          <Link href="/privacy">Privacy Policy</Link>
-          <a href="mailto:hello@postdocworks.io">hello@postdocworks.io</a>
-        </div>
-        <div style={{ fontSize: "11.5px", color: "#B7BEC9", maxWidth: "520px", lineHeight: 1.6, marginTop: "6px" }}>
-          © 2026 I4I Sciences LLC dba i4iSciences. i4iSciences&trade; is a trademark of I4I Sciences LLC. All rights reserved.
         </div>
       </div>
     </div>

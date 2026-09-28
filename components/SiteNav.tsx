@@ -16,7 +16,7 @@ export function SiteNav({ active }: { active?: "home" | "doc2postdoc" | "eyewee"
         <Link className="teaser-nav-link" href="/doc2postdoc" aria-current={active === "doc2postdoc" ? "page" : undefined}>
           Doc2Postdoc
         </Link>
-        <Link className="teaser-nav-link" href="/eyewee" aria-current={active === "eyewee" ? "page" : undefined}>
+        <Link className="teaser-nav-link" href="/#eyewee" aria-current={active === "eyewee" ? "page" : undefined}>
           eyewee
         </Link>
         <span className="teaser-pill">Early access</span>
@@ -29,7 +29,7 @@ export function SiteNav({ active }: { active?: "home" | "doc2postdoc" | "eyewee"
         <Link className="teaser-nav-link" href="/doc2postdoc">
           Doc2Postdoc
         </Link>
-        <Link className="teaser-nav-link" href="/eyewee">
+        <Link className="teaser-nav-link" href="/#eyewee">
           eyewee
         </Link>
         <Link className="teaser-waitlist-btn teaser-blink" href="/waitlist" aria-label="Join the waitlist">
