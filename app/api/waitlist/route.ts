@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseSecretKey, requireSupabaseEnv } from "@/lib/waitlist/env";
+import { buildWelcomeEmail } from "@/lib/waitlist/emails";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CAREER_STAGES = new Set(["Postdoc", "PhD student", "Medical resident / fellow", "Faculty / PI", "Other"]);
@@ -54,17 +55,50 @@ export async function POST(request: Request) {
 
     const recipient = process.env.WAITLIST_NOTIFY_EMAIL;
     const apiKey = process.env.RESEND_API_KEY;
-    if (recipient && apiKey) {
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "PostdocWorks <onboarding@resend.dev>";
+    if (apiKey) {
       const resend = new Resend(apiKey);
-      await resend.emails
-        .send({
-          from: process.env.RESEND_FROM_EMAIL || "PostdocWorks <onboarding@resend.dev>",
-          to: recipient,
-          replyTo: email,
-          subject: `New PostdocWorks waitlist signup: ${source}`,
-          text: `Name: ${fullName}\nEmail: ${email}\nCareer stage: ${careerStage}\nResearch field: ${researchField}\nInstitution: ${institution}\nCity: ${city}\nSource: ${source}`,
-        })
-        .catch(() => undefined);
+      const sends: Promise<unknown>[] = [];
+
+      if (recipient) {
+        sends.push(
+          resend.emails
+            .send({
+              from: fromEmail,
+              to: recipient,
+              replyTo: email,
+              subject: `New PostdocWorks waitlist signup: ${source}`,
+              text: `Name: ${fullName}\nEmail: ${email}\nCareer stage: ${careerStage}\nResearch field: ${researchField}\nInstitution: ${institution}\nCity: ${city}\nSource: ${source}`,
+            })
+            .then((result) => {
+              if (result.error) throw result.error;
+            })
+            .catch((sendError) => console.error("Waitlist admin notification email failed", sendError))
+        );
+      } else {
+        console.error("WAITLIST_NOTIFY_EMAIL is not set -- skipping admin notification email");
+      }
+
+      const welcomeEmail = buildWelcomeEmail({ fullName, careerStage, researchField });
+      sends.push(
+        resend.emails
+          .send({
+            from: fromEmail,
+            to: email,
+            replyTo: recipient,
+            subject: welcomeEmail.subject,
+            html: welcomeEmail.html,
+            text: welcomeEmail.text,
+          })
+          .then((result) => {
+            if (result.error) throw result.error;
+          })
+          .catch((sendError) => console.error("Waitlist welcome email failed", sendError))
+      );
+
+      await Promise.all(sends);
+    } else {
+      console.error("RESEND_API_KEY is not set -- skipping waitlist emails");
     }
     const webhook = process.env.N8N_LEAD_WEBHOOK_URL;
     if (webhook) {
