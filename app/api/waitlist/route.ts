@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     const institution = typeof body.institution === "string" ? body.institution.trim() : "";
     const city = typeof body.city === "string" ? body.city.trim() : "";
     const consentGiven = body.consentGiven === true;
-    const source = typeof body.source === "string" ? body.source : "postdocworksteaser";
+    const source = typeof body.source === "string" ? body.source : "eyewee-doc2postdoc-teaser";
 
     if (fullName.length < 2 || !emailPattern.test(email)) {
       return NextResponse.json({ success: false, error: "Please add your name and email so we know where to send your invite." }, { status: 400 });
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
     const recipient = process.env.WAITLIST_NOTIFY_EMAIL;
     const apiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "PostdocWorks <onboarding@resend.dev>";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "eyewee & Doc2Postdoc <onboarding@resend.dev>";
     if (apiKey) {
       const resend = new Resend(apiKey);
       const sends: Promise<unknown>[] = [];
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
               from: fromEmail,
               to: recipient,
               replyTo: email,
-              subject: `New PostdocWorks waitlist signup: ${source}`,
+              subject: `New eyewee & Doc2Postdoc waitlist signup: ${source}`,
               text: `Name: ${fullName}\nEmail: ${email}\nCareer stage: ${careerStage}\nResearch field: ${researchField}\nInstitution: ${institution}\nCity: ${city}\nSource: ${source}`,
             })
             .then((result) => {

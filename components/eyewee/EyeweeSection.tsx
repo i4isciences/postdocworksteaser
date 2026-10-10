@@ -361,17 +361,17 @@ export function EyeweeSection() {
             </div>
             <div style={{ flex: "1 1 420px", minWidth: "300px", background: "#F7F8FB", border: "1px solid #E7E9F0", borderRadius: "18px", padding: "34px" }}>
               <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.1em", color: "#8A93A6", marginBottom: "14px" }}>
-                02 / POSTDOCWORKS
+                02 / EYEWEE
               </div>
               <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "21px", color: "#182D5A", lineHeight: 1.35, marginBottom: "14px" }}>
-                Your record, finally read as a whole.
+                Your AI companion for every hard moment in the lab.
               </h3>
               <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "14.5px", lineHeight: 1.7, color: "#4B5468" }}>
-                PostdocWorks gives institutions and researchers a more intelligent way to meet: verified credentials, meaningful context, and a career signal
-                that goes beyond a title.
+                eyewee checks novelty, builds your decks, and connects you to the right person at the right time — so the hard problem never has to be
+                carried alone.
               </p>
               <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'Work Sans', sans-serif", fontSize: "13px", fontWeight: 700, color: "#182D5A" }}>
-                About PostdocWorks →
+                Back to top →
               </a>
             </div>
           </div>

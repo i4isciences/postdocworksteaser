@@ -5,11 +5,8 @@ import { ArrowRight } from "lucide-react";
 export function SiteNav({ active }: { active?: "home" | "doc2postdoc" | "eyewee" }) {
   return (
     <header className="teaser-nav">
-      <Link className="teaser-brand" href="/" aria-label="PostdocWorks home">
-        <Image src="/postdocworks.svg" alt="PostdocWorks" width={210} height={140} priority />
-        <span className="teaser-brand-copy">
-          <small>You say it — eyewee carries it, guides it, and cracks the toughest problems</small>
-        </span>
+      <Link className="teaser-brand" href="/" aria-label="Home">
+        <Image src="/doc2postdoc.png" alt="Doc2Postdoc" width={280} height={140} priority />
       </Link>
 
       <nav className="teaser-nav-links teaser-nav-links-desktop" aria-label="Main navigation">

@@ -5,7 +5,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Doc2Postdoc — PostdocWorks",
+  title: "Doc2Postdoc — Early Access",
   description: "Where the Next Step Has Already Been Taken. Doc2Postdoc pairs every PhD facing the postdoc transition with peers and postdocs who've already made the same move.",
 };
 
@@ -88,8 +88,8 @@ export default function Doc2PostdocPage() {
               <h3 style={{ color: "var(--navy)" }}>Not a self-written bio.</h3>
               <p style={{ color: "var(--muted)" }}>
                 Every postdoc mentor has a Research Credibility Profile built from their actual academic record &mdash; publications and endorsements
-                &mdash; not self-reported claims. It&apos;s the same trust layer as the rest of PostdocWorks, not a parallel one, so a verified mentor
-                means the same thing everywhere on the platform.
+                &mdash; not self-reported claims. It&apos;s the same trust layer used everywhere on the platform, so a verified mentor means the same
+                thing wherever you see it.
               </p>
             </article>
             <article className="teaser-card">

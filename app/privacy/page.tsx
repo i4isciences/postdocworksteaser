@@ -3,8 +3,8 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — PostdocWorks",
-  description: "What PostdocWorks, Doc2Postdoc, and eyewee collect, and how it's used.",
+  title: "Privacy Policy — eyewee & Doc2Postdoc",
+  description: "What Doc2Postdoc and eyewee collect, and how it's used.",
 };
 
 const sections: { heading: string; body: string[] }[] = [

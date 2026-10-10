@@ -4,11 +4,8 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="teaser-footer">
-      <Link className="teaser-footer-brand" href="/" aria-label="PostdocWorks home">
-        <Image src="/postdocworks.svg" alt="PostdocWorks logo" width={180} height={120} />
-        <span className="teaser-brand-copy">
-          <small>You say it — eyewee carries it, guides it, and cracks the toughest problems</small>
-        </span>
+      <Link className="teaser-footer-brand" href="/" aria-label="Home">
+        <Image src="/doc2postdoc.png" alt="Doc2Postdoc logo" width={240} height={120} />
       </Link>
       <span className="teaser-footer-powered">Powered by i4iSciences&trade;</span>
       <nav className="teaser-footer-legal" aria-label="Legal">

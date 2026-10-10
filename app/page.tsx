@@ -6,9 +6,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { EyeweeSection } from "@/components/eyewee/EyeweeSection";
 
 export const metadata: Metadata = {
-  title: "PostdocWorks — Early Access",
+  title: "eyewee & Doc2Postdoc — Early Access",
   description:
-    "PostdocWorks is an AI-guided platform built for postdoctoral researchers — real career paths, verifiable trust signals, and a community of peers who've already taken the next step. Join the early-access waitlist.",
+    "eyewee is an AI-guided companion built for postdoctoral researchers, and Doc2Postdoc connects you with peers who've already taken the next step. Join the early-access waitlist.",
 };
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
         <span className="teaser-pill">Early access</span>
         <h1>An AI-guided platform helping postdoctoral researchers find real career paths.</h1>
         <p className="teaser-hero-lead">
-          PostdocWorks pairs every postdoc with{" "}
+          Every postdoc is paired with{" "}
           <a href="#eyewee" style={{ color: "var(--navy)", textDecoration: "underline" }}>
             eyewee
           </a>
@@ -31,7 +31,7 @@ export default function Home() {
             Join waitlist <ArrowRight size={16} />
           </Link>
           <a className="teaser-btn teaser-btn-outline" href="#eyewee">
-            What is PostdocWorks?
+            What is eyewee?
           </a>
         </div>
       </section>

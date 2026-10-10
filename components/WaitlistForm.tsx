@@ -44,7 +44,7 @@ export function WaitlistForm() {
           institution,
           city,
           consentGiven,
-          source: "postdocworksteaser",
+          source: "eyewee-doc2postdoc-teaser",
         }),
       });
       const data = (await response.json()) as { error?: string };
@@ -110,7 +110,7 @@ export function WaitlistForm() {
       <div className="teaser-consent-row">
         <input type="checkbox" id="wl-terms" checked={consentGiven} onChange={(event) => setConsentGiven(event.target.checked)} />
         <label htmlFor="wl-terms">
-          I agree to the PostdocWorks{" "}
+          I agree to the{" "}
           <a href="/terms" target="_blank" rel="noreferrer">
             Terms of Service
           </a>{" "}

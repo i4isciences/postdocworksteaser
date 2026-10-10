@@ -3,15 +3,15 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — PostdocWorks",
-  description: "The terms governing use of PostdocWorks, Doc2Postdoc, and eyewee.",
+  title: "Terms of Service — eyewee & Doc2Postdoc",
+  description: "The terms governing use of Doc2Postdoc and eyewee.",
 };
 
 const sections: { heading: string; body: string[] }[] = [
   {
     heading: "1. Who this covers",
     body: [
-      "These Terms of Service (“Terms”) govern your use of PostdocWorks, Doc2Postdoc, and eyewee (together, “the Services”), operated by I4I Sciences LLC dba i4iSciences (“i4iSciences,” “we,” “us”). By joining the waitlist, creating an account, or otherwise using the Services, you agree to these Terms. If you don’t agree, please don’t use the Services.",
+      "These Terms of Service (“Terms”) govern your use of Doc2Postdoc and eyewee (together, “the Services”), operated by I4I Sciences LLC dba i4iSciences (“i4iSciences,” “we,” “us”). By joining the waitlist, creating an account, or otherwise using the Services, you agree to these Terms. If you don’t agree, please don’t use the Services.",
     ],
   },
   {
@@ -23,7 +23,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "3. Eligibility and your account",
     body: [
-      "You must be at least 18 years old to use the Services. When registration opens, one account covers PostdocWorks, Doc2Postdoc, and eyewee — you don’t sign up for each separately. You’re responsible for the accuracy of the information you give us (including on the waitlist form) and for keeping your account credentials secure once accounts exist.",
+      "You must be at least 18 years old to use the Services. When registration opens, one account covers Doc2Postdoc and eyewee — you don’t sign up for each separately. You’re responsible for the accuracy of the information you give us (including on the waitlist form) and for keeping your account credentials secure once accounts exist.",
     ],
   },
   {
@@ -47,7 +47,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "7. Intellectual property",
     body: [
-      "The Services, including their design, software, and the PostdocWorks, Doc2Postdoc, and eyewee names and marks, are owned by i4iSciences or its licensors. We don’t claim ownership of the content you submit (your profile, credentials, messages), but by submitting it you give us a license to use it to operate and improve the Services.",
+      "The Services, including their design, software, and the Doc2Postdoc and eyewee names and marks, are owned by i4iSciences or its licensors. We don’t claim ownership of the content you submit (your profile, credentials, messages), but by submitting it you give us a license to use it to operate and improve the Services.",
     ],
   },
   {

@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PostdocWorks — Early Access",
-  description: "PostdocWorks turns hard-earned academic experience into momentum — Doc2Postdoc peer matching and eyewee, the AI companion for postdocs. Join the early-access waitlist.",
+  title: "eyewee & Doc2Postdoc — Early Access",
+  description: "Doc2Postdoc peer matching and eyewee, the AI companion for postdocs, turn hard-earned academic experience into momentum. Join the early-access waitlist.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
