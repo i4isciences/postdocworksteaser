@@ -13,7 +13,9 @@ export function WaitlistForm() {
   const [careerStage, setCareerStage] = useState("Postdoc");
   const [researchField, setResearchField] = useState("");
   const [institution, setInstitution] = useState("");
+  const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
+  const [feedback, setFeedback] = useState("");
   const [consentGiven, setConsentGiven] = useState(false);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
@@ -25,9 +27,9 @@ export function WaitlistForm() {
       setMessage("Please accept the Terms of Service and Privacy Policy to continue.");
       return;
     }
-    if (!fullName.trim() || !email.trim()) {
+    if (!fullName.trim() || !email.trim() || !country.trim()) {
       setState("error");
-      setMessage("Please add your name and email so we know where to send your invite.");
+      setMessage("Please fill in your name, email, and country to continue.");
       return;
     }
     setState("submitting");
@@ -42,7 +44,9 @@ export function WaitlistForm() {
           careerStage,
           researchField,
           institution,
+          country,
           city,
+          feedback,
           consentGiven,
           source: "eyewee-doc2postdoc-teaser",
         }),
@@ -84,7 +88,7 @@ export function WaitlistForm() {
         </label>
       </div>
       <label>
-        Career stage (optional)
+        <span>Career stage (optional)</span>
         <select value={careerStage} onChange={(event) => setCareerStage(event.target.value)}>
           {careerStages.map((stage) => (
             <option key={stage} value={stage}>
@@ -95,17 +99,42 @@ export function WaitlistForm() {
       </label>
       <div className="teaser-form-grid">
         <label>
-          Research field (optional)
+          <span>Research field (optional)</span>
           <input value={researchField} onChange={(event) => setResearchField(event.target.value)} placeholder="e.g. HBV virology" />
         </label>
         <label>
-          Institution (optional)
+          <span>Institution (optional)</span>
           <input value={institution} onChange={(event) => setInstitution(event.target.value)} placeholder="University or lab" />
         </label>
       </div>
+      <div className="teaser-form-grid">
+        <label>
+          <span>Country <span style={{ color: "#d93829" }}>*</span></span>
+          <input
+            value={country}
+            onChange={(event) => setCountry(event.target.value)}
+            placeholder="e.g. United States"
+            required
+          />
+        </label>
+        <label>
+          <span>City / metro area (optional)</span>
+          <input
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            placeholder="e.g. Chicago, IL"
+          />
+        </label>
+      </div>
       <label>
-        City / metro area (optional)
-        <input value={city} onChange={(event) => setCity(event.target.value)} placeholder="e.g. Chicago, IL" />
+        <span>Feedback & suggestions (optional)</span>
+        <textarea
+          value={feedback}
+          onChange={(event) => setFeedback(event.target.value)}
+          placeholder="What are the biggest challenges you're navigating with your next step, or features you'd like to see in Doc2Postdoc?"
+          rows={3}
+          maxLength={1500}
+        />
       </label>
       <div className="teaser-consent-row" style={{ display: "flex", alignItems: "center", gap: "9px" }}>
         <input

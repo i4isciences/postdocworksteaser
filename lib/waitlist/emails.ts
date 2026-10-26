@@ -4,7 +4,9 @@ type WelcomeEmailParams = {
   careerStage: string;
   researchField?: string;
   institution?: string;
+  country?: string;
   city?: string;
+  feedback?: string;
 };
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://doc2postdoc.com";
@@ -15,11 +17,13 @@ export function buildWelcomeEmail({
   careerStage,
   researchField,
   institution,
+  country,
   city,
+  feedback,
 }: WelcomeEmailParams) {
   const firstName = fullName.split(" ")[0] || fullName;
   const fieldLine = researchField ? ` in ${researchField}` : "";
-  const locationLine = [institution, city].filter(Boolean).join(" · ");
+  const locationLine = [institution, city, country].filter(Boolean).join(" · ");
 
   const subject = "Welcome to Doc2Postdoc℠ | Where the Next Step Has Already Been Taken";
 
@@ -31,7 +35,8 @@ SUBMISSION DETAILS:
 • Name: ${fullName}
 • Email: ${email}
 • Career Stage: ${careerStage}${fieldLine}
-${locationLine ? `• Affiliation: ${locationLine}\n` : ""}
+• Country: ${country || "Not specified"}
+${city ? `• City: ${city}\n` : ""}${institution ? `• Institution: ${institution}\n` : ""}${feedback ? `• Your Feedback: "${feedback}"\n` : ""}
 WHAT YOU GET WITH DOC2POSTDOC:
 1. Peer Matching Up-line: Connect directly with researchers and postdocs one step ahead of you who have already navigated your exact transition, discipline, and career stage.
 2. eyewee™ AI Guidance: Ask in plain text or voice — guidance and answers backed by verified postdoc experiences.
@@ -106,7 +111,13 @@ Powered by i4iSciences™`;
                       <td style="font-weight:600;padding:3px 0;">${careerStage}</td>
                     </tr>
                     ${researchField ? `<tr><td style="color:#6B768E;padding:3px 0;">Field:</td><td style="font-weight:600;padding:3px 0;">${researchField}</td></tr>` : ""}
-                    ${locationLine ? `<tr><td style="color:#6B768E;padding:3px 0;">Affiliation:</td><td style="font-weight:600;padding:3px 0;">${locationLine}</td></tr>` : ""}
+                    ${institution ? `<tr><td style="color:#6B768E;padding:3px 0;">Institution:</td><td style="font-weight:600;padding:3px 0;">${institution}</td></tr>` : ""}
+                    <tr>
+                      <td style="color:#6B768E;padding:3px 0;">Country:</td>
+                      <td style="font-weight:600;padding:3px 0;">${country || "—"}</td>
+                    </tr>
+                    ${city ? `<tr><td style="color:#6B768E;padding:3px 0;">City / Metro:</td><td style="font-weight:600;padding:3px 0;">${city}</td></tr>` : ""}
+                    ${feedback ? `<tr><td style="color:#6B768E;vertical-align:top;padding:3px 0;">Your Feedback:</td><td style="font-weight:500;font-style:italic;color:#182D5A;padding:3px 0;">“${feedback}”</td></tr>` : ""}
                   </table>
                 </div>
 
@@ -192,10 +203,12 @@ export function buildAdminNotificationEmail({
   careerStage,
   researchField,
   institution,
+  country,
   city,
+  feedback,
   source,
 }: WelcomeEmailParams & { source?: string }) {
-  const subject = `[Waitlist Submission] ${fullName} (${careerStage}) - hello@doc2postdoc.com`;
+  const subject = `[Waitlist Submission] ${fullName} (${country ? `${country} · ` : ""}${careerStage}) - hello@doc2postdoc.com`;
 
   const text = `New waitlist submission received:
 
@@ -204,26 +217,39 @@ Email: ${email}
 Career stage: ${careerStage}
 Research field: ${researchField || "Not specified"}
 Institution: ${institution || "Not specified"}
+Country: ${country || "Not specified"}
 City: ${city || "Not specified"}
+Feedback / Thoughts: ${feedback || "None provided"}
 Source: ${source || "Doc2Postdoc Waitlist"}
 Time: ${new Date().toISOString()}`;
 
   const html = `<!DOCTYPE html>
 <html>
   <body style="font-family:Arial,sans-serif;color:#182D5A;padding:20px;background:#F5F3EE;">
-    <div style="max-width:560px;margin:0 auto;background:#FFFFFF;border-radius:8px;padding:24px;border:1px solid #E2E6F0;">
-      <h2 style="color:#182D5A;margin-top:0;border-bottom:2px solid #F4A725;padding-bottom:10px;">
+    <div style="max-width:580px;margin:0 auto;background:#FFFFFF;border-radius:8px;padding:26px;border:1px solid #E2E6F0;box-shadow:0 4px 16px rgba(24,45,90,0.06);">
+      <h2 style="color:#182D5A;margin-top:0;border-bottom:2px solid #F4A725;padding-bottom:12px;font-size:18px;">
         New Doc2Postdoc Waitlist Submission
       </h2>
-      <table style="width:100%;font-size:14px;line-height:1.6;">
-        <tr><td style="color:#6B768E;width:140px;padding:6px 0;"><strong>Full Name:</strong></td><td style="padding:6px 0;">${fullName}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Email:</strong></td><td style="padding:6px 0;"><a href="mailto:${email}" style="color:#182D5A;">${email}</a></td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Career Stage:</strong></td><td style="padding:6px 0;">${careerStage}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Research Field:</strong></td><td style="padding:6px 0;">${researchField || "—"}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Institution:</strong></td><td style="padding:6px 0;">${institution || "—"}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>City / Metro:</strong></td><td style="padding:6px 0;">${city || "—"}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Source:</strong></td><td style="padding:6px 0;">${source || "Doc2Postdoc"}</td></tr>
-        <tr><td style="color:#6B768E;padding:6px 0;"><strong>Timestamp:</strong></td><td style="padding:6px 0;">${new Date().toLocaleString()}</td></tr>
+      <table style="width:100%;font-size:14px;line-height:1.6;border-collapse:collapse;">
+        <tr><td style="color:#6B768E;width:140px;padding:7px 0;"><strong>Full Name:</strong></td><td style="padding:7px 0;font-weight:600;">${fullName}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Email:</strong></td><td style="padding:7px 0;"><a href="mailto:${email}" style="color:#182D5A;font-weight:600;">${email}</a></td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Career Stage:</strong></td><td style="padding:7px 0;">${careerStage}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Research Field:</strong></td><td style="padding:7px 0;">${researchField || "—"}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Institution:</strong></td><td style="padding:7px 0;">${institution || "—"}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Country:</strong></td><td style="padding:7px 0;font-weight:600;">${country || "—"}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>City / Metro:</strong></td><td style="padding:7px 0;">${city || "—"}</td></tr>
+        <tr>
+          <td style="color:#6B768E;vertical-align:top;padding:8px 0;"><strong>Feedback / Thoughts:</strong></td>
+          <td style="padding:8px 0;">
+            ${
+              feedback
+                ? `<div style="background:#F7F8FB;border-left:3px solid #F4A725;padding:10px 14px;border-radius:4px;color:#182D5A;white-space:pre-wrap;font-style:italic;">${feedback}</div>`
+                : `<span style="color:#8A93A6;">None provided</span>`
+            }
+          </td>
+        </tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Source:</strong></td><td style="padding:7px 0;">${source || "Doc2Postdoc"}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Timestamp:</strong></td><td style="padding:7px 0;">${new Date().toLocaleString()}</td></tr>
       </table>
     </div>
   </body>

@@ -15,7 +15,9 @@ export async function POST(request: Request) {
       careerStage?: unknown;
       researchField?: unknown;
       institution?: unknown;
+      country?: unknown;
       city?: unknown;
+      feedback?: unknown;
       consentGiven?: unknown;
       source?: unknown;
     };
@@ -25,12 +27,17 @@ export async function POST(request: Request) {
     const careerStage = typeof body.careerStage === "string" && CAREER_STAGES.has(body.careerStage) ? body.careerStage : "Postdoc";
     const researchField = typeof body.researchField === "string" ? body.researchField.trim() : "";
     const institution = typeof body.institution === "string" ? body.institution.trim() : "";
+    const country = typeof body.country === "string" ? body.country.trim() : "";
     const city = typeof body.city === "string" ? body.city.trim() : "";
+    const feedback = typeof body.feedback === "string" ? body.feedback.trim() : "";
     const consentGiven = body.consentGiven === true;
     const source = typeof body.source === "string" ? body.source : "doc2postdoc-waitlist";
 
     if (fullName.length < 2 || !emailPattern.test(email)) {
       return NextResponse.json({ success: false, error: "Please add your name and email so we know where to send your invite." }, { status: 400 });
+    }
+    if (!country) {
+      return NextResponse.json({ success: false, error: "Please select or provide your country." }, { status: 400 });
     }
     if (!consentGiven) {
       return NextResponse.json({ success: false, error: "Please accept the Terms of Service and Privacy Policy to continue." }, { status: 400 });
@@ -41,18 +48,28 @@ export async function POST(request: Request) {
       const { url, publishableKey } = requireSupabaseEnv();
       const secretKey = getSupabaseSecretKey();
       const supabase = createClient(url, secretKey || publishableKey, { auth: { persistSession: false, autoRefreshToken: false } });
-      const { error } = await supabase.from("eyewee_waitlist").insert({
+      const record: Record<string, unknown> = {
         full_name: fullName,
         email,
         career_stage: careerStage,
         research_field: researchField,
         institution,
-        city,
+        city: city ? `${city}, ${country}` : country,
         consent_given: consentGiven,
         consented_at: new Date().toISOString(),
-      });
+      };
+      if (country) {
+        record.country = country;
+      }
+      const { error } = await supabase.from("eyewee_waitlist").insert(record);
       if (error) {
-        console.error("Supabase insert error (continuing to email delivery):", error);
+        console.warn("Initial Supabase insert note, falling back if column is missing:", error.message);
+        delete record.country;
+        try {
+          await supabase.from("eyewee_waitlist").insert(record);
+        } catch {
+          // ignore fallback insert error
+        }
       }
     } catch (dbError) {
       console.error("Database connection error (continuing to email delivery):", dbError);
@@ -88,14 +105,16 @@ export async function POST(request: Request) {
 
       const sends: Promise<void>[] = [];
 
-      // A. Admin notification email to hello@doc2postdoc.com
+      // A. Admin notification email to hello@doc2postdoc.com (includes country and feedback)
       const adminEmail = buildAdminNotificationEmail({
         fullName,
         email,
         careerStage,
         researchField,
         institution,
+        country,
         city,
+        feedback,
         source,
       });
 
@@ -110,14 +129,16 @@ export async function POST(request: Request) {
         })
       );
 
-      // B. User submission-cum-marketing confirmation email
+      // B. User submission-cum-marketing confirmation email (includes summary & feedback)
       const userEmail = buildWelcomeEmail({
         fullName,
         email,
         careerStage,
         researchField,
         institution,
+        country,
         city,
+        feedback,
       });
 
       sends.push(
@@ -142,7 +163,7 @@ export async function POST(request: Request) {
       void fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, city, source }),
+        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, country, city, feedback, source }),
       }).catch(() => undefined);
     }
 
