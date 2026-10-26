@@ -7,7 +7,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
   title: "Join the waitlist — eyewee & Doc2Postdoc",
-  description: "Be first in your field. Join the eyewee & Doc2Postdoc early-access waitlist.",
+  description: "Early Access. We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we'll email you when it opens in your field.",
 };
 
 export default function WaitlistPage() {
@@ -18,11 +18,10 @@ export default function WaitlistPage() {
         <Link className="teaser-back-link" href="/">
           <ArrowLeft size={14} /> Back to home
         </Link>
-        <p className="teaser-label">Be first in your field</p>
-        <h1>Join the eyewee &amp; Doc2Postdoc waitlist.</h1>
+        <p className="teaser-label">EARLY ACCESS</p>
+        <h1>Join the waitlist</h1>
         <p>
-          We&apos;re opening Doc2Postdoc metro by metro, field by field — Chicago and St. Louis first. Join now and you&apos;re matched the moment your
-          field opens, ahead of general signups.
+          We&apos;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&apos;ll email you when it opens in your field.
         </p>
         <WaitlistForm />
       </div>

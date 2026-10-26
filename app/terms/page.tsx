@@ -17,7 +17,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "2. Early access",
     body: [
-      "The Services are currently in early access. Features described on this website — including eyewee’s live conversation, Doc2Postdoc matching, Ring the Bell, and Travel Companion — are not yet generally available. Joining the waitlist reserves your place; it does not guarantee a specific launch date, feature set, or that your field or metro area will open first.",
+      "Features described on this website are not yet generally available. Joining the waitlist reserves your place; it does not guarantee a launch date, a feature set, or that your field or metro area will open first.",
     ],
   },
   {
@@ -35,13 +35,13 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "5. Verification and matching",
     body: [
-      "Credential verification (ORCID, PubMed, and similar checks) reflects what we could confirm against the referenced records at the time of verification — it is not a guarantee of a person’s qualifications, character, or fitness for any purpose. Doc2Postdoc matching, Ring the Bell, and Travel Companion connect you with other members; we do not vet every member’s conduct, and you’re responsible for your own judgment in any connection made through the Services.",
+      "We may offer ways to confirm information members share. Any confirmation reflects only what we could check at that time and is not a guarantee of a person's qualifications, character, or fitness. We do not vet every member's conduct, and you are responsible for your own judgment in any connection made through the Services.",
     ],
   },
   {
     heading: "6. eyewee",
     body: [
-      "eyewee is an AI-assisted feature. It can make mistakes, and its responses are not a substitute for professional medical, legal, immigration, tax, or financial advice, and are not equipped to handle a mental health crisis or emergency.",
+      "eyewee is an AI-assisted feature. It can make mistakes, and its responses are not a substitute for professional medical, legal, immigration, tax, or financial advice, and are not equipped to handle a mental health crisis or emergency. If you are in crisis or an emergency, call 911 or your local emergency number, or call or text 988 (US), 9-8-8 (Canada) or Tele-MANAS 14416 (India).",
     ],
   },
   {
@@ -53,13 +53,15 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "8. Termination",
     body: [
-      "You may stop using the Services, or ask us to delete your waitlist entry or account, at any time by emailing hello@postdocworks.io. We may suspend or terminate access for conduct that violates these Terms or puts other members at risk.",
+      "You may stop using the Services, or ask us to delete your waitlist entry or account, at any time by emailing hello@doc2postdoc.com. We may suspend or terminate access for conduct that violates these Terms or puts other members at risk.",
     ],
   },
   {
-    heading: "9. Disclaimer and limitation of liability",
+    heading: "9. Disclaimer, limitation of liability, and governing law",
     body: [
       "The Services are provided “as is” and “as available,” without warranties of any kind, express or implied, during this early-access period and beyond. To the fullest extent permitted by law, i4iSciences will not be liable for indirect, incidental, or consequential damages arising from your use of the Services.",
+      "Governing law. These Terms are governed by the laws of [state], and disputes go to the courts in [county, state].",
+      "Our total liability is limited to [amount].",
     ],
   },
   {
@@ -70,7 +72,7 @@ const sections: { heading: string; body: string[] }[] = [
   },
   {
     heading: "11. Contact",
-    body: ["Questions about these Terms: hello@postdocworks.io"],
+    body: ["Questions about these Terms: hello@doc2postdoc.com"],
   },
 ];
 
@@ -80,7 +82,7 @@ export default function TermsPage() {
       <SiteNav />
       <div className="teaser-legal-body">
         <h1>Terms of Service</h1>
-        <p className="teaser-legal-updated">Last updated September 21, 2026</p>
+        <p className="teaser-legal-updated">Last updated October 12, 2026</p>
         {sections.map((section) => (
           <section className="teaser-legal-section" key={section.heading}>
             <h2>{section.heading}</h2>

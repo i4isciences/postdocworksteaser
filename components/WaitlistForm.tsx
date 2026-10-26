@@ -20,14 +20,14 @@ export function WaitlistForm() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!fullName.trim() || !email.trim()) {
-      setState("error");
-      setMessage("Please add your name and email so we know where to send your invite.");
-      return;
-    }
     if (!consentGiven) {
       setState("error");
       setMessage("Please accept the Terms of Service and Privacy Policy to continue.");
+      return;
+    }
+    if (!fullName.trim() || !email.trim()) {
+      setState("error");
+      setMessage("Please add your name and email so we know where to send your invite.");
       return;
     }
     setState("submitting");
@@ -63,10 +63,10 @@ export function WaitlistForm() {
           <Check size={23} />
         </span>
         <p className="teaser-label" style={{ textAlign: "center" }}>
-          You&apos;re on the list
+          EARLY ACCESS
         </p>
-        <h2>We&apos;ll be in touch.</h2>
-        <p>We&apos;ll email you the moment eyewee and Doc2Postdoc open in your field and metro. No spam — one email, when it&apos;s your turn.</p>
+        <h2>Thanks, you&apos;re on the list.</h2>
+        <p>We&apos;ll email you when Doc2Postdoc opens in your field.</p>
       </div>
     );
   }
@@ -75,16 +75,16 @@ export function WaitlistForm() {
     <form className="teaser-form" onSubmit={submit}>
       <div className="teaser-form-grid">
         <label>
-          Full name
+          <span>Full name <span style={{ color: "#d93829" }}>*</span></span>
           <input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Jane Doe" required />
         </label>
         <label>
-          Email
+          <span>Email <span style={{ color: "#d93829" }}>*</span></span>
           <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="jane@university.edu" required />
         </label>
       </div>
       <label>
-        Career stage
+        Career stage (optional)
         <select value={careerStage} onChange={(event) => setCareerStage(event.target.value)}>
           {careerStages.map((stage) => (
             <option key={stage} value={stage}>
@@ -95,21 +95,27 @@ export function WaitlistForm() {
       </label>
       <div className="teaser-form-grid">
         <label>
-          Research field
+          Research field (optional)
           <input value={researchField} onChange={(event) => setResearchField(event.target.value)} placeholder="e.g. HBV virology" />
         </label>
         <label>
-          Institution
+          Institution (optional)
           <input value={institution} onChange={(event) => setInstitution(event.target.value)} placeholder="University or lab" />
         </label>
       </div>
       <label>
-        City / metro area
+        City / metro area (optional)
         <input value={city} onChange={(event) => setCity(event.target.value)} placeholder="e.g. Chicago, IL" />
       </label>
-      <div className="teaser-consent-row">
-        <input type="checkbox" id="wl-terms" checked={consentGiven} onChange={(event) => setConsentGiven(event.target.checked)} />
-        <label htmlFor="wl-terms">
+      <div className="teaser-consent-row" style={{ display: "flex", alignItems: "center", gap: "9px" }}>
+        <input
+          type="checkbox"
+          id="wl-terms"
+          checked={consentGiven}
+          onChange={(event) => setConsentGiven(event.target.checked)}
+          required
+        />
+        <label htmlFor="wl-terms" style={{ display: "inline", margin: 0 }}>
           I agree to the{" "}
           <a href="/terms" target="_blank" rel="noreferrer">
             Terms of Service
@@ -117,8 +123,7 @@ export function WaitlistForm() {
           and{" "}
           <a href="/privacy" target="_blank" rel="noreferrer">
             Privacy Policy
-          </a>
-          .
+          </a>.
         </label>
       </div>
       {message && (
@@ -126,7 +131,12 @@ export function WaitlistForm() {
           {message}
         </p>
       )}
-      <button className="teaser-btn teaser-btn-gold teaser-form-submit" disabled={state === "submitting"} type="submit">
+      <button
+        className="teaser-btn teaser-btn-gold teaser-form-submit"
+        disabled={state === "submitting" || !consentGiven}
+        type="submit"
+        style={{ opacity: !consentGiven ? 0.6 : 1, cursor: !consentGiven ? "not-allowed" : "pointer" }}
+      >
         {state === "submitting" ? "Joining..." : "Join the waitlist"} <ArrowRight size={16} />
       </button>
     </form>

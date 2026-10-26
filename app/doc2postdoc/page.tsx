@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Doc2Postdoc — Early Access",
-  description: "Where the Next Step Has Already Been Taken. Doc2Postdoc pairs every PhD facing the postdoc transition with peers and postdocs who've already made the same move.",
+  description: "Talk to someone who has already made your move. Doc2Postdoc connects PhD researchers with postdocs who have already made the move.",
 };
 
-const matchInputs = [
-  { num: "01", title: "Research area & specialty", body: "Field and subfield overlap, not just “academia in general.” You're matched to someone who has actually worked in your corner of the discipline." },
-  { num: "02", title: "Career stage", body: "Matched to someone at a relevant point in their own trajectory — recently made the exact jump you're facing, not decades removed from it." },
-  { num: "03", title: "Institution & geography", body: "Shared context — institution type, country, metro area — weighted into the match, but never required if the field and stage fit is strong." },
-];
-
 const whyItWorks = [
-  { title: "Advisors rarely know what the jump feels like", body: "Career offices and advisors give generic advice. They haven't necessarily made your exact transition, in your exact field." },
-  { title: "Generic career advice fits no one specifically", body: "A postdoc in HBV virology and a postdoc in theoretical physics are not navigating the same job market, visa process, or lab dynamics." },
-  { title: "It's hard to know whose credentials are real", body: "Online “mentors” are easy to claim and hard to verify. Doc2Postdoc starts from a credibility layer, not a self-written bio." },
+  {
+    title: "Advisors rarely know what the jump feels like",
+    body: "Career offices and advisors give generic advice. They haven't necessarily made your exact transition, in your exact field.",
+  },
+  {
+    title: "Generic career advice fits no one specifically",
+    body: "A postdoc in HBV virology and a postdoc in theoretical physics are not navigating the same job market, visa process, or lab dynamics.",
+  },
 ];
 
 export default function Doc2PostdocPage() {
@@ -26,32 +25,30 @@ export default function Doc2PostdocPage() {
     <main className="teaser-site">
       <SiteNav active="doc2postdoc" />
 
+      {/* Hero */}
       <section className="teaser-hero">
         <p className="teaser-label" style={{ textAlign: "center" }}>
           Doc2Postdoc
         </p>
-        <h1>Where the next step has already been taken.</h1>
+        <h1>Talk to someone who has already made your move.</h1>
         <p className="teaser-hero-lead">
-          Doc2Postdoc pairs every PhD facing the postdoc transition with peers and postdocs who&apos;ve already made the exact same move &mdash; by field,
-          career stage, and institution type. Not generic career advice: a guide who has walked the same path.
+          Doc2Postdoc connects PhD researchers with postdocs who have already made the move.
         </p>
         <div className="teaser-hero-ctas">
           <Link className="teaser-btn teaser-btn-gold teaser-blink" href="/waitlist">
             Join waitlist <ArrowRight size={16} />
           </Link>
-          <a className="teaser-btn teaser-btn-outline" href="#how-it-works">
-            See how it works
-          </a>
         </div>
       </section>
 
+      {/* The problem it solves - 2 cards */}
       <section className="teaser-section" aria-label="The problem Doc2Postdoc solves">
         <div className="teaser-section-inner">
           <p className="teaser-label">The problem it solves</p>
           <h2 style={{ margin: 0, color: "var(--navy)", fontSize: "clamp(1.7rem, 3.2vw, 2.5rem)", letterSpacing: "-.03em", lineHeight: 1.2, maxWidth: "720px" }}>
             Nobody around you has done this exact thing before. Someone, somewhere, has.
           </h2>
-          <div className="teaser-steps">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginTop: "36px" }}>
             {whyItWorks.map((item) => (
               <div className="teaser-step" key={item.title}>
                 <h3>{item.title}</h3>
@@ -62,91 +59,83 @@ export default function Doc2PostdocPage() {
         </div>
       </section>
 
-      <section className="teaser-section" id="how-it-works" aria-label="How matching works">
+      {/* What you get */}
+      <section className="teaser-section" aria-label="What you get">
         <div className="teaser-section-inner">
-          <p className="teaser-label">How matching works</p>
-          <h2 style={{ margin: 0, color: "var(--navy)", fontSize: "clamp(1.7rem, 3.2vw, 2.5rem)", letterSpacing: "-.03em", lineHeight: 1.2, maxWidth: "760px" }}>
-            Three inputs between &quot;I don&apos;t know anyone who&apos;s done this&quot; and a direct conversation with someone who has.
+          <p className="teaser-label">What you get</p>
+          <h2 style={{ margin: "0 0 24px", color: "var(--navy)", fontSize: "clamp(1.7rem, 3.2vw, 2.5rem)", letterSpacing: "-.03em", lineHeight: 1.2, maxWidth: "760px" }}>
+            What you get
           </h2>
-          <div className="teaser-steps">
-            {matchInputs.map((step) => (
-              <div className="teaser-step" key={step.num}>
-                <p className="teaser-step-num">{step.num}</p>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </div>
-            ))}
-          </div>
+          <ul className="teaser-checklist" style={{ maxWidth: "680px" }}>
+            <li>
+              <Check size={18} style={{ color: "var(--gold)", flexShrink: 0, marginTop: "3px" }} />
+              <span><strong>A relevant match:</strong> someone who has made a move like yours.</span>
+            </li>
+            <li>
+              <Check size={18} style={{ color: "var(--gold)", flexShrink: 0, marginTop: "3px" }} />
+              <span><strong>A real conversation</strong> about what you can&apos;t ask at your own lab.</span>
+            </li>
+            <li>
+              <Check size={18} style={{ color: "var(--gold)", flexShrink: 0, marginTop: "3px" }} />
+              <span><strong>Help when it matters.</strong></span>
+            </li>
+            <li>
+              <Check size={18} style={{ color: "var(--gold)", flexShrink: 0, marginTop: "3px" }} />
+              <span><strong>Privacy by default.</strong></span>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section className="teaser-section" style={{ background: "#fff" }} aria-label="Built on real credibility">
-        <div className="teaser-section-inner">
-          <div className="teaser-grid-2">
-            <article className="teaser-card">
-              <p className="teaser-card-kicker">Built on real credibility</p>
-              <h3 style={{ color: "var(--navy)" }}>Not a self-written bio.</h3>
-              <p style={{ color: "var(--muted)" }}>
-                Every postdoc mentor has a Research Credibility Profile built from their actual academic record &mdash; publications and endorsements
-                &mdash; not self-reported claims. It&apos;s the same trust layer used everywhere on the platform, so a verified mentor means the same
-                thing wherever you see it.
-              </p>
-            </article>
-            <article className="teaser-card">
-              <p className="teaser-card-kicker">Confidentiality &amp; IP</p>
-              <h3 style={{ color: "var(--navy)" }}>Your work stays yours.</h3>
-              <p style={{ color: "var(--muted)" }}>
-                Matched-pair conversations are private by default. Sharing a draft or an idea with a match doesn&apos;t transfer ownership of it &mdash;
-                the original author keeps their intellectual property, full stop.
-              </p>
-            </article>
-          </div>
+      {/* Confidentiality & IP */}
+      <section className="teaser-section" style={{ background: "#fff" }} aria-label="Confidentiality & IP">
+        <div className="teaser-section-inner teaser-section-narrow">
+          <article className="teaser-card" style={{ maxWidth: "640px", margin: "0 auto" }}>
+            <p className="teaser-card-kicker">Confidentiality &amp; IP</p>
+            <h3 style={{ color: "var(--navy)" }}>Your work stays yours.</h3>
+            <p style={{ color: "var(--muted)", lineHeight: 1.7 }}>
+              Your conversations are private by default. Sharing an idea or a draft does not transfer ownership.
+            </p>
+          </article>
         </div>
       </section>
 
+      {/* What Doc2Postdoc does for you - Ring the Bell */}
       <section className="teaser-section" aria-label="Doc2Postdoc features">
-        <div className="teaser-section-inner">
+        <div className="teaser-section-inner teaser-section-narrow">
           <p className="teaser-label">What Doc2Postdoc does for you</p>
-          <div className="teaser-grid-2">
-            <article className="teaser-card teaser-card-dark">
-              <p className="teaser-card-kicker">Ring the Bell</p>
-              <h3>Your circle, reachable in one ring.</h3>
-              <p>
-                Ring the Bell reaches the people who already said yes to helping you first &mdash; your accepted connections, all at once, with a
-                two-hour window. Only if nobody answers does it widen further. You&apos;re never routed to an anonymous stranger first.
-              </p>
-            </article>
-            <article className="teaser-card teaser-card-dark">
-              <p className="teaser-card-kicker">Travel Companion</p>
-              <h3>Someone at the gate, even when you can&apos;t be.</h3>
-              <p>
-                When family is flying in and a deadline won&apos;t let you leave the lab, Travel Companion matches you with someone else already headed
-                to the same airport &mdash; the same safety layer as every other Doc2Postdoc connection, and a badge for both of you once the trip is
-                done.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="teaser-section" style={{ background: "#fff" }} aria-label="It's not one-way">
-        <div className="teaser-section-inner teaser-section-narrow" style={{ textAlign: "center" }}>
-          <p className="teaser-label teaser-eyebrow-center">It&apos;s not one-way</p>
-          <h2 style={{ margin: 0, color: "var(--navy)", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", letterSpacing: "-.03em", lineHeight: 1.25 }}>
-            Mentoring builds the mentor&apos;s own standing.
-          </h2>
-          <p style={{ maxWidth: "56ch", margin: "18px auto 0", color: "var(--muted)", fontFamily: "Arial, sans-serif", fontSize: "15.5px", lineHeight: 1.7 }}>
-            Guidance a postdoc gives is visible, tracked recognition on the platform &mdash; feeding into the same signal that drives career-advancement
-            standing. Not a quiet favor done off the books; a credited part of a postdoc&apos;s own record.
+          <article className="teaser-card teaser-card-dark" style={{ background: "#182D5A", color: "#ffffff", padding: "34px 30px", borderRadius: "14px", border: "1px solid #182D5A" }}>
+            <p className="teaser-card-kicker" style={{ color: "#F4A725", opacity: 1, fontWeight: 700 }}>Ring the Bell</p>
+            <h3 style={{ color: "#ffffff", fontSize: "1.45rem", margin: "0 0 12px" }}>Your circle, reachable in one ring.</h3>
+            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.65, margin: 0, opacity: 0.95 }}>
+              Need help fast? eyewee reaches out to people you already trust.
+            </p>
+          </article>
+          <p style={{ marginTop: "24px", color: "var(--muted)", fontStyle: "italic", fontSize: "14px", textAlign: "center" }}>
+            More ways to help each other are coming.
           </p>
         </div>
       </section>
 
+      {/* Helping others is part of the journey */}
+      <section className="teaser-section" style={{ background: "#fff" }} aria-label="Helping others is part of the journey">
+        <div className="teaser-section-inner teaser-section-narrow" style={{ textAlign: "center" }}>
+          <p className="teaser-label teaser-eyebrow-center">It&apos;s not one-way</p>
+          <h2 style={{ margin: 0, color: "var(--navy)", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", letterSpacing: "-.03em", lineHeight: 1.25 }}>
+            Helping others is part of the journey.
+          </h2>
+          <p style={{ maxWidth: "56ch", margin: "16px auto 0", color: "var(--muted)", fontFamily: "Arial, sans-serif", fontSize: "15.5px", lineHeight: 1.7 }}>
+            Postdocs who mentor help the next generation of researchers.
+          </p>
+        </div>
+      </section>
+
+      {/* Get started */}
       <section className="teaser-band">
         <p className="teaser-label" style={{ color: "var(--gold)" }}>
           Get started
         </p>
-        <h2>Be matched the moment your field opens.</h2>
+        <h2>Be matched when your field opens.</h2>
         <Link className="teaser-btn teaser-btn-gold teaser-blink" href="/waitlist">
           Join waitlist <ArrowRight size={17} />
         </Link>

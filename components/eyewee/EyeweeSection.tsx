@@ -500,10 +500,10 @@ export function EyeweeSection() {
           <div style={{ position: "relative", width: "84px", height: "54px", margin: "0 auto 18px" }}>
             <Eye state="idle" size={84} interactive={false} />
           </div>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "26px", color: "#182D5A", marginBottom: "14px" }}>Be first in your field.</h2>
+          <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "11px", letterSpacing: "0.14em", color: ACCENT, marginBottom: "8px", textTransform: "uppercase" }}>EARLY ACCESS</div>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "26px", color: "#182D5A", marginBottom: "14px" }}>Join the waitlist.</h2>
           <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4B5468", maxWidth: "460px", margin: "0 auto 30px" }}>
-            We&rsquo;re opening Doc2Postdoc metro by metro, field by field — Chicago and St. Louis first. Join now and you&rsquo;re matched the moment your
-            field opens, ahead of general signups.
+            We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&rsquo;ll email you when it opens in your field.
           </p>
           <Link
             href="/waitlist"

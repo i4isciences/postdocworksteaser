@@ -25,18 +25,21 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "3. Who we share it with",
     body: [
-      "We share data with service providers who help us run the Services under contract — currently, our database and hosting infrastructure (Supabase) and our deployment platform. We don’t share your information with other members, employers, or anyone else without your separate consent, except as required by law.",
+      "We share data with service providers who help us run the Services under contract — currently, our database, hosting and deployment providers. We don’t share your information with other members, employers, or anyone else without your separate consent, except as required by law.",
     ],
   },
   {
     heading: "4. How long we keep it",
     body: [
-      "Waitlist data is kept until you ask us to delete it, or until a reasonable period after early access ends and you haven’t converted to a full account. You can ask for deletion at any time.",
+      "Waitlist data is kept until you ask us to delete it, or for [number] months after early access ends if you have not created an account. You can ask for deletion at any time.",
     ],
   },
   {
     heading: "5. Your rights",
-    body: ["You can ask us to access, correct, or delete the information we hold about you at any time by emailing hello@postdocworks.io."],
+    body: [
+      "You can ask us to access, correct, or delete the information we hold about you at any time by emailing hello@doc2postdoc.com.",
+      "Depending on where you live (for example California, Canada, the EU or UK, or India), you may have additional rights. Contact us to use them.",
+    ],
   },
   {
     heading: "6. Cookies and tracking",
@@ -56,7 +59,10 @@ const sections: { heading: string; body: string[] }[] = [
   },
   {
     heading: "9. Contact",
-    body: ["Questions about this policy, or a request about your data: hello@postdocworks.io"],
+    body: [
+      "Questions about this policy, or a request about your data: hello@doc2postdoc.com",
+      "Depending on where you live (for example California, Canada, the EU or UK, or India), you may have additional rights. Contact us to use them.",
+    ],
   },
 ];
 
@@ -66,7 +72,7 @@ export default function PrivacyPage() {
       <SiteNav />
       <div className="teaser-legal-body">
         <h1>Privacy Policy</h1>
-        <p className="teaser-legal-updated">Last updated September 21, 2026</p>
+        <p className="teaser-legal-updated">Last updated October 12, 2026</p>
         {sections.map((section) => (
           <section className="teaser-legal-section" key={section.heading}>
             <h2>{section.heading}</h2>
