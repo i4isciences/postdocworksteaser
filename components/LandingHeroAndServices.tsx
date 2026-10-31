@@ -447,7 +447,7 @@ export function LandingHeroAndServices() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster="/doc2postdoc.png"
           >
             <source src="/teaser.mp4" type="video/mp4" />

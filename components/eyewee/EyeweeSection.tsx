@@ -36,39 +36,12 @@ function IllustrativeNote({ children }: { children: ReactNode }) {
 }
 
 function ChatCard({ children }: { children: ReactNode }) {
-  return (
-    <div
-      style={{
-        flex: "1 1 420px",
-        minWidth: "340px",
-        background: "#F7F8FB",
-        border: "1px solid #E7E9F0",
-        borderRadius: "18px",
-        padding: "28px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "14px",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className="eyewee-chat-card">{children}</div>;
 }
 
 function UserBubble({ children, maxWidth = "88%" }: { children: ReactNode; maxWidth?: string }) {
   return (
-    <div
-      style={{
-        alignSelf: "flex-end",
-        maxWidth,
-        background: "#182D5A",
-        color: "#FFFFFF",
-        borderRadius: "14px 14px 3px 14px",
-        padding: "14px 18px",
-        fontSize: "14.5px",
-        lineHeight: 1.55,
-      }}
-    >
+    <div className="eyewee-user-bubble" style={{ maxWidth }}>
       {children}
     </div>
   );
@@ -76,9 +49,9 @@ function UserBubble({ children, maxWidth = "88%" }: { children: ReactNode; maxWi
 
 function EyeweeBubble({ children }: { children: ReactNode }) {
   return (
-    <div style={{ alignSelf: "flex-start", maxWidth: "92%", background: "#FFFFFF", borderLeft: `3px solid ${ACCENT}`, borderRadius: "3px 14px 14px 14px", padding: "14px 18px" }}>
+    <div className="eyewee-ai-bubble">
       <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", color: ACCENT, marginBottom: "6px" }}>EYEWEE</div>
-      <div style={{ fontSize: "14.5px", lineHeight: 1.55, color: "#29304A" }}>{children}</div>
+      <div style={{ fontSize: "14px", lineHeight: 1.55, color: "#29304A" }}>{children}</div>
     </div>
   );
 }
@@ -135,21 +108,10 @@ export function EyeweeSection() {
   return (
     <div
       id="eyewee"
-      style={{ width: "100%", boxSizing: "border-box", background: "#FFFFFF", overflow: "hidden", fontFamily: "'Work Sans', sans-serif", color: "#1C2333", scrollMarginTop: "90px" }}
+      className="eyewee-container"
     >
       {/* ================= HERO ================= */}
-      <div
-        style={{
-          width: "100%",
-          boxSizing: "border-box",
-          padding: "88px 48px 72px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          background: "linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 100%)",
-        }}
-      >
+      <div className="eyewee-hero-wrap">
         <div style={{ position: "relative", width: "168px", height: "108px", marginBottom: "18px" }}>
           <Eye state="idle" size={168} />
         </div>
@@ -157,29 +119,16 @@ export function EyeweeSection() {
           EYEWEE<sup style={{ fontSize: "9px", letterSpacing: 0, color: "#A8B0C0" }}>SM</sup>
         </div>
 
-        <h1 style={{ fontFamily: "'Lora', serif", fontWeight: 600, fontStyle: "italic", fontSize: "34px", lineHeight: 1.35, color: "#182D5A", maxWidth: "780px", marginBottom: "22px" }}>
+        <h1 className="eyewee-hero-h1">
           You say it — eyewee carries it, guides it, and cracks the toughest problems.
         </h1>
 
-        <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "18px", lineHeight: 1.6, color: "#475069", maxWidth: "620px", marginBottom: "40px" }}>
+        <p className="eyewee-hero-lead">
           For the postdoc carrying someone else&rsquo;s unsolved dream project — alone, in a new country, with no time left over.
         </p>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "22px", flexWrap: "wrap", justifyContent: "center" }}>
-          <Link
-            href="/waitlist"
-            style={{
-              fontFamily: "'Work Sans', sans-serif",
-              fontWeight: 700,
-              fontSize: "16px",
-              color: "#182D5A",
-              background: ACCENT,
-              padding: "15px 34px",
-              borderRadius: "9px",
-              display: "inline-block",
-              boxShadow: "0 10px 24px -10px rgba(244,167,37,0.55)",
-            }}
-          >
+        <div className="eyewee-hero-cta-group">
+          <Link href="/waitlist" className="eyewee-hero-btn">
             Join the waitlist
           </Link>
           <a href="#preview" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600, fontSize: "15px", color: "#182D5A", borderBottom: "2px solid #182D5A", paddingBottom: "2px" }}>
@@ -189,12 +138,12 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= THE 200-PAPER WALL ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "64px 48px", background: "#F1F3F8", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <div style={{ maxWidth: "760px" }}>
-          <h2 style={{ fontFamily: "'Lora', serif", fontWeight: 600, fontSize: "26px", color: "#182D5A", marginBottom: "10px" }}>the 200-paper wall</h2>
+      <div className="eyewee-subhero-wrap">
+        <div style={{ maxWidth: "760px", width: "100%" }}>
+          <h2 style={{ fontFamily: "'Lora', serif", fontWeight: 600, fontSize: "clamp(22px, 3.5vw, 26px)", color: "#182D5A", marginBottom: "10px" }}>the 200-paper wall</h2>
           <div style={{ width: "64px", height: "3px", background: ACCENT, margin: "0 auto 22px" }} />
           <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "17px", color: "#6B7280", marginBottom: "18px" }}>Working alone isn&rsquo;t rigor. It&rsquo;s just noise.</p>
-          <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "16px", lineHeight: 1.7, color: "#384057" }}>
+          <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15.5px", lineHeight: 1.7, color: "#384057", margin: 0 }}>
             eyewee brings together the guidance, the connections, and the sparks of insight a postdoc needs to crack the project, find the way through, and stop
             carrying it alone.
           </p>
@@ -202,9 +151,9 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= PREVIEW 1: NOVELTY GAP ================= */}
-      <div id="preview" style={{ width: "100%", boxSizing: "border-box", padding: "88px 48px", display: "flex", justifyContent: "center", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1080px", width: "100%", display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap" }}>
-          <div style={{ flex: "1 1 380px", minWidth: "320px" }}>
+      <div id="preview" className="eyewee-preview-section">
+        <div className="eyewee-preview-grid">
+          <div className="eyewee-text-col">
             <PreviewKicker>PREVIEW · LEVERAGE</PreviewKicker>
             <PreviewHeading>Your PI handed you the hard problem. eyewee helps you crack it.</PreviewHeading>
             <PreviewBody>
@@ -261,8 +210,8 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= PREVIEW 2: DECK GENERATION ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "24px 48px 96px", display: "flex", justifyContent: "center", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1080px", width: "100%", display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap-reverse" }}>
+      <div className="eyewee-preview-section">
+        <div className="eyewee-preview-grid-reverse">
           <ChatCard>
             <UserBubble maxWidth="92%">
               My HBV conference talk is in 3 days and my daughter just got sick. I have zero time to rehearse. Can you make me a deck on my cccDNA findings?
@@ -309,7 +258,7 @@ export function EyeweeSection() {
             <SuccessPill>All three ready — pick whichever you need, or grab them all</SuccessPill>
           </ChatCard>
 
-          <div style={{ flex: "1 1 380px", minWidth: "320px" }}>
+          <div className="eyewee-text-col">
             <PreviewKicker>PREVIEW · LEVERAGE</PreviewKicker>
             <PreviewHeading>Walk in ready — even with zero rehearsal time.</PreviewHeading>
             <PreviewBody>
@@ -322,33 +271,33 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= MID BANNER ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "74px 48px", background: "#182D5A", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-        <h2 style={{ fontFamily: "'Lora', serif", fontWeight: 600, fontSize: "26px", color: "#FFFFFF", marginBottom: "6px" }}>Turns stuck into spark.</h2>
-        <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "22px", color: "#FFFFFF", maxWidth: "640px", lineHeight: 1.4, margin: "18px 0 30px" }}>
+      <div className="eyewee-mid-banner">
+        <h2 style={{ fontFamily: "'Lora', serif", fontWeight: 600, fontSize: "clamp(22px, 3.5vw, 26px)", color: "#FFFFFF", marginBottom: "6px" }}>Turns stuck into spark.</h2>
+        <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(18px, 3vw, 22px)", color: "#FFFFFF", maxWidth: "640px", lineHeight: 1.4, margin: "16px 0 26px" }}>
           eyewee doesn&rsquo;t just watch.
           <br />
           It sees.
         </p>
-        <Link href="/waitlist" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "15px", color: "#182D5A", background: ACCENT, padding: "13px 30px", borderRadius: "9px", display: "inline-block" }}>
+        <Link href="/waitlist" className="eyewee-hero-btn">
           Meet eyewee — join the waitlist
         </Link>
       </div>
 
       {/* ================= TWO WAYS IN ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "92px 48px", display: "flex", justifyContent: "center", background: "#FFFFFF" }}>
+      <div className="eyewee-two-ways-section">
         <div style={{ maxWidth: "1080px", width: "100%" }}>
-          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.14em", color: ACCENT, marginBottom: "12px" }}>
               ONE COMPANY. TWO DECISIVE MOVES.
             </div>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "30px", color: "#182D5A" }}>Research careers deserve better than a handoff.</h2>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 3.5vw, 30px)", color: "#182D5A" }}>Research careers deserve better than a handoff.</h2>
           </div>
-          <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
-            <div style={{ flex: "1 1 420px", minWidth: "300px", background: "#F7F8FB", border: "1px solid #E7E9F0", borderRadius: "18px", padding: "34px" }}>
+          <div className="eyewee-two-ways-grid">
+            <div className="eyewee-way-card">
               <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.1em", color: "#8A93A6", marginBottom: "14px" }}>
                 01 / DOC2POSTDOC
               </div>
-              <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "21px", color: "#182D5A", lineHeight: 1.35, marginBottom: "14px" }}>
+              <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "20px", color: "#182D5A", lineHeight: 1.35, marginBottom: "14px" }}>
                 The shortest distance between where you are and what&rsquo;s next.
               </h3>
               <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "14.5px", lineHeight: 1.7, color: "#4B5468" }}>
@@ -359,11 +308,11 @@ export function EyeweeSection() {
                 Explore Doc2Postdoc →
               </Link>
             </div>
-            <div style={{ flex: "1 1 420px", minWidth: "300px", background: "#F7F8FB", border: "1px solid #E7E9F0", borderRadius: "18px", padding: "34px" }}>
+            <div className="eyewee-way-card">
               <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "12px", letterSpacing: "0.1em", color: "#8A93A6", marginBottom: "14px" }}>
                 02 / EYEWEE
               </div>
-              <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "21px", color: "#182D5A", lineHeight: 1.35, marginBottom: "14px" }}>
+              <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "20px", color: "#182D5A", lineHeight: 1.35, marginBottom: "14px" }}>
                 Your AI companion for every hard moment in the lab.
               </h3>
               <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "14.5px", lineHeight: 1.7, color: "#4B5468" }}>
@@ -379,9 +328,9 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= PREVIEW 3: RING THE BELL ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "88px 48px 24px", display: "flex", justifyContent: "center", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1080px", width: "100%", display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap" }}>
-          <div style={{ flex: "1 1 380px", minWidth: "320px" }}>
+      <div className="eyewee-preview-section">
+        <div className="eyewee-preview-grid">
+          <div className="eyewee-text-col">
             <PreviewKicker>PREVIEW · DOC2POSTDOC</PreviewKicker>
             <PreviewHeading>Your circle, reachable in one ring.</PreviewHeading>
             <PreviewBody>
@@ -418,8 +367,8 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= PREVIEW 4: TRAVEL COMPANION ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "24px 48px 96px", display: "flex", justifyContent: "center", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1080px", width: "100%", display: "flex", gap: "64px", alignItems: "center", flexWrap: "wrap-reverse" }}>
+      <div className="eyewee-preview-section">
+        <div className="eyewee-preview-grid-reverse">
           <ChatCard>
             <UserBubble maxWidth="92%">My parents land in Chicago the same week as my grant deadline. I can&rsquo;t get to O&rsquo;Hare myself that day.</UserBubble>
             <EyeweeBubble>
@@ -443,7 +392,7 @@ export function EyeweeSection() {
             <SuccessPill>Trip matched — both earn a badge once it&rsquo;s completed together</SuccessPill>
           </ChatCard>
 
-          <div style={{ flex: "1 1 380px", minWidth: "320px" }}>
+          <div className="eyewee-text-col">
             <PreviewKicker>PREVIEW · DOC2POSTDOC</PreviewKicker>
             <PreviewHeading>Someone at the gate, even when you can&rsquo;t be.</PreviewHeading>
             <PreviewBody>
@@ -456,14 +405,14 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= PREVIEW 5: NAVIGATE — REAL QUESTIONS ================= */}
-      <div style={{ width: "100%", boxSizing: "border-box", padding: "24px 48px 96px", background: "#FFFFFF", display: "flex", justifyContent: "center" }}>
+      <div className="eyewee-preview-section" style={{ background: "#FFFFFF" }}>
         <div style={{ maxWidth: "820px", width: "100%" }}>
-          <div style={{ textAlign: "center", marginBottom: "44px" }}>
+          <div style={{ textAlign: "center", marginBottom: "36px" }}>
             <PreviewKicker>PREVIEW · NAVIGATE</PreviewKicker>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "28px", color: "#182D5A", lineHeight: 1.3, marginBottom: "14px" }}>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 3.5vw, 28px)", color: "#182D5A", lineHeight: 1.3, marginBottom: "14px" }}>
               Real questions, from a real community.
             </h2>
-            <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15.5px", lineHeight: 1.7, color: "#4B5468", maxWidth: "560px", margin: "0 auto" }}>
+            <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4B5468", maxWidth: "560px", margin: "0 auto" }}>
               Not hypotheticals — this is what shows up in a postdoc group chat every week, and how eyewee actually answers.
             </p>
           </div>
@@ -495,29 +444,17 @@ export function EyeweeSection() {
       </div>
 
       {/* ================= JOIN THE WAITLIST ================= */}
-      <div id="waitlist" style={{ width: "100%", boxSizing: "border-box", padding: "96px 48px", background: "#F1F3F8", display: "flex", justifyContent: "center" }}>
-        <div style={{ maxWidth: "620px", width: "100%", background: "#FFFFFF", border: "1px solid #E7E9F0", borderRadius: "20px", padding: "52px 44px", textAlign: "center" }}>
+      <div id="waitlist" className="eyewee-waitlist-section">
+        <div className="eyewee-waitlist-card">
           <div style={{ position: "relative", width: "84px", height: "54px", margin: "0 auto 18px" }}>
             <Eye state="idle" size={84} interactive={false} />
           </div>
           <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "11px", letterSpacing: "0.14em", color: ACCENT, marginBottom: "8px", textTransform: "uppercase" }}>EARLY ACCESS</div>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "26px", color: "#182D5A", marginBottom: "14px" }}>Join the waitlist.</h2>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 4vw, 26px)", color: "#182D5A", marginBottom: "14px" }}>Join the waitlist.</h2>
           <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4B5468", maxWidth: "460px", margin: "0 auto 30px" }}>
             We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&rsquo;ll email you when it opens in your field.
           </p>
-          <Link
-            href="/waitlist"
-            style={{
-              fontFamily: "'Work Sans', sans-serif",
-              fontWeight: 700,
-              fontSize: "15.5px",
-              color: "#182D5A",
-              background: ACCENT,
-              padding: "15px 34px",
-              borderRadius: "9px",
-              display: "inline-block",
-            }}
-          >
+          <Link href="/waitlist" className="eyewee-hero-btn">
             Join the waitlist
           </Link>
         </div>
