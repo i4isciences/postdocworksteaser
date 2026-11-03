@@ -116,7 +116,7 @@ export function EyeweeSection() {
           <Eye state="idle" size={168} />
         </div>
         <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600, fontSize: "13px", letterSpacing: "0.16em", color: ACCENT, marginBottom: "26px" }}>
-          EYEWEE<sup style={{ fontSize: "9px", letterSpacing: 0, color: "#A8B0C0" }}>SM</sup>
+          EYEWEE<span style={{ fontSize: "9px", letterSpacing: 0, color: "#A8B0C0", verticalAlign: "super" }}>™</span>
         </div>
 
         <h1 className="eyewee-hero-h1">
@@ -327,45 +327,6 @@ export function EyeweeSection() {
         </div>
       </div>
 
-      {/* ================= PREVIEW 3: RING THE BELL ================= */}
-      <div className="eyewee-preview-section">
-        <div className="eyewee-preview-grid">
-          <div className="eyewee-text-col">
-            <PreviewKicker>PREVIEW · DOC2POSTDOC</PreviewKicker>
-            <PreviewHeading>Your circle, reachable in one ring.</PreviewHeading>
-            <PreviewBody>
-              Ring the Bell reaches the people who already said yes to helping you first — your accepted connections, all at once, with a two-hour window.
-              Only if nobody answers does it widen further. eyewee delivers the ring itself, never an anonymous alert.
-            </PreviewBody>
-            <IllustrativeNote>Illustrative example — Doc2Postdoc matching isn&rsquo;t open yet.</IllustrativeNote>
-          </div>
-
-          <ChatCard>
-            <UserBubble>I need someone who&rsquo;s actually run a BSL-3 facility — my PI wants me starting tomorrow and I&rsquo;ve never worked in one.</UserBubble>
-            <EyeweeBubble>
-              You have 4 connections in your network — ringing them now, all at once. First to accept gets you sorted. If nobody responds in two hours, we
-              widen the search.
-            </EyeweeBubble>
-            <div style={{ background: "#FFFFFF", border: "1px solid #E7E9F0", borderRadius: "12px", padding: "16px 18px" }}>
-              <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: "13.5px", color: "#182D5A", marginBottom: "12px" }}>
-                Ringing the Bell — 4 connections
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div style={{ fontSize: "13.5px", color: "#4B5468" }}>Priya R. — GI Fellow, PGY-4</div>
-                  <div style={{ fontSize: "10.5px", fontWeight: 700, color: "#206B39", background: "#EAF6EE", borderRadius: "999px", padding: "3px 10px" }}>ACCEPTED</div>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div style={{ fontSize: "13.5px", color: "#8A93A6" }}>3 other connections</div>
-                  <div style={{ fontSize: "10.5px", fontWeight: 700, color: "#8A93A6", background: "#EBEEF4", borderRadius: "999px", padding: "3px 10px" }}>WINDOW CLOSED</div>
-                </div>
-              </div>
-            </div>
-            <SuccessPill>Connected — Priya accepted in 12 minutes</SuccessPill>
-          </ChatCard>
-        </div>
-      </div>
-
       {/* ================= PREVIEW 4: TRAVEL COMPANION ================= */}
       <div className="eyewee-preview-section">
         <div className="eyewee-preview-grid-reverse">
@@ -442,6 +403,35 @@ export function EyeweeSection() {
           </p>
         </div>
       </div>
+
+      {/* ================= INSERT C: YOUR DATA, YOUR CONTROL (above the waitlist) =================
+          Built, but hidden until Ran approves it (counsel must confirm lines 3 to 5).
+          Show it by setting NEXT_PUBLIC_SHOW_YOUR_DATA=true. */}
+      {process.env.NEXT_PUBLIC_SHOW_YOUR_DATA === "true" && (
+        <div className="data-section" id="your-data">
+          <div className="data-card">
+            <div className="moments-eyebrow">YOUR DATA, YOUR CONTROL</div>
+            <h2>You decide what you share.</h2>
+            <ul>
+              <li>We ask only for what we need: your name, email and country. Everything else is optional.</li>
+              <li>Please do not share sensitive personal information.</li>
+              <li>We email you only if you tick the box to agree. Every email has an unsubscribe link.</li>
+              <li>You can ask us to delete your information at any time.</li>
+              <li>
+                Privacy requests: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>. We respond within 30 days.
+              </li>
+              <li>
+                Other questions: <a href="mailto:hello@doc2postdoc.com">hello@doc2postdoc.com</a>
+              </li>
+            </ul>
+            <div className="data-links">
+              <Link href="/terms">Terms of Service</Link>
+              <span aria-hidden="true">|</span>
+              <Link href="/privacy">Privacy Policy</Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ================= JOIN THE WAITLIST ================= */}
       <div id="waitlist" className="eyewee-waitlist-section">

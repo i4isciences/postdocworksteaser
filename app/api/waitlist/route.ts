@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 import { getSupabaseSecretKey, requireSupabaseEnv } from "@/lib/waitlist/env";
+import { AD_TAG_FIELDS } from "@/lib/waitlist/adTags";
+import { CONSENT_TEXT, CONSENT_TEXT_VERSION, WHATSAPP_CONSENT_TEXT, toE164 } from "@/lib/waitlist/consent";
 import { buildWelcomeEmail, buildAdminNotificationEmail } from "@/lib/waitlist/emails";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -9,18 +11,7 @@ const CAREER_STAGES = new Set(["Postdoc", "PhD student", "Medical resident / fel
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as {
-      fullName?: unknown;
-      email?: unknown;
-      careerStage?: unknown;
-      researchField?: unknown;
-      institution?: unknown;
-      country?: unknown;
-      city?: unknown;
-      feedback?: unknown;
-      consentGiven?: unknown;
-      source?: unknown;
-    };
+    const body = (await request.json()) as Record<string, unknown>;
 
     const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
@@ -30,7 +21,16 @@ export async function POST(request: Request) {
     const country = typeof body.country === "string" ? body.country.trim() : "";
     const city = typeof body.city === "string" ? body.city.trim() : "";
     const feedback = typeof body.feedback === "string" ? body.feedback.trim() : "";
-    const consentGiven = body.consentGiven === true;
+    // Never trust the browser for consent: it must be exactly true (or the string "true").
+    const consentGiven = body.consent_given === true || body.consent_given === "true";
+    const waConsent = body.whatsapp_consent_given === true || body.whatsapp_consent_given === "true";
+    // The WhatsApp number is kept only when its own box was ticked and it converts to E.164.
+    const waNumber = waConsent && typeof body.whatsapp_number === "string" ? toE164(body.whatsapp_number) : null;
+    const attribution: Record<string, string> = {};
+    for (const key of AD_TAG_FIELDS) {
+      const value = body[key];
+      attribution[key] = typeof value === "string" ? value.slice(0, 100) : "";
+    }
     const source = typeof body.source === "string" ? body.source : "doc2postdoc-waitlist";
 
     if (fullName.length < 2 || !emailPattern.test(email)) {
@@ -58,18 +58,27 @@ export async function POST(request: Request) {
         consent_given: consentGiven,
         consented_at: new Date().toISOString(),
       };
-      if (country) {
-        record.country = country;
-      }
-      const { error } = await supabase.from("eyewee_waitlist").insert(record);
-      if (error) {
-        console.warn("Initial Supabase insert note, falling back if column is missing:", error.message);
-        delete record.country;
-        try {
-          await supabase.from("eyewee_waitlist").insert(record);
-        } catch {
-          // ignore fallback insert error
-        }
+      // Saved with every signup. The consent wording and the time come from the SERVER. If the table does
+      // not have the newer columns yet, retry with fewer of them so the signup itself is never lost.
+      const consentExtras: Record<string, unknown> = {
+        consent_text: CONSENT_TEXT,
+        consent_text_version: CONSENT_TEXT_VERSION,
+        consent_at_utc: new Date().toISOString(),
+        ...attribution,
+      };
+      const waExtras: Record<string, unknown> = waNumber
+        ? { whatsapp_number: waNumber, whatsapp_consent_given: true, whatsapp_consent_text: WHATSAPP_CONSENT_TEXT }
+        : {};
+      const attempts: Record<string, unknown>[] = [
+        { ...record, country, ...consentExtras, ...waExtras },
+        { ...record, country, ...consentExtras },
+        { ...record, country },
+        record,
+      ];
+      for (const attempt of attempts) {
+        const { error } = await supabase.from("eyewee_waitlist").insert(attempt);
+        if (!error) break;
+        console.warn("Supabase insert attempt failed, trying a reduced record:", error.message);
       }
     } catch (dbError) {
       console.error("Database connection error (continuing to email delivery):", dbError);
@@ -79,27 +88,28 @@ export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     if (apiKey) {
       const resend = new Resend(apiKey);
-      const defaultFrom = "Doc2Postdoc <onboarding@resend.dev>";
+      // Always send from the verified doc2postdoc.com sender. There is deliberately no fallback to another
+      // sender: a different From domain would fail DMARC alignment and land in spam.
       const configuredFrom = process.env.RESEND_FROM_EMAIL || "Doc2Postdoc <hello@doc2postdoc.com>";
 
       const adminRecipients = Array.from(
         new Set(["hello@doc2postdoc.com", process.env.WAITLIST_NOTIFY_EMAIL].filter(Boolean))
       ) as string[];
 
-      const sendSafe = async (params: { from: string; to: string[]; replyTo?: string; subject: string; html: string; text: string }) => {
+      const sendSafe = async (params: {
+        from: string;
+        to: string[];
+        replyTo?: string;
+        subject: string;
+        html: string;
+        text: string;
+        headers?: Record<string, string>;
+      }) => {
         try {
           const res = await resend.emails.send(params);
-          if (res.error) {
-            console.warn("Primary send failed with error, falling back to verified sandbox sender:", res.error);
-            await resend.emails.send({ ...params, from: defaultFrom });
-          }
+          if (res.error) console.error("Email send failed:", res.error);
         } catch (sendErr) {
-          console.warn("Send threw exception, retrying with default verified sender:", sendErr);
-          try {
-            await resend.emails.send({ ...params, from: defaultFrom });
-          } catch (retryErr) {
-            console.error("Final send retry failed:", retryErr);
-          }
+          console.error("Email send threw:", sendErr);
         }
       };
 
@@ -115,6 +125,7 @@ export async function POST(request: Request) {
         country,
         city,
         feedback,
+        whatsappNumber: waNumber || undefined,
         source,
       });
 
@@ -146,6 +157,7 @@ export async function POST(request: Request) {
           from: configuredFrom,
           to: [email],
           replyTo: "hello@doc2postdoc.com",
+          headers: userEmail.headers,
           subject: userEmail.subject,
           html: userEmail.html,
           text: userEmail.text,
@@ -163,7 +175,7 @@ export async function POST(request: Request) {
       void fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, country, city, feedback, source }),
+        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, country, city, feedback, consentText: CONSENT_TEXT, consentTextVersion: CONSENT_TEXT_VERSION, whatsappNumber: waNumber, ...attribution, source }),
       }).catch(() => undefined);
     }
 

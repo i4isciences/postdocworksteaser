@@ -14,7 +14,7 @@ export function SiteFooter() {
         />
         <div className="teaser-brand-text">
           <div className="teaser-brand-name" style={{ fontSize: "20px" }}>
-            Doc<span className="teaser-brand-num">2</span>Postdoc<sup className="teaser-brand-sm">SM</sup>
+            Doc<span className="teaser-brand-num">2</span>Postdoc<span className="teaser-brand-sm">℠</span>
           </div>
           <div className="teaser-brand-motto" style={{ fontSize: "11.5px" }}>
             Where the next step has already been taken
@@ -26,9 +26,15 @@ export function SiteFooter() {
         <Link href="/terms">Terms of Service</Link>
         <Link href="/privacy">Privacy Policy</Link>
       </nav>
-      <a className="teaser-footer-contact" href="mailto:hello@doc2postdoc.com">
-        hello@doc2postdoc.com
-      </a>
+      <span className="teaser-footer-contact">
+        <span>
+          Privacy: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>
+        </span>
+        <span>
+          General: <a href="mailto:hello@doc2postdoc.com">hello@doc2postdoc.com</a>
+        </span>
+      </span>
+
     </footer>
   );
 }

@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/waitlist" },
   title: "Join the waitlist — eyewee & Doc2Postdoc",
   description: "Early Access. We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we'll email you when it opens in your field.",
 };

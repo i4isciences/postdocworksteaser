@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/doc2postdoc" },
   title: "Doc2Postdoc — Early Access",
   description: "Talk to someone who has already made your move. Doc2Postdoc connects PhD researchers with postdocs who have already made the move.",
 };
@@ -36,7 +37,7 @@ export default function Doc2PostdocPage() {
         </p>
         <div className="teaser-hero-ctas">
           <Link className="teaser-btn teaser-btn-gold teaser-blink" href="/waitlist">
-            Join waitlist <ArrowRight size={16} />
+            Join the waitlist <ArrowRight size={16} />
           </Link>
         </div>
       </section>
@@ -100,23 +101,6 @@ export default function Doc2PostdocPage() {
         </div>
       </section>
 
-      {/* What Doc2Postdoc does for you - Ring the Bell */}
-      <section className="teaser-section" aria-label="Doc2Postdoc features">
-        <div className="teaser-section-inner teaser-section-narrow">
-          <p className="teaser-label">What Doc2Postdoc does for you</p>
-          <article className="teaser-card teaser-card-dark" style={{ background: "#182D5A", color: "#ffffff", padding: "34px 30px", borderRadius: "14px", border: "1px solid #182D5A" }}>
-            <p className="teaser-card-kicker" style={{ color: "#F4A725", opacity: 1, fontWeight: 700 }}>Ring the Bell</p>
-            <h3 style={{ color: "#ffffff", fontSize: "1.45rem", margin: "0 0 12px" }}>Your circle, reachable in one ring.</h3>
-            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.65, margin: 0, opacity: 0.95 }}>
-              Need help fast? eyewee reaches out to people you already trust.
-            </p>
-          </article>
-          <p style={{ marginTop: "24px", color: "var(--muted)", fontStyle: "italic", fontSize: "14px", textAlign: "center" }}>
-            More ways to help each other are coming.
-          </p>
-        </div>
-      </section>
-
       {/* Helping others is part of the journey */}
       <section className="teaser-section" style={{ background: "#fff" }} aria-label="Helping others is part of the journey">
         <div className="teaser-section-inner teaser-section-narrow" style={{ textAlign: "center" }}>
@@ -137,7 +121,7 @@ export default function Doc2PostdocPage() {
         </p>
         <h2>Be matched when your field opens.</h2>
         <Link className="teaser-btn teaser-btn-gold teaser-blink" href="/waitlist">
-          Join waitlist <ArrowRight size={17} />
+          Join the waitlist <ArrowRight size={17} />
         </Link>
       </section>
 

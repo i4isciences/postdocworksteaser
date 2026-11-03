@@ -4,6 +4,22 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+const MOMENTS = [
+  { text: "I need a lab or a facility, and I do not know who to ask.", label: "Find the right person" },
+  { text: "I am traveling and could use a trusted hand at the other end.", label: "Find a trusted hand" },
+  { text: "I want a peer who made the same move from PhD to postdoc.", label: "Learn from someone one step ahead" },
+  { text: "I am new to the city and the lab and need local answers.", label: "Get local answers" },
+];
+
+const STEPS = [
+  { title: "Tell us what you need", text: "Your field, your career stage, and where you are." },
+  {
+    title: "We help you find people",
+    text: "PhD students and postdocs one step ahead, matched by field, stage and place.",
+  },
+  { title: "You connect on your terms", text: "You choose who to talk to and what to share." },
+];
+
 export function LandingHeroAndServices() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -86,7 +102,7 @@ export function LandingHeroAndServices() {
             Meet people one step ahead of you, and get help with everything that comes with the move, all the way to settled.
           </div>
           <div className="cta">
-            <a href="#waitlist" className="btn navy" style={{ textDecoration: "none" }}>
+            <a href="/waitlist" className="btn navy" style={{ textDecoration: "none" }}>
               Join the waitlist
             </a>
             <a href="#svc" className="btn out" style={{ textDecoration: "none" }}>
@@ -263,6 +279,28 @@ export function LandingHeroAndServices() {
         </div>
       </div>
 
+      {/* ================= INSERT A: FOUR MOMENTS (after the hero) ================= */}
+      <section className="moments" id="moments" aria-labelledby="moments-title">
+        <div className="moments-eyebrow">SOUND FAMILIAR?</div>
+        <h2 id="moments-title">Every PhD and postdoc needs a hand sometimes.</h2>
+        <p className="moments-sub">Four moments you may recognize.</p>
+        <ul className="moments-grid">
+          {MOMENTS.map((m, i) => (
+            <li className="moment-card" key={m.label}>
+              <span className="moment-num" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="moment-q">{m.text}</p>
+              <p className="moment-tag">{m.label}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="moments-close">That next step is what Doc2Postdoc&#8480; is built for.</p>
+        <Link href="/waitlist" className="btn navy">
+          Join the waitlist
+        </Link>
+      </section>
+
       {/* ================= SECOND SECTION (THREE SERVICES) ================= */}
       <div className="sec" id="svc">
         <h2>Three services. One path from Doc to Postdoc.</h2>
@@ -295,19 +333,17 @@ export function LandingHeroAndServices() {
               </div>
               <div className="num">1</div>
             </div>
-            <h3>Matching Up-line &amp; Ring the Bell</h3>
+            <h3>Up-line matching</h3>
             <p>
-              Find people one step ahead of you, by field, stage, place and language. Need a quick answer? Ring the bell to
-              your own connections first.
+              Find people one step ahead of you, by field, stage, place and language.
             </p>
             <ul>
               <li>Match by field, career stage and place</li>
-              <li>Ring the Bell: your connections first</li>
             </ul>
             <div className="act">
-              <a href="#waitlist" className="btn out">
+              <Link href="/waitlist" className="btn out">
                 Join the waitlist
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -410,24 +446,46 @@ export function LandingHeroAndServices() {
               <div className="num">3</div>
             </div>
             <h3>
-              eyewee<sup>SM</sup>, your AI assistant
+              eyewee™, your AI assistant
             </h3>
             <p>
               Ask in plain words, by text or voice. eyewee guides you through each service, from your first match to
               settling in.
             </p>
             <ul>
-              <li>Finds matches and rings the bell</li>
+              <li>Finds matches and tracks next steps</li>
               <li>Tells you what is due next</li>
             </ul>
             <div className="act">
-              <a href="#waitlist" className="btn out">
+              <Link href="/waitlist" className="btn out">
                 Join the waitlist
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ================= INSERT B: THREE STEPS (after the service cards) ================= */}
+      <section className="steps" id="how-it-works" aria-label="How it works">
+        <div className="moments-eyebrow">HOW IT WORKS</div>
+        <h2>From stuck to connected, in three steps.</h2>
+        <ol className="steps-row">
+          {STEPS.map((st, i) => (
+            <li className="steps-item" key={st.title}>
+              <div className="step-card">
+                <div className="step-num">{i + 1}</div>
+                <h3>{st.title}</h3>
+                <p>{st.text}</p>
+              </div>
+              {i < STEPS.length - 1 && (
+                <span className="step-arrow" aria-hidden="true">
+                  <ArrowRight size={34} strokeWidth={3} />
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
 
       {/* ================= VIDEO SHOWCASE TEMPLATE ================= */}
       <section className="teaser-video-section" id="teaser-video">
@@ -456,9 +514,9 @@ export function LandingHeroAndServices() {
         </div>
 
         <div className="teaser-video-action">
-          <a href="#waitlist" className="btn navy">
-            Join the waitlist for early access
-          </a>
+          <Link href="/waitlist" className="btn navy">
+            Join the waitlist
+          </Link>
           <a href="#eyewee" className="btn out">
             Learn more about eyewee
           </a>

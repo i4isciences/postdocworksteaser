@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Service — eyewee & Doc2Postdoc",
   description: "The terms governing use of Doc2Postdoc and eyewee.",
 };

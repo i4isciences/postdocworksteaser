@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy — eyewee & Doc2Postdoc",
   description: "What Doc2Postdoc and eyewee collect, and how it's used.",
 };
@@ -60,7 +61,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "9. Contact",
     body: [
-      "Questions about this policy, or a request about your data: hello@doc2postdoc.com",
+      "Questions about this policy, or a request about your data: privacy@doc2postdoc.org (we respond within 30 days). Other questions: hello@doc2postdoc.com",
       "Depending on where you live (for example California, Canada, the EU or UK, or India), you may have additional rights. Contact us to use them.",
     ],
   },

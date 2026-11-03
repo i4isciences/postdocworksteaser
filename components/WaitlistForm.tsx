@@ -1,7 +1,9 @@
 "use client";
 
 import { ArrowRight, Check, ExternalLink } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import { captureAttribution, readAttribution } from "@/lib/waitlist/adTags";
+import { WHATSAPP_CONSENT_TEXT, toE164 } from "@/lib/waitlist/consent";
 
 function LinkedInIcon({ size = 16 }: { size?: number }) {
   return (
@@ -117,6 +119,7 @@ function SocialSubscribeBox() {
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
+const ERROR_TEXT = "Something went wrong. Please try again, or email hello@doc2postdoc.com.";
 const careerStages = ["Postdoc", "PhD student", "Medical resident / fellow", "Faculty / PI", "Other"];
 
 export function WaitlistForm() {
@@ -127,10 +130,17 @@ export function WaitlistForm() {
   const [institution, setInstitution] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
+  const [waNumber, setWaNumber] = useState("");
+  const [waConsent, setWaConsent] = useState(false);
+  const [waError, setWaError] = useState("");
   const [feedback, setFeedback] = useState("");
   const [consentGiven, setConsentGiven] = useState(false);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -144,6 +154,18 @@ export function WaitlistForm() {
       setMessage("Please fill in your name, email, and country to continue.");
       return;
     }
+    // WhatsApp is optional and separate from the email consent.
+    const waTyped = waNumber.trim();
+    const waE164 = waTyped ? toE164(waTyped) : null;
+    if (waTyped && !waConsent) {
+      setWaError("Please tick the WhatsApp box, or clear the number.");
+      return;
+    }
+    if (waConsent && !waE164) {
+      setWaError("Please enter a valid WhatsApp number with country code.");
+      return;
+    }
+    setWaError("");
     setState("submitting");
     setMessage("");
     try {
@@ -159,16 +181,19 @@ export function WaitlistForm() {
           country,
           city,
           feedback,
-          consentGiven,
+          consent_given: consentGiven,
+          whatsapp_consent_given: waConsent,
+          whatsapp_number: waConsent ? waE164 : "",
+          ...readAttribution(),
           source: "eyewee-doc2postdoc-teaser",
         }),
       });
-      const data = (await response.json()) as { error?: string };
-      if (!response.ok) throw new Error(data.error || "We could not process that signup.");
+      const data = (await response.json().catch(() => ({}))) as { error?: string };
+      if (!response.ok) throw new Error(data.error || ERROR_TEXT);
       setState("success");
     } catch (error) {
       setState("error");
-      setMessage(error instanceof Error ? error.message : "Please try again.");
+      setMessage(error instanceof Error && error.message !== "Failed to fetch" ? error.message : ERROR_TEXT);
     }
   }
 
@@ -181,8 +206,8 @@ export function WaitlistForm() {
         <p className="teaser-label" style={{ textAlign: "center" }}>
           EARLY ACCESS
         </p>
-        <h2>Thanks, you&apos;re on the list.</h2>
-        <p>We&apos;ll email you when Doc2Postdoc opens in your field.</p>
+        <h2>You&apos;re on the list.</h2>
+        <p>We&apos;ll email you when early access opens in your field.</p>
         <div style={{ marginTop: "26px", textAlign: "left" }}>
           <SocialSubscribeBox />
         </div>
@@ -195,80 +220,119 @@ export function WaitlistForm() {
       <div className="teaser-form-grid">
         <label>
           <span>Full name <span style={{ color: "#d93829" }}>*</span></span>
-          <input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Jane Doe" required />
+          <input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Required" required />
         </label>
         <label>
           <span>Email <span style={{ color: "#d93829" }}>*</span></span>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="jane@university.edu" required />
-        </label>
-      </div>
-      <label>
-        <span>Career stage (optional)</span>
-        <select value={careerStage} onChange={(event) => setCareerStage(event.target.value)}>
-          {careerStages.map((stage) => (
-            <option key={stage} value={stage}>
-              {stage}
-            </option>
-          ))}
-        </select>
-      </label>
-      <div className="teaser-form-grid">
-        <label>
-          <span>Research field (optional)</span>
-          <input value={researchField} onChange={(event) => setResearchField(event.target.value)} placeholder="e.g. HBV virology" />
-        </label>
-        <label>
-          <span>Institution (optional)</span>
-          <input value={institution} onChange={(event) => setInstitution(event.target.value)} placeholder="University or lab" />
+          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Required" required />
         </label>
       </div>
       <div className="teaser-form-grid">
+        <label>
+          <span>Career stage</span>
+          <select value={careerStage} onChange={(event) => setCareerStage(event.target.value)}>
+            {careerStages.map((stage) => (
+              <option key={stage} value={stage}>
+                {stage}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span>Research field</span>
+          <input value={researchField} onChange={(event) => setResearchField(event.target.value)} placeholder="Optional" />
+        </label>
+      </div>
+      <div className="teaser-form-grid">
+        <label>
+          <span>Institution</span>
+          <input value={institution} onChange={(event) => setInstitution(event.target.value)} placeholder="Optional" />
+        </label>
         <label>
           <span>Country <span style={{ color: "#d93829" }}>*</span></span>
-          <input
-            value={country}
-            onChange={(event) => setCountry(event.target.value)}
-            placeholder="e.g. United States"
-            required
-          />
-        </label>
-        <label>
-          <span>City / metro area (optional)</span>
-          <input
-            value={city}
-            onChange={(event) => setCity(event.target.value)}
-            placeholder="e.g. Chicago, IL"
-          />
+          <input value={country} onChange={(event) => setCountry(event.target.value)} placeholder="Required" required />
         </label>
       </div>
-      <label>
-        <span>Feedback & suggestions (optional)</span>
-        <textarea
-          value={feedback}
-          onChange={(event) => setFeedback(event.target.value)}
-          placeholder="What are the biggest challenges you're navigating with your next step, or features you'd like to see in Doc2Postdoc?"
-          rows={3}
-          maxLength={1500}
-        />
-      </label>
+      <div className="teaser-form-grid" style={{ alignItems: "start" }}>
+        <label>
+          <span>City / metro area</span>
+          <input value={city} onChange={(event) => setCity(event.target.value)} placeholder="Optional" />
+        </label>
+        <div style={{ display: "grid", gap: "7px" }}>
+          <label htmlFor="wa_number">
+            <span>WhatsApp number (optional)</span>
+          </label>
+          <input
+            type="tel"
+            id="wa_number"
+            name="whatsapp_number"
+            autoComplete="tel"
+            value={waNumber}
+            onChange={(event) => {
+              setWaNumber(event.target.value);
+              setWaError("");
+            }}
+            placeholder="+1 314 555 0100"
+            aria-describedby="wa_error"
+          />
+          {waError && (
+            <p className="teaser-form-error" id="wa_error" role="alert">
+              {waError}
+            </p>
+          )}
+        </div>
+      </div>
+      <div style={{ display: "grid", gap: "7px" }}>
+        <label>
+          <span>Feedback &amp; suggestions</span>
+          <textarea
+            value={feedback}
+            onChange={(event) => setFeedback(event.target.value)}
+            placeholder="Optional"
+            rows={2}
+            maxLength={1500}
+            aria-describedby="wl-feedback-hint"
+          />
+        </label>
+        <p className="teaser-field-hint" id="wl-feedback-hint">
+          Please do not include sensitive personal information.
+        </p>
+      </div>
       <SocialSubscribeBox />
-      <div className="teaser-consent-row" style={{ display: "flex", alignItems: "center", gap: "9px" }}>
+      <div className="teaser-consent-row">
         <input
           type="checkbox"
           id="wl-terms"
+          name="consent_given"
           checked={consentGiven}
           onChange={(event) => setConsentGiven(event.target.checked)}
           required
         />
         <label htmlFor="wl-terms" style={{ display: "inline", margin: 0 }}>
-          I agree to the{" "}
+          I agree to receive early-access updates about Doc2Postdoc&#8480; at this email address, and I have read the{" "}
           <a href="/terms" target="_blank" rel="noreferrer">
             Terms of Service
           </a>{" "}
           and{" "}
           <a href="/privacy" target="_blank" rel="noreferrer">
             Privacy Policy
-          </a>.
+          </a>
+          .
+        </label>
+      </div>
+      <div className="teaser-consent-row consent-wa">
+        <input
+          type="checkbox"
+          id="wa_consent"
+          name="whatsapp_consent_given"
+          checked={waConsent}
+          onChange={(event) => {
+            setWaConsent(event.target.checked);
+            setWaError("");
+          }}
+        />
+        <label htmlFor="wa_consent" style={{ display: "inline", margin: 0 }}>
+          {WHATSAPP_CONSENT_TEXT}
         </label>
       </div>
       {message && (
@@ -276,14 +340,22 @@ export function WaitlistForm() {
           {message}
         </p>
       )}
-      <button
-        className="teaser-btn teaser-btn-gold teaser-form-submit"
-        disabled={state === "submitting" || !consentGiven}
-        type="submit"
-        style={{ opacity: !consentGiven ? 0.6 : 1, cursor: !consentGiven ? "not-allowed" : "pointer" }}
-      >
-        {state === "submitting" ? "Joining..." : "Join the waitlist"} <ArrowRight size={16} />
-      </button>
+      <div className="teaser-form-actions">
+        <button
+          className="teaser-btn teaser-btn-gold teaser-form-submit"
+          disabled={state === "submitting" || !consentGiven}
+          type="submit"
+          style={{ cursor: !consentGiven ? "not-allowed" : "pointer" }}
+        >
+          {state === "submitting" ? "Joining..." : "Join the waitlist"} <ArrowRight size={16} />
+        </button>
+        <span className="teaser-form-hint" id="join-hint" aria-live="polite" hidden={consentGiven}>
+          Tick the box above to join.
+        </span>
+      </div>
+      <p className="teaser-form-privacy">
+        Privacy questions: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>
+      </p>
     </form>
   );
 }

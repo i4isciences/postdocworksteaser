@@ -6,6 +6,7 @@ import { EyeweeSection } from "@/components/eyewee/EyeweeSection";
 import { LandingHeroAndServices } from "@/components/LandingHeroAndServices";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: "Doc2Postdoc℠ | Where the Next Step Has Already Been Taken",
   description:
     "Meet people one step ahead of you, and get help with everything that comes with the move, all the way to settled. eyewee guides you through each service.",
