@@ -1,9 +1,9 @@
 "use client";
 
 import { ArrowRight, Check, ExternalLink } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { captureAttribution, readAttribution } from "@/lib/waitlist/adTags";
-import { WHATSAPP_CONSENT_TEXT, toE164 } from "@/lib/waitlist/consent";
+import { WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 
 function LinkedInIcon({ size = 16 }: { size?: number }) {
   return (
@@ -138,9 +138,16 @@ export function WaitlistForm() {
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
+  const messageRef = useRef<HTMLParagraphElement>(null);
+
   useEffect(() => {
     captureAttribution();
   }, []);
+
+  // Bring a form-level error into view so a failed submit is never silent.
+  useEffect(() => {
+    if (message) messageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [message]);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -154,15 +161,17 @@ export function WaitlistForm() {
       setMessage("Please fill in your name, email, and country to continue.");
       return;
     }
-    // WhatsApp is optional and separate from the email consent.
-    const waTyped = waNumber.trim();
+    // WhatsApp (only when switched on) is optional and separate from the email consent.
+    const waTyped = WHATSAPP_ENABLED ? waNumber.trim() : "";
     const waE164 = waTyped ? toE164(waTyped) : null;
-    if (waTyped && !waConsent) {
+    if (WHATSAPP_ENABLED && waTyped && !waConsent) {
       setWaError("Please tick the WhatsApp box, or clear the number.");
+      document.getElementById("wa_number")?.focus();
       return;
     }
-    if (waConsent && !waE164) {
+    if (WHATSAPP_ENABLED && waConsent && !waE164) {
       setWaError("Please enter a valid WhatsApp number with country code.");
+      document.getElementById("wa_number")?.focus();
       return;
     }
     setWaError("");
@@ -182,8 +191,8 @@ export function WaitlistForm() {
           city,
           feedback,
           consent_given: consentGiven,
-          whatsapp_consent_given: waConsent,
-          whatsapp_number: waConsent ? waE164 : "",
+          whatsapp_consent_given: WHATSAPP_ENABLED && waConsent,
+          whatsapp_number: WHATSAPP_ENABLED && waConsent ? waE164 : "",
           ...readAttribution(),
           source: "eyewee-doc2postdoc-teaser",
         }),
@@ -253,34 +262,39 @@ export function WaitlistForm() {
           <input value={country} onChange={(event) => setCountry(event.target.value)} placeholder="Required" required />
         </label>
       </div>
-      <div className="teaser-form-grid" style={{ alignItems: "start" }}>
+      <div className="teaser-form-grid" style={WHATSAPP_ENABLED ? { alignItems: "start" } : { gridTemplateColumns: "1fr" }}>
         <label>
           <span>City / metro area</span>
           <input value={city} onChange={(event) => setCity(event.target.value)} placeholder="Optional" />
         </label>
-        <div style={{ display: "grid", gap: "7px" }}>
-          <label htmlFor="wa_number">
-            <span>WhatsApp number (optional)</span>
-          </label>
-          <input
-            type="tel"
-            id="wa_number"
-            name="whatsapp_number"
-            autoComplete="tel"
-            value={waNumber}
-            onChange={(event) => {
-              setWaNumber(event.target.value);
-              setWaError("");
-            }}
-            placeholder="+1 314 555 0100"
-            aria-describedby="wa_error"
-          />
-          {waError && (
-            <p className="teaser-form-error" id="wa_error" role="alert">
-              {waError}
+        {WHATSAPP_ENABLED && (
+          <div style={{ display: "grid", gap: "7px" }}>
+            <label htmlFor="wa_number">
+              <span>WhatsApp number (optional)</span>
+            </label>
+            <input
+              type="tel"
+              id="wa_number"
+              name="whatsapp_number"
+              autoComplete="tel"
+              value={waNumber}
+              onChange={(event) => {
+                setWaNumber(event.target.value);
+                setWaError("");
+              }}
+              placeholder="+1 314 555 0100"
+              aria-describedby="wa_hint wa_error"
+            />
+            <p className="teaser-field-hint" id="wa_hint">
+              Start with your country code, for example +1 or +91.
             </p>
-          )}
-        </div>
+            {waError && (
+              <p className="teaser-form-error" id="wa_error" role="alert">
+                {waError}
+              </p>
+            )}
+          </div>
+        )}
       </div>
       <div style={{ display: "grid", gap: "7px" }}>
         <label>
@@ -317,26 +331,28 @@ export function WaitlistForm() {
           <a href="/privacy" target="_blank" rel="noreferrer">
             Privacy Policy
           </a>
-          .
+          . I am 18 or older. I can unsubscribe at any time.
         </label>
       </div>
-      <div className="teaser-consent-row consent-wa">
-        <input
-          type="checkbox"
-          id="wa_consent"
-          name="whatsapp_consent_given"
-          checked={waConsent}
-          onChange={(event) => {
-            setWaConsent(event.target.checked);
-            setWaError("");
-          }}
-        />
-        <label htmlFor="wa_consent" style={{ display: "inline", margin: 0 }}>
-          {WHATSAPP_CONSENT_TEXT}
-        </label>
-      </div>
+      {WHATSAPP_ENABLED && (
+        <div className="teaser-consent-row consent-wa">
+          <input
+            type="checkbox"
+            id="wa_consent"
+            name="whatsapp_consent_given"
+            checked={waConsent}
+            onChange={(event) => {
+              setWaConsent(event.target.checked);
+              setWaError("");
+            }}
+          />
+          <label htmlFor="wa_consent" style={{ display: "inline", margin: 0 }}>
+            {WHATSAPP_CONSENT_TEXT}
+          </label>
+        </div>
+      )}
       {message && (
-        <p className="teaser-form-error" role="alert">
+        <p className="teaser-form-error" role="alert" ref={messageRef}>
           {message}
         </p>
       )}

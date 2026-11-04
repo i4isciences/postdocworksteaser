@@ -38,7 +38,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "5. Your rights",
     body: [
-      "You can ask us to access, correct, or delete the information we hold about you at any time by emailing hello@doc2postdoc.com.",
+      "You can ask us to access, correct, or delete the information we hold about you at any time by emailing privacy@doc2postdoc.org.",
       "Depending on where you live (for example California, Canada, the EU or UK, or India), you may have additional rights. Contact us to use them.",
     ],
   },

@@ -1,3 +1,5 @@
+import { SITE_URL, SUPPORT_EMAIL, UNSUBSCRIBE_MAILTO, buildUnsubscribeHeaders, buildUnsubscribeLinks } from "@/lib/waitlist/unsubscribe";
+
 type WelcomeEmailParams = {
   fullName: string;
   email: string;
@@ -9,11 +11,9 @@ type WelcomeEmailParams = {
   feedback?: string;
 };
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://doc2postdoc.com";
-const SUPPORT_EMAIL = "hello@doc2postdoc.com";
-// Physical mailing address for the footer (a PO box is fine). Set MAILING_ADDRESS in the environment.
-const MAILING_ADDRESS = process.env.MAILING_ADDRESS || "[Mailing address to be added]";
-const UNSUBSCRIBE_MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("Unsubscribe")}`;
+// Physical mailing address for the email footer (a PO box is fine). Set MAILING_ADDRESS in the environment.
+// If it is not set the line is left out, so nothing like "[address]" is ever sent.
+const MAILING_ADDRESS = (process.env.MAILING_ADDRESS || "").trim();
 
 // Everything a visitor typed is escaped before it goes into HTML, so nobody can inject links or code.
 function esc(value: string | undefined | null): string {
@@ -50,9 +50,12 @@ export function buildWelcomeEmail({
 
   const subject = "Welcome to Doc2Postdoc℠ | Where the Next Step Has Already Been Taken";
 
+  // Every email carries its own one-click unsubscribe link for this person (falls back to a mailto link).
+  const unsubscribeUrl = buildUnsubscribeLinks(email)?.page || UNSUBSCRIBE_MAILTO;
+
   const text = `Hi ${firstName},
 
-Thank you for joining the Doc2Postdoc℠ waitlist! Your early-access spot is confirmed.
+Thank you for joining the Doc2Postdoc℠ waitlist! You're on the early-access list.
 
 SUBMISSION DETAILS:
 • Name: ${fullName}
@@ -61,7 +64,7 @@ SUBMISSION DETAILS:
 • Country: ${country || "Not specified"}
 ${city ? `• City: ${city}\n` : ""}${institution ? `• Institution: ${institution}\n` : ""}
 WHAT YOU GET WITH DOC2POSTDOC:
-1. Peer Matching Up-line: Connect directly with researchers and postdocs one step ahead of you who have already navigated your exact transition, discipline, and career stage.
+1. Peer matching: Connect directly with researchers and postdocs one step ahead of you who have already navigated your exact transition, discipline, and career stage.
 2. eyewee™ AI Guidance: Ask in plain text or voice — guidance and answers backed by verified postdoc experiences.
 3. Privacy by Default: Your conversations and work remain strictly yours. Sharing ideas or drafts never transfers ownership.
 
@@ -77,8 +80,7 @@ Powered by i4iSciences™
 
 --
 You are receiving this because you joined the Doc2Postdoc℠ waitlist.
-Unsubscribe: ${UNSUBSCRIBE_MAILTO}
-${MAILING_ADDRESS}`;
+Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -108,7 +110,7 @@ ${MAILING_ADDRESS}`;
             <tr>
               <td style="padding:36px;">
                 <div style="display:inline-block;background-color:#FFF3D6;border:1px solid #F4A725;border-radius:999px;padding:4px 14px;font-size:11px;font-weight:700;color:#182D5A;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;">
-                  EARLY ACCESS CONFIRMED
+                  ON THE EARLY-ACCESS LIST
                 </div>
 
                 <h1 style="margin:0 0 16px;font-size:24px;line-height:1.3;color:#182D5A;font-weight:700;">
@@ -116,7 +118,7 @@ ${MAILING_ADDRESS}`;
                 </h1>
 
                 <p style="margin:0 0 20px;font-size:15px;line-height:1.65;color:#4B5468;">
-                  Thank you for joining our early-access waitlist. You&apos;re confirmed to receive priority access as a <strong>${h.careerStage}</strong>${h.fieldLine}.
+                  Thank you for joining our early-access waitlist. You&apos;re on the early-access list as a <strong>${h.careerStage}</strong>${h.fieldLine}.
                 </p>
 
                 <!-- Submission Summary Card -->
@@ -156,7 +158,7 @@ ${MAILING_ADDRESS}`;
                   <div style="margin-bottom:14px;display:flex;align-items:flex-start;">
                     <div style="font-size:16px;color:#F4A725;margin-right:10px;line-height:1.2;">✦</div>
                     <div>
-                      <strong style="color:#182D5A;font-size:14px;">Peer Matching Up-line:</strong>
+                      <strong style="color:#182D5A;font-size:14px;">Peer matching:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
                         Talk to postdocs who have already made your exact transition by research discipline and stage — not generic institutional advice.
                       </span>
@@ -208,9 +210,9 @@ ${MAILING_ADDRESS}`;
                 </p>
                 <p style="margin:0 0 6px;font-size:11px;color:#94A0B8;">
                   You are receiving this because you joined the Doc2Postdoc℠ waitlist.
-                  <a href="${UNSUBSCRIBE_MAILTO}" style="color:#94A0B8;text-decoration:underline;">Unsubscribe</a>
+                  <a href="${esc(unsubscribeUrl)}" style="color:#6B768E;text-decoration:underline;">Unsubscribe</a>
                 </p>
-                <p style="margin:0 0 6px;font-size:11px;color:#94A0B8;">${esc(MAILING_ADDRESS)}</p>
+                ${MAILING_ADDRESS ? `<p style="margin:0 0 6px;font-size:11px;color:#94A0B8;">${esc(MAILING_ADDRESS)}</p>` : ""}
                 <p style="margin:0;font-size:11px;color:#94A0B8;">
                   © 2026 Doc2Postdoc℠ · Powered by i4iSciences™ ·
                   <a href="${SITE_URL}/privacy" style="color:#94A0B8;text-decoration:underline;">Privacy Policy</a> ·
@@ -225,9 +227,8 @@ ${MAILING_ADDRESS}`;
   </body>
 </html>`;
 
-  const headers = {
-    "List-Unsubscribe": `<${UNSUBSCRIBE_MAILTO}>`,
-  };
+  // List-Unsubscribe (+ One-Click) lets Gmail and Outlook show their own Unsubscribe button, which helps avoid junk.
+  const headers = buildUnsubscribeHeaders(email);
 
   return { subject, html, text, headers };
 }

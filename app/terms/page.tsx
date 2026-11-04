@@ -54,7 +54,7 @@ const sections: { heading: string; body: string[] }[] = [
   {
     heading: "8. Termination",
     body: [
-      "You may stop using the Services, or ask us to delete your waitlist entry or account, at any time by emailing hello@doc2postdoc.com. We may suspend or terminate access for conduct that violates these Terms or puts other members at risk.",
+      "You may stop using the Services, or ask us to delete your waitlist entry or account, at any time by emailing privacy@doc2postdoc.org. We may suspend or terminate access for conduct that violates these Terms or puts other members at risk.",
     ],
   },
   {

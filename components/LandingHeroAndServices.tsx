@@ -333,7 +333,7 @@ export function LandingHeroAndServices() {
               </div>
               <div className="num">1</div>
             </div>
-            <h3>Up-line matching</h3>
+            <h3>Peer matching</h3>
             <p>
               Find people one step ahead of you, by field, stage, place and language.
             </p>
