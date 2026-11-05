@@ -123,20 +123,14 @@ const ERROR_TEXT = "Something went wrong. Please try again, or email hello@doc2p
 const careerStages = ["Postdoc", "PhD student", "Medical resident / fellow", "Faculty / PI", "Other"];
 
 export function WaitlistForm() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [careerStage, setCareerStage] = useState("Postdoc");
-  const [researchField, setResearchField] = useState("");
-  const [institution, setInstitution] = useState("");
-  const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
   const [waNumber, setWaNumber] = useState("");
   const [waConsent, setWaConsent] = useState(false);
   const [waError, setWaError] = useState("");
-  const [feedback, setFeedback] = useState("");
   const [consentGiven, setConsentGiven] = useState(false);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [messageTick, setMessageTick] = useState(0);
 
   const messageRef = useRef<HTMLParagraphElement>(null);
 
@@ -144,65 +138,126 @@ export function WaitlistForm() {
     captureAttribution();
   }, []);
 
-  // Bring a form-level error into view so a failed submit is never silent.
+  // Bring a form-level message (server or network error) into view so a failed submit is never silent.
   useEffect(() => {
-    if (message) messageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [message]);
+    if (messageTick > 0) messageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [messageTick]);
+
+  function showMessage(text: string) {
+    setState("error");
+    setMessage(text);
+    setMessageTick((tick) => tick + 1);
+  }
+
+  function clearError(field: string) {
+    setErrors((current) => (current[field] ? { ...current, [field]: "" } : current));
+  }
+
+  // A short red message directly under the field that needs attention.
+  function fieldError(field: string) {
+    return errors[field] ? (
+      <p className="teaser-field-error" id={`err-${field}`} role="alert">
+        {errors[field]}
+      </p>
+    ) : null;
+  }
+
+  function focusField(id: string) {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
+    element?.focus({ preventScroll: true });
+  }
+
+  // The consent box is unticked on purpose, so a click on the greyed-out button must explain itself.
+  function lockedClick() {
+    setErrors({ consent: "Please tick the box to agree before joining." });
+    focusField("wl-terms");
+  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!consentGiven) {
-      setState("error");
-      setMessage("Please accept the Terms of Service and Privacy Policy to continue.");
-      return;
-    }
-    if (!fullName.trim() || !email.trim() || !country.trim()) {
-      setState("error");
-      setMessage("Please fill in your name, email, and country to continue.");
-      return;
-    }
+    if (state === "submitting") return;
+
+    // Read what is actually in the fields. Browser autofill can fill a field without telling React,
+    // so the form itself (not React state) is the source of truth at submit time.
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const read = (name: string) => String(data.get(name) ?? "").trim();
+    const values = {
+      fullName: read("fullName"),
+      email: read("email"),
+      careerStage: read("careerStage") || "Postdoc",
+      researchField: read("researchField"),
+      institution: read("institution"),
+      country: read("country"),
+      city: read("city"),
+      feedback: read("feedback"),
+    };
+    const consent = (form.elements.namedItem("consent_given") as HTMLInputElement | null)?.checked === true;
+
+    // Our own clear messages replace the browser's pop-up bubbles (easy to miss, and hidden in some browsers).
+    const found: Record<string, string> = {};
+    if (values.fullName.length < 2) found.fullName = "Please enter your full name.";
+    if (!values.email) found.email = "Please enter your email address.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) found.email = "Please enter a valid email address.";
+    if (!values.country) found.country = "Please enter your country.";
+    if (!consent) found.consent = "Please tick the box to agree before joining.";
+
     // WhatsApp (only when switched on) is optional and separate from the email consent.
     const waTyped = WHATSAPP_ENABLED ? waNumber.trim() : "";
     const waE164 = waTyped ? toE164(waTyped) : null;
-    if (WHATSAPP_ENABLED && waTyped && !waConsent) {
-      setWaError("Please tick the WhatsApp box, or clear the number.");
-      document.getElementById("wa_number")?.focus();
+    let waProblem = "";
+    if (WHATSAPP_ENABLED && waTyped && !waConsent) waProblem = "Please tick the WhatsApp box, or clear the number.";
+    else if (WHATSAPP_ENABLED && waConsent && !waE164) waProblem = "Please enter a valid WhatsApp number with country code.";
+    setWaError(waProblem);
+
+    const order: [string, string][] = [
+      ["fullName", "wl-fullName"],
+      ["email", "wl-email"],
+      ["country", "wl-country"],
+      ["consent", "wl-terms"],
+    ];
+    const firstBad = order.find(([key]) => found[key]);
+    setErrors(found);
+    if (firstBad || waProblem) {
+      setState("error");
+      setMessage("");
+      focusField(firstBad ? firstBad[1] : "wa_number");
       return;
     }
-    if (WHATSAPP_ENABLED && waConsent && !waE164) {
-      setWaError("Please enter a valid WhatsApp number with country code.");
-      document.getElementById("wa_number")?.focus();
-      return;
-    }
-    setWaError("");
+
     setState("submitting");
     setMessage("");
+    // Never hang silently: give up after 30 seconds and say so.
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30000);
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
         body: JSON.stringify({
-          fullName,
-          email,
-          careerStage,
-          researchField,
-          institution,
-          country,
-          city,
-          feedback,
-          consent_given: consentGiven,
+          ...values,
+          consent_given: consent,
           whatsapp_consent_given: WHATSAPP_ENABLED && waConsent,
           whatsapp_number: WHATSAPP_ENABLED && waConsent ? waE164 : "",
           ...readAttribution(),
           source: "eyewee-doc2postdoc-teaser",
         }),
       });
-      const data = (await response.json().catch(() => ({}))) as { error?: string };
-      if (!response.ok) throw new Error(data.error || ERROR_TEXT);
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+      if (!response.ok) {
+        console.error("Waitlist signup failed:", response.status, result.error);
+        showMessage(result.error || ERROR_TEXT);
+        return;
+      }
       setState("success");
     } catch (error) {
-      setState("error");
-      setMessage(error instanceof Error && error.message !== "Failed to fetch" ? error.message : ERROR_TEXT);
+      console.error("Waitlist signup request failed:", error);
+      const timedOut = error instanceof DOMException && error.name === "AbortError";
+      showMessage(timedOut ? "This is taking longer than expected. Please try again, or email hello@doc2postdoc.com." : ERROR_TEXT);
+    } finally {
+      clearTimeout(timer);
     }
   }
 
@@ -225,21 +280,46 @@ export function WaitlistForm() {
   }
 
   return (
-    <form className="teaser-form" onSubmit={submit}>
-      <div className="teaser-form-grid">
+    <form className="teaser-form" onSubmit={submit} noValidate>
+      <div className="teaser-form-grid" style={{ alignItems: "start" }}>
         <label>
           <span>Full name <span style={{ color: "#d93829" }}>*</span></span>
-          <input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Required" required />
+          <input
+            id="wl-fullName"
+            name="fullName"
+            autoComplete="name"
+            defaultValue=""
+            onChange={() => clearError("fullName")}
+            placeholder="Required"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.fullName)}
+            aria-describedby={errors.fullName ? "err-fullName" : undefined}
+          />
+          {fieldError("fullName")}
         </label>
         <label>
           <span>Email <span style={{ color: "#d93829" }}>*</span></span>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Required" required />
+          <input
+            id="wl-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            defaultValue=""
+            onChange={() => clearError("email")}
+            placeholder="Required"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "err-email" : undefined}
+          />
+          {fieldError("email")}
         </label>
       </div>
       <div className="teaser-form-grid">
         <label>
           <span>Career stage</span>
-          <select value={careerStage} onChange={(event) => setCareerStage(event.target.value)}>
+          <select name="careerStage" defaultValue="Postdoc">
             {careerStages.map((stage) => (
               <option key={stage} value={stage}>
                 {stage}
@@ -249,23 +329,35 @@ export function WaitlistForm() {
         </label>
         <label>
           <span>Research field</span>
-          <input value={researchField} onChange={(event) => setResearchField(event.target.value)} placeholder="Optional" />
+          <input name="researchField" defaultValue="" placeholder="Optional" />
         </label>
       </div>
-      <div className="teaser-form-grid">
+      <div className="teaser-form-grid" style={{ alignItems: "start" }}>
         <label>
           <span>Institution</span>
-          <input value={institution} onChange={(event) => setInstitution(event.target.value)} placeholder="Optional" />
+          <input name="institution" autoComplete="organization" defaultValue="" placeholder="Optional" />
         </label>
         <label>
           <span>Country <span style={{ color: "#d93829" }}>*</span></span>
-          <input value={country} onChange={(event) => setCountry(event.target.value)} placeholder="Required" required />
+          <input
+            id="wl-country"
+            name="country"
+            autoComplete="country-name"
+            defaultValue=""
+            onChange={() => clearError("country")}
+            placeholder="Required"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.country)}
+            aria-describedby={errors.country ? "err-country" : undefined}
+          />
+          {fieldError("country")}
         </label>
       </div>
       <div className="teaser-form-grid" style={WHATSAPP_ENABLED ? { alignItems: "start" } : { gridTemplateColumns: "1fr" }}>
         <label>
           <span>City / metro area</span>
-          <input value={city} onChange={(event) => setCity(event.target.value)} placeholder="Optional" />
+          <input name="city" autoComplete="address-level2" defaultValue="" placeholder="Optional" />
         </label>
         {WHATSAPP_ENABLED && (
           <div style={{ display: "grid", gap: "7px" }}>
@@ -300,8 +392,8 @@ export function WaitlistForm() {
         <label>
           <span>Feedback &amp; suggestions</span>
           <textarea
-            value={feedback}
-            onChange={(event) => setFeedback(event.target.value)}
+            name="feedback"
+            defaultValue=""
             placeholder="Optional"
             rows={2}
             maxLength={1500}
@@ -319,8 +411,14 @@ export function WaitlistForm() {
           id="wl-terms"
           name="consent_given"
           checked={consentGiven}
-          onChange={(event) => setConsentGiven(event.target.checked)}
+          onChange={(event) => {
+            setConsentGiven(event.target.checked);
+            clearError("consent");
+          }}
           required
+          aria-required="true"
+          aria-invalid={Boolean(errors.consent)}
+          aria-describedby={errors.consent ? "err-consent" : undefined}
         />
         <label htmlFor="wl-terms" style={{ display: "inline", margin: 0 }}>
           I agree to receive early-access updates about Doc2Postdoc&#8480; at this email address, and I have read the{" "}
@@ -334,6 +432,7 @@ export function WaitlistForm() {
           . I am 18 or older. I can unsubscribe at any time.
         </label>
       </div>
+      {fieldError("consent")}
       {WHATSAPP_ENABLED && (
         <div className="teaser-consent-row consent-wa">
           <input
@@ -357,14 +456,18 @@ export function WaitlistForm() {
         </p>
       )}
       <div className="teaser-form-actions">
-        <button
-          className="teaser-btn teaser-btn-gold teaser-form-submit"
-          disabled={state === "submitting" || !consentGiven}
-          type="submit"
-          style={{ cursor: !consentGiven ? "not-allowed" : "pointer" }}
-        >
-          {state === "submitting" ? "Joining..." : "Join the waitlist"} <ArrowRight size={16} />
-        </button>
+        <span className="teaser-submit-wrap">
+          <button
+            className="teaser-btn teaser-btn-gold teaser-form-submit"
+            disabled={state === "submitting" || !consentGiven}
+            type="submit"
+            style={{ cursor: !consentGiven ? "not-allowed" : "pointer" }}
+          >
+            {state === "submitting" ? "Joining..." : "Join the waitlist"} <ArrowRight size={16} />
+          </button>
+          {/* A disabled button swallows clicks silently. This transparent cover catches them and explains why. */}
+          {!consentGiven && <span className="teaser-submit-guard" onClick={lockedClick} aria-hidden="true" />}
+        </span>
         <span className="teaser-form-hint" id="join-hint" aria-live="polite" hidden={consentGiven}>
           Tick the box above to join.
         </span>

@@ -1469,3 +1469,11 @@ button { cursor: pointer; }
 }
 .teaser-consent-row.consent-wa { margin-top: -6px; }
 .teaser-consent-row.consent-wa label { font-size: 12.5px; }
+/* Inline form errors: clear, next to the field, never silent */
+.teaser-field-error { margin: 0; color: #b3261e; font-size: 12.5px; font-weight: 500; line-height: 1.4; }
+.teaser-consent-row + .teaser-field-error { margin-top: -6px; }
+.teaser-form input[aria-invalid="true"], .teaser-form select[aria-invalid="true"], .teaser-form textarea[aria-invalid="true"] { border-color: #b3261e; background: #fff8f7; }
+.teaser-consent-row input[aria-invalid="true"] { outline: 2px solid #b3261e; outline-offset: 2px; }
+.teaser-form-error { font-size: 13px; font-weight: 500; }
+.teaser-submit-wrap { position: relative; display: inline-block; }
+.teaser-submit-guard { position: absolute; inset: 0; cursor: not-allowed; }
