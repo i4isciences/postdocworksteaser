@@ -103,11 +103,22 @@ export async function POST(request: Request) {
         text: string;
         headers?: Record<string, string>;
       }) => {
+        const kind = params.to.includes(email) ? "welcome email to the signup" : "admin notification";
         try {
           const res = await resend.emails.send(params);
-          if (res.error) console.error("Email send failed:", res.error);
+          if (res.error) {
+            const status = (res.error as { statusCode?: number | null }).statusCode;
+            console.error(`EMAIL NOT SENT (${kind}) from "${params.from}":`, res.error);
+            if (status === 403 || status === 401) {
+              console.error(
+                "ACTION NEEDED: the RESEND_API_KEY in this environment is not allowed to send from that domain. " +
+                  "In Resend > API Keys, create a key with Sending access for doc2postdoc.com (or Full access), " +
+                  "set it as RESEND_API_KEY in Vercel (Production), then redeploy."
+              );
+            }
+          }
         } catch (sendErr) {
-          console.error("Email send threw:", sendErr);
+          console.error(`EMAIL NOT SENT (${kind}) - request threw:`, sendErr);
         }
       };
 
