@@ -57,3 +57,28 @@ export async function markUnsubscribed(supabase: SupabaseClient, email: string):
     .eq("email", email.toLowerCase());
   return error ? { ok: false, error: error.message } : { ok: true };
 }
+
+/** True if this email is already on the list (used so a returning person's new consent choices are recorded, not lost). */
+export async function signupExists(supabase: SupabaseClient, email: string): Promise<boolean> {
+  const { data, error } = await supabase.from(TABLE).select("id").eq("email", email.toLowerCase()).limit(1);
+  if (error) return false;
+  return Boolean(data && data.length);
+}
+
+/** Updates every row for this email with new consent choices. Like insertSignup, a missing column only drops that column. */
+export async function updateConsent(supabase: SupabaseClient, email: string, patch: Record<string, unknown>): Promise<InsertResult> {
+  const attempt = { ...patch };
+  const dropped: string[] = [];
+  for (let i = 0; i < 40; i++) {
+    const { error } = await supabase.from(TABLE).update(attempt).eq("email", email.toLowerCase());
+    if (!error) return { ok: true, dropped };
+    const column = missingColumn(error.message);
+    if (column && column in attempt) {
+      delete attempt[column];
+      dropped.push(column);
+      continue;
+    }
+    return { ok: false, dropped, error: error.message };
+  }
+  return { ok: false, dropped, error: "too many missing columns" };
+}

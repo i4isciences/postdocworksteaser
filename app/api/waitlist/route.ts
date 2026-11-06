@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { getAdminClient, insertSignup, isUnsubscribed } from "@/lib/waitlist/db";
+import { getAdminClient, insertSignup, isUnsubscribed, signupExists, updateConsent } from "@/lib/waitlist/db";
 import { AD_TAG_FIELDS } from "@/lib/waitlist/adTags";
-import { CONSENT_TEXT, CONSENT_TEXT_VERSION, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
+import { CONSENT_VERSION, EMAIL_CONSENT_TEXT, TERMS_CONSENT_TEXT, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 import { buildWelcomeEmail, buildAdminNotificationEmail } from "@/lib/waitlist/emails";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,7 +21,9 @@ export async function POST(request: Request) {
     const city = typeof body.city === "string" ? body.city.trim() : "";
     const feedback = typeof body.feedback === "string" ? body.feedback.trim() : "";
     // Never trust the browser for consent: it must be exactly true (or the string "true").
+    // Box 1 (required) is the Terms/Privacy/18+ box. Box 2 (news emails) and Box 3 (WhatsApp) are optional and separate.
     const consentGiven = body.consent_given === true || body.consent_given === "true";
+    const emailConsent = body.consent_email === true || body.consent_email === "true";
     // WhatsApp is switched off until sending is set up (NEXT_PUBLIC_WHATSAPP_ENABLED=true turns it on).
     const waConsent = WHATSAPP_ENABLED && (body.whatsapp_consent_given === true || body.whatsapp_consent_given === "true");
     // The WhatsApp number is kept only when its own box was ticked and it converts to E.164.
@@ -40,7 +42,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Please select or provide your country." }, { status: 400 });
     }
     if (!consentGiven) {
-      return NextResponse.json({ success: false, error: "Please accept the Terms of Service and Privacy Policy to continue." }, { status: 400 });
+      return NextResponse.json({ success: false, error: "Please accept the Terms of Use and Privacy Policy to continue." }, { status: 400 });
     }
 
     // 1. Save to Supabase database
@@ -60,19 +62,46 @@ export async function POST(request: Request) {
         city: city ? `${city}, ${country}` : country,
         country,
         feedback,
+        // Box 1: Terms of Use / Privacy Policy / 18+
         consent_given: consentGiven,
         consented_at: now,
-        consent_text: CONSENT_TEXT,
-        consent_text_version: CONSENT_TEXT_VERSION,
+        consent_text: TERMS_CONSENT_TEXT,
+        consent_text_version: CONSENT_VERSION,
         consent_at_utc: now,
+        // Box 2: news emails. false = confirmation email only, no news emails.
+        email_opt_in: emailConsent,
+        email_opt_in_at: emailConsent ? now : null,
+        email_opt_in_text: emailConsent ? EMAIL_CONSENT_TEXT : null,
+        email_opt_in_version: emailConsent ? CONSENT_VERSION : null,
         ...attribution,
-        ...(waNumber ? { whatsapp_number: waNumber, whatsapp_consent_given: true, whatsapp_consent_text: WHATSAPP_CONSENT_TEXT } : {}),
+        // Box 3: WhatsApp (only when a number was typed and its own box ticked)
+        ...(waNumber
+          ? {
+              whatsapp_number: waNumber,
+              whatsapp_consent_given: true,
+              whatsapp_consent_text: WHATSAPP_CONSENT_TEXT,
+              whatsapp_consent_at: now,
+              whatsapp_consent_version: CONSENT_VERSION,
+            }
+          : {}),
         ...(previouslyUnsubscribed ? { unsubscribed: true, unsubscribed_at: now } : {}),
       };
-      // A missing column only drops that one column (see insertSignup), so nothing else is lost.
-      const result = await insertSignup(supabase, row);
-      if (!result.ok) console.error("Signup was NOT saved to the database:", result.error);
-      else if (result.dropped.length) console.warn("Signup saved, but these columns are missing in eyewee_waitlist:", result.dropped.join(", "));
+      if (await signupExists(supabase, email)) {
+        // Already on the list (for example signed up under the old single box): keep the existing row and record only
+        // the new consent choices. They stay "not opted in to email" until they tick Box 2.
+        const patch: Record<string, unknown> = { ...row };
+        delete patch.email;
+        delete patch.full_name;
+        if (!emailConsent) for (const k of ["email_opt_in", "email_opt_in_at", "email_opt_in_text", "email_opt_in_version"]) delete patch[k];
+        const updated = await updateConsent(supabase, email, patch);
+        if (!updated.ok) console.error("Returning signup consent was NOT saved:", updated.error);
+        else if (updated.dropped.length) console.warn("Consent saved, but these columns are missing in eyewee_waitlist:", updated.dropped.join(", "));
+      } else {
+        // A missing column only drops that one column (see insertSignup), so nothing else is lost.
+        const result = await insertSignup(supabase, row);
+        if (!result.ok) console.error("Signup was NOT saved to the database:", result.error);
+        else if (result.dropped.length) console.warn("Signup saved, but these columns are missing in eyewee_waitlist:", result.dropped.join(", "));
+      }
     } catch (dbError) {
       console.error("Database connection error (continuing to email delivery):", dbError);
     }
@@ -187,7 +216,7 @@ export async function POST(request: Request) {
       void fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, country, city, feedback, consentText: CONSENT_TEXT, consentTextVersion: CONSENT_TEXT_VERSION, whatsappNumber: waNumber, ...attribution, source }),
+        body: JSON.stringify({ fullName, email, careerStage, researchField, institution, country, city, feedback, consentVersion: CONSENT_VERSION, emailOptIn: emailConsent, whatsappNumber: waNumber, ...attribution, source }),
       }).catch(() => undefined);
     }
 

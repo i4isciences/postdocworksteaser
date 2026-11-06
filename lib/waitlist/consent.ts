@@ -1,15 +1,17 @@
 // Consent wording. The server saves these exact strings (never text sent by the browser).
-// Change the version whenever a sentence changes.
-export const CONSENT_TEXT =
-  "I agree to receive early-access updates about Doc2Postdoc℠ at this email address, and I have read the Terms of Service and Privacy Policy. I am 18 or older. I can unsubscribe at any time.";
-export const CONSENT_TEXT_VERSION = "2026-11-04-v2";
+// Each box is stored on its own with the date, time and this version. Change the version whenever a sentence changes.
+export const CONSENT_VERSION = "2026-11-06-v3";
+
+// Box 1 (required): the only box that unlocks the Join button.
+export const TERMS_CONSENT_TEXT = "I am 18 or older, I agree to the Terms of Use, and I have read the Privacy Policy.";
+// Box 2 (optional): marketing email. Unticked = welcome confirmation only, no news emails.
+export const EMAIL_CONSENT_TEXT = "Email me early-access news and updates about Doc2Postdoc℠ and eyewee™. I can unsubscribe at any time.";
+// Box 3 (optional, shown only once a WhatsApp number is typed).
+export const WHATSAPP_CONSENT_TEXT = "Send me early-access updates on WhatsApp at this number. I can reply STOP at any time.";
 
 // WhatsApp is NOT switched on yet: nothing in this project sends WhatsApp messages. The field, its checkbox
 // and the server handling only appear when NEXT_PUBLIC_WHATSAPP_ENABLED=true (set it when sending is ready).
 export const WHATSAPP_ENABLED = process.env.NEXT_PUBLIC_WHATSAPP_ENABLED === "true";
-
-export const WHATSAPP_CONSENT_TEXT =
-  "I also agree to receive early-access updates about Doc2Postdoc℠ on WhatsApp at the number above. I can reply STOP at any time.";
 
 /**
  * Converts typed input to E.164, or returns null if it cannot be.

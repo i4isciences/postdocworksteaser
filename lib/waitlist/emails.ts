@@ -64,9 +64,9 @@ SUBMISSION DETAILS:
 • Country: ${country || "Not specified"}
 ${city ? `• City: ${city}\n` : ""}${institution ? `• Institution or ORCID iD: ${institution}\n` : ""}
 WHAT YOU GET WITH DOC2POSTDOC:
-1. Peer matching: Connect directly with researchers and postdocs one step ahead of you who have already navigated your exact transition, discipline, and career stage.
-2. eyewee™ AI Guidance: Ask in plain text or voice — guidance and answers backed by verified postdoc experiences.
-3. Privacy by Default: Your conversations and work remain strictly yours. Sharing ideas or drafts never transfers ownership.
+1. Peer matching: When we open, you'll be able to connect with postdocs and researchers who have been through similar career moves.
+2. eyewee™ AI Guidance: Ask in plain text or voice for practical guidance drawn from the experience of postdocs and researchers.
+3. Privacy: Your ideas and drafts stay yours. Sharing them on Doc2Postdoc never transfers ownership. Our Privacy Policy explains how we handle your information.
 
 EARLY ACCESS ROLLOUT:
 We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. You will receive an email as soon as connections in your discipline open. We'll be in touch when early access opens.
@@ -160,7 +160,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                     <div>
                       <strong style="color:#182D5A;font-size:14px;">Peer matching:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Talk to postdocs who have already made your exact transition by research discipline and stage — not generic institutional advice.
+                        When we open, you&apos;ll be able to connect with postdocs and researchers who have been through similar career moves.
                       </span>
                     </div>
                   </div>
@@ -170,7 +170,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                     <div>
                       <strong style="color:#182D5A;font-size:14px;">eyewee™ AI Guidance:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Your intelligent companion for answers, stage-by-stage due dates, and career roadmaps in plain language.
+                        Ask in plain text or voice for practical guidance drawn from the experience of postdocs and researchers.
                       </span>
                     </div>
                   </div>
@@ -178,9 +178,9 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                   <div style="margin-bottom:14px;display:flex;align-items:flex-start;">
                     <div style="font-size:16px;color:#F4A725;margin-right:10px;line-height:1.2;">✦</div>
                     <div>
-                      <strong style="color:#182D5A;font-size:14px;">Privacy by Default:</strong>
+                      <strong style="color:#182D5A;font-size:14px;">Privacy:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Safe, lab-independent conversations. Discuss what you can&apos;t ask in your current group designed to protect your research privacy.
+                        Your ideas and drafts stay yours. Sharing them on Doc2Postdoc never transfers ownership. Our <a href="${SITE_URL}/privacy" style="color:#182D5A;text-decoration:underline;">Privacy Policy</a> explains how we handle your information.
                       </span>
                     </div>
                   </div>
@@ -216,7 +216,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                 <p style="margin:0;font-size:11px;color:#94A0B8;">
                   © 2026 Doc2Postdoc℠ · Powered by i4iSciences™ ·
                   <a href="${SITE_URL}/privacy" style="color:#94A0B8;text-decoration:underline;">Privacy Policy</a> ·
-                  <a href="${SITE_URL}/terms" style="color:#94A0B8;text-decoration:underline;">Terms of Service</a>
+                  <a href="${SITE_URL}/terms" style="color:#94A0B8;text-decoration:underline;">Terms of Use</a>
                 </p>
               </td>
             </tr>

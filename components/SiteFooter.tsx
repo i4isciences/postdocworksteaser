@@ -23,7 +23,7 @@ export function SiteFooter() {
       </Link>
       <span className="teaser-footer-powered">Powered by i4iSciences&trade;</span>
       <nav className="teaser-footer-legal" aria-label="Legal">
-        <Link href="/terms">Terms of Service</Link>
+        <Link href="/terms">Terms of Use</Link>
         <Link href="/privacy">Privacy Policy</Link>
       </nav>
       <span className="teaser-footer-contact">

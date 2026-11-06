@@ -1,0 +1,1539 @@
+[
+ {
+  "t": "h1",
+  "runs": [
+   [
+    "Terms of Use",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "I4I Sciences LLC (Doc2Postdoc and eyewee)",
+    true,
+    false
+   ],
+   [
+    "\nVersion 6 | Effective date: ___________ | Last updated: ___________",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "1. Agreement and scope",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.1 These Terms of Use (\"Terms\") form a binding agreement between you and I4I Sciences LLC dba Doc2Postdoc, a Missouri limited liability company (\"i4iSciences,\" \"we,\" \"us\" or \"our\"). They govern your access to and use of the Doc2Postdoc and eyewee websites, applications, waitlists, content, tools and services (collectively, the \"Services\").",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.2 You accept these Terms by ticking the acceptance box presented with them, or by creating an account or purchasing a Service after these Terms have been presented to you. We keep a record of the version of these Terms you accepted and when you accepted it. If you do not agree, do not use the Services.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.3 Our Privacy Policy, any feature-specific terms, community guidelines and checkout terms presented to you (\"Additional Terms\") are incorporated by reference. If Additional Terms conflict with these Terms, the Additional Terms control for the relevant feature only.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.4 The Services are currently in an early-access waitlist stage. Accounts, AI conversations, matching, verification, mentorship, travel-companion features and paid services may be introduced later and may be subject to Additional Terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.5 ",
+    false,
+    false
+   ],
+   [
+    "Country addenda.",
+    true,
+    false
+   ],
+   [
+    " Section 22 contains provisions that apply only to users resident in Canada or India. Where a country addendum conflicts with the main Terms, the addendum controls for users in that country.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "2. What the Services are, and what they are not",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.1 Doc2Postdoc is an educational and professional-development platform intended to help adult doctoral candidates, postdoctoral researchers and academic professionals find peer connections, mentorship, learning resources and professional support. eyewee is an AI-assisted information and support feature.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.2 The Services provide information and facilitate connections only. We do not guarantee any introduction, mentor, match, job, interview, academic position, fellowship, grant, funding, admission, visa outcome, publication, citation, peer-review result, degree completion, research result or other outcome.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.3 Unless expressly agreed in a separate signed written agreement, i4iSciences is not your employer, recruiter, employment agency, placement agency, university, accredited educational institution, degree-granting body, academic supervisor, thesis adviser, editor, law firm, immigration adviser or consultant, medical or mental-health provider, financial adviser, agent or fiduciary.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.4 ",
+    false,
+    false
+   ],
+   [
+    "No accreditation.",
+    true,
+    false
+   ],
+   [
+    " Unless expressly stated for a specific program, any courses, workshops or certificates of completion we may offer are not accredited, do not carry academic credit, and do not represent a qualification recognized by any university, employer, licensing body or government.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.5 ",
+    false,
+    false
+   ],
+   [
+    "Mentors and third-party contributors.",
+    true,
+    false
+   ],
+   [
+    " Mentors, speakers, instructors and other members are independent third parties. They are not employees, agents or representatives of i4iSciences. Their views are their own, and we do not endorse or verify their advice.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "3. Early access and availability",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.1 Joining the waitlist does not guarantee admission, a launch date, availability in any country, field or city, or access to any feature.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.2 We may accept, reject, correct or remove any waitlist entry or account, and may limit, suspend or discontinue any feature, at our discretion, including to protect the Services, comply with law, or prevent fraud, abuse or automated submissions, subject to applicable law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "4. Eligibility and accounts",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.1 You must be at least 18 years old (or the age of majority where you live, if higher), have legal capacity to enter a binding contract, provide accurate and current information, and comply with applicable law. The Services are not intended for anyone under 18.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.2 You may not use the Services if: (a) we previously terminated your access; (b) you are located in, or ordinarily resident in, a country or region subject to comprehensive sanctions; (c) you appear on any government restricted-party or sanctions list; or (d) your use is otherwise prohibited by law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.3 You must keep credentials confidential, use the Services only through your own account, and notify us promptly at hello@doc2postdoc.com of any suspected unauthorized access. You are responsible for all activity under your account to the extent permitted by law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.4 Accounts are personal. They may not be sold, rented, shared or transferred without our written permission.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.5 We may require identity, affiliation or credential checks for particular features, as explained before you use them. Providing false credentials, degrees, affiliations or publication records is a material breach of these Terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "5. Academic integrity",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.1 The Services support learning and professional development. You must not use the Services, including eyewee and any mentor or member, to:",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "ul",
+  "items": [
+   [
+    [
+     "(a) obtain or provide ghostwriting of a thesis, dissertation, manuscript, grant application, examination answer or other work submitted for credit or evaluation as your own;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(b) fabricate, falsify or plagiarize data, results, citations or authorship;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(c) violate the academic-integrity, research-ethics, authorship, conflict-of-interest or confidentiality rules of your institution, funder, journal or employer; or",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(d) disclose unpublished, embargoed, proprietary, export-controlled or confidential research belonging to another person or institution without authority.",
+     false,
+     false
+    ]
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.2 You are solely responsible for complying with your institution's and funder's rules, including rules on the use of AI tools in research and writing. We are not responsible for any academic, disciplinary, employment or funding consequence arising from your use of the Services.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "6. Your content and licence",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.1 You retain ownership of content you submit (\"User Content\"), subject to the rights you grant in these Terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.2 You grant i4iSciences a non-exclusive, worldwide, royalty-free, sublicensable (to our service providers only) licence to host, store, reproduce, format, display, transmit and otherwise process User Content as reasonably necessary to provide, maintain, secure, troubleshoot and improve the Services, comply with law and enforce these Terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.3 We may create and use aggregate or de-identified information derived from use of the Services for analytics, service improvement and reporting. We will apply reasonable safeguards and will not attempt to re-identify it.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.4 ",
+    false,
+    false
+   ],
+   [
+    "eyewee content.",
+    true,
+    false
+   ],
+   [
+    " We may use prompts, responses and feedback submitted to eyewee to train, evaluate and improve eyewee and our own AI features, after removing direct identifiers where reasonably practicable, as described in our Privacy Policy. We will ask for your consent before this use where the law requires it, including for information about health, mental health or other sensitive matters, and you may turn this use off at any time. We will not use private messages between members for this purpose, sell this content, or use it to train third-party general-purpose AI models.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.5 ",
+    false,
+    false
+   ],
+   [
+    "Do not submit confidential research.",
+    true,
+    false
+   ],
+   [
+    " Do not submit unpublished data, patentable inventions, trade secrets or confidential material you wish to protect. Submission of User Content does not create any confidentiality, fiduciary or co-authorship obligation on our part, except as stated in our Privacy Policy or a separate signed agreement.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.6 The licence ends when you delete the relevant content or account, except for content in routine backups, content retained for legal, security or dispute purposes, and content lawfully shared with other users who have not deleted it.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.7 You represent and warrant that you own or have all rights needed to submit User Content, and that it does not infringe any intellectual-property, privacy or other right or violate any law or institutional obligation.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.8 We may, but are not obligated to, monitor, review, refuse or remove User Content at our discretion.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "7. Acceptable use",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "You must not:",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "ul",
+  "items": [
+   [
+    [
+     "(a) impersonate any person or misrepresent identity, credentials, degrees, qualifications, publications, employment, institution or affiliation;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(b) harass, threaten, discriminate against, defraud, stalk, exploit, sexually solicit or endanger anyone;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(c) solicit members for money, investment, loans, unpaid labour, sensitive personal information, paid services or off-platform transactions;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(d) post or transmit unlawful, infringing, defamatory, obscene, hateful, deceptive or malicious content, including malware;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(e) disclose another person's personal information without authority;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(f) access accounts, systems or data without authorization, interfere with security, or probe, scan or circumvent access controls or rate limits;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(g) use bots, scrapers, crawlers, scripts or other automated means to access, extract, harvest, copy or index the Services, course content or member information without our written authorization;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(h) reverse engineer, decompile or attempt to derive source code, model weights or prompts, except where such restriction is prohibited by law;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(i) use the Services, course materials or member data to build a competing product or database, to train, fine-tune or benchmark any AI model, or to resell, record, republish or redistribute content without written authorization;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(j) post fake job, fellowship, grant or academic opportunities, or recruit for any scheme;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(k) use the Services in violation of export-control or sanctions laws; or",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "(l) violate applicable law, these Terms or any Additional Terms.",
+     false,
+     false
+    ]
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "We may investigate suspected violations, remove content, restrict features, suspend or terminate access, preserve evidence, cooperate with law enforcement and report conduct to authorities, where reasonably necessary and lawful. We may use technical measures to protect the Services. A breach of paragraphs (f) through (i) may cause us harm that money cannot adequately repair, and we may seek an injunction or other equitable relief to stop it, in addition to any other remedy available to us.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "8. Member interactions, mentorship and in-person meetings",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.1 If we offer verification, we will explain what is checked and what a verification indicator means. A verification indicator is not a guarantee of identity, qualifications, character, competence, safety or future conduct, may be limited or outdated, and may not detect false information.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.2 You are solely responsible for your interactions with other members, mentors and third parties, online and offline, including any decision to communicate, meet, collaborate, travel, share research, or enter into any arrangement. Any agreement between members is solely between those members.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.3 We do not conduct criminal background checks unless expressly stated for a specific feature. We do not supervise member interactions and are not responsible for the conduct of any member, online or offline.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.4 If you choose to meet another member in person or travel with another member, you do so at your own risk. Meet in public places, tell someone you trust, and do not share financial information.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.5 To the fullest extent permitted by law, you release i4iSciences and its members, managers, officers, employees and agents from claims, demands and damages arising from disputes between you and other members or third parties, including any claim that we were negligent in operating the Services. This release does not cover our own gross negligence, wilful misconduct or fraud, or any liability that cannot lawfully be limited. If you are a California resident, you waive California Civil Code Section 1542, which states: \"A general release does not extend to claims that the creditor or releasing party does not know or suspect to exist in his or her favor at the time of executing the release and that, if known by him or her, would have materially affected his or her settlement with the debtor or released party.\"",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.6 Report misconduct or safety concerns to hello@doc2postdoc.com.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.7 Before we offer any feature that involves travel or in-person meetings, including any travel-companion feature, we will publish additional safety terms for it. You will not be able to use that feature until you have accepted those terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "9. AI features and research information",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.1 AI-assisted features, including eyewee, may produce inaccurate, incomplete, outdated, biased or fabricated information, including fabricated citations, quotations, article details, data, statistics, scientific interpretations and recommendations.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.2 AI outputs are informational aids only. They are not professional, academic, scientific, legal, immigration, medical, mental-health or financial advice. You must independently verify every output against original, reliable sources before relying on or submitting it. An AI-generated citation is not proof that a source exists or supports the statement.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.3 You are solely responsible for how you use AI outputs, including disclosing AI use where your institution, funder or publisher requires it.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.4 Do not rely on eyewee for diagnosis, treatment, emergency response, crisis support, legal or immigration decisions, financial decisions or other high-stakes decisions. eyewee is not designed to assess or respond to emergencies or mental-health crises.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.5 ",
+    false,
+    false
+   ],
+   [
+    "Emergencies.",
+    true,
+    false
+   ],
+   [
+    " Contact local emergency services: 911 in the United States and Canada, 112 in India, or the applicable local number. For mental-health support: call or text 988 (United States), call or text 9-8-8 (Canada), or call Tele-MANAS on 14416 or 1-800-891-4416 (India).",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.6 When you use eyewee, you are interacting with an AI system, not a person. We will provide any additional AI disclosures and user controls required by law where a feature is made available.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "10. Fees, subscriptions and refunds",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.1 The waitlist is free. Mere use of the free waitlist is never consent to a paid subscription.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.2 Before you purchase a paid Service, we will clearly disclose the price, currency, billing frequency, any trial or introductory period and what happens when it ends, renewal terms, cancellation method, refund policy, applicable taxes and material restrictions. We will obtain your express affirmative consent before charging you and will send a confirmation or receipt.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.3 ",
+    false,
+    false
+   ],
+   [
+    "Automatic renewal.",
+    true,
+    false
+   ],
+   [
+    " If a subscription renews automatically, it will continue until you cancel. You may cancel online through your account settings or by emailing hello@doc2postdoc.com, using a method at least as easy as the one used to sign up. Cancellation takes effect at the end of the current billing period unless the law or the checkout terms provide otherwise. We will send any renewal or price-change reminders the law requires.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.4 ",
+    false,
+    false
+   ],
+   [
+    "Refunds.",
+    true,
+    false
+   ],
+   [
+    " Except as stated in the checkout terms or required by applicable law, fees are non-refundable, including for partially used periods, unattended sessions, or downloaded or accessed digital content. Statutory refund, cancellation and cooling-off rights that cannot be waived are not affected.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.5 ",
+    false,
+    false
+   ],
+   [
+    "Price changes.",
+    true,
+    false
+   ],
+   [
+    " We may change prices for future billing periods with advance notice as required by law. Where required, we will obtain your consent before a price increase applies.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.6 ",
+    false,
+    false
+   ],
+   [
+    "Taxes and payments.",
+    true,
+    false
+   ],
+   [
+    " Prices exclude applicable taxes (including sales tax, GST/HST/PST/QST, and Indian GST) unless stated. Payments are processed by third-party payment processors subject to their terms. You authorize us and our processor to charge your chosen payment method for all fees you incur.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.7 ",
+    false,
+    false
+   ],
+   [
+    "Chargebacks.",
+    true,
+    false
+   ],
+   [
+    " If you initiate a chargeback for a valid charge, we may suspend your access until the matter is resolved. Please contact hello@doc2postdoc.com first so we can try to resolve the issue.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "11. Intellectual property and course content",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.1 The Services, including software, models, prompts, design, text, graphics, videos, course materials, curricula, workshop recordings, templates, assessments, compilations, databases, and our names, logos and marks (together, \"Our Content\"), are owned by i4iSciences or its licensors and protected by intellectual-property laws.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.2 Subject to these Terms and payment of applicable fees, we grant you a limited, personal, revocable, non-exclusive, non-transferable, non-sublicensable licence to access and view Our Content for your own non-commercial educational use.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.3 You must not copy, download (except where a download feature is provided), record, screen-capture, share login access to, modify, translate, distribute, publicly display, sell, sublicense, or create derivative works from Our Content, or remove proprietary notices, except as permitted by law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.4 No rights are granted except as expressly stated. All rights not expressly granted are reserved.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.5 ",
+    false,
+    false
+   ],
+   [
+    "Feedback.",
+    true,
+    false
+   ],
+   [
+    " If you send suggestions or feedback, you grant us a non-exclusive, perpetual, irrevocable, worldwide, royalty-free licence to use it for any purpose without obligation or attribution.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "12. Copyright and intellectual-property complaints",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "If you believe content on the Services infringes your copyright, send a written notice to our designated copyright agent: Ranjit Chauhan, I4I Sciences LLC, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA, hello@doc2postdoc.com. Your notice must include: (a) your physical or electronic signature; (b) identification of the copyrighted work; (c) identification of the allegedly infringing material and where it appears on the Services; (d) your name, address, telephone number and email address; (e) a statement that you believe in good faith that the use is not authorized by the copyright owner, its agent or the law; and (f) a statement, under penalty of perjury, that the information in your notice is accurate and that you are the owner or authorized to act for the owner. A user whose content is removed may send a counter-notice to the same agent with the information required by 17 U.S.C. Section 512(g). We may remove or disable access to content and will terminate the accounts of repeat infringers in appropriate circumstances. Complaints about other intellectual property may be sent to the same address. Users in India may also contact the Grievance Officer in Section 22.2(b).",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "13. Third-party services and links",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "The Services may link to or integrate with third-party websites, tools, payment processors, video platforms, messaging services (including WhatsApp) and AI providers. We do not control and are not responsible for third-party services, and your use of them is governed by their terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "14. Suspension and termination",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "14.1 You may stop using the Services at any time and request deletion of your waitlist entry or account at privacy@doc2postdoc.org.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "14.2 We may suspend or terminate your access, remove content, or refuse service, with or without notice, if we reasonably believe you breached these Terms, created a legal, safety, security or reputational risk, violated law, or if we discontinue a feature or the Services. Where practical and lawful, we will provide notice and an opportunity to address the issue.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "14.3 If we terminate a paid Service without cause, we will refund prepaid fees for the unused period. If we terminate for your breach, no refund is due except where required by law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "14.4 Sections that by their nature should survive termination survive, including Sections 5 through 9, 11, 15 through 21, and 22.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "15. Disclaimers",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICES, OUR CONTENT, USER CONTENT, MENTORSHIP, MATCHES, VERIFICATION INDICATORS AND AI OUTPUTS ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE,\" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY AND QUIET ENJOYMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, SECURE, ERROR-FREE OR AVAILABLE IN ANY LOCATION, OR ANY JOB, ACADEMIC, RESEARCH, FUNDING, PUBLICATION, MENTORSHIP, IMMIGRATION, TRAVEL OR OTHER OUTCOME. THESE DISCLAIMERS DO NOT LIMIT ANY WARRANTY OR CONSUMER RIGHT THAT APPLICABLE LAW DOES NOT PERMIT US TO EXCLUDE.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "16. Limitation of liability",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "16.1 TO THE FULLEST EXTENT PERMITTED BY LAW, NEITHER I4ISCIENCES NOR ITS MEMBERS, MANAGERS, OFFICERS, EMPLOYEES, CONTRACTORS, LICENSORS OR AGENTS WILL BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE OR CONSEQUENTIAL DAMAGES, OR FOR LOSS OF PROFITS, REVENUE, GOODWILL, OPPORTUNITY, EMPLOYMENT, FUNDING, ACADEMIC STANDING, DATA OR RESEARCH, ARISING OUT OF OR RELATING TO THE SERVICES, MEMBER CONDUCT OR AI OUTPUTS, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STATUTE OR OTHERWISE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "16.2 TO THE FULLEST EXTENT PERMITTED BY LAW, OUR AGGREGATE LIABILITY FOR ALL CLAIMS RELATING TO THE FREE WAITLIST OR FREE SERVICES WILL NOT EXCEED US$100. FOR A PAID SERVICE, OUR AGGREGATE LIABILITY WILL NOT EXCEED THE GREATER OF US$500 OR THE AMOUNTS YOU PAID FOR THAT SERVICE DURING THE 12 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "16.3 These limitations apply even if a remedy fails of its essential purpose. They do not apply to liability that cannot legally be limited, including for fraud, wilful misconduct, gross negligence where the law so provides, or death or personal injury caused by our negligence where exclusion is prohibited. Nothing in these Terms waives non-waivable consumer, privacy or data-protection rights.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "17. Indemnification",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "17.1 To the extent permitted by law, you agree to indemnify and hold harmless i4iSciences and its members, managers, officers, employees, contractors and agents from third-party claims and resulting losses, damages, liabilities, penalties, costs and reasonable legal fees, to the extent arising from: (a) your breach of these Terms; (b) your unlawful use of the Services; (c) your User Content; (d) your misrepresentation of identity, credentials or affiliation; (e) your academic-integrity violations; or (f) your unlawful or wrongful conduct toward another member or third party, including in any meeting, travel or arrangement made through the Services.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "17.2 We will give prompt notice where practicable. We may choose our own counsel and control the defence of any claim, and you will cooperate with us. You may not settle any claim that imposes obligations or an admission on us without our written consent. This section does not require indemnity for our own negligence, wilful misconduct or violations of law, and does not apply where prohibited by consumer law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "18. Prompt notice of claims",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "If you believe you have a claim arising out of or relating to these Terms or the Services, please notify us promptly under Section 20.1 so that we can try to resolve it. This Section does not shorten any period the law allows for bringing a claim.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "19. Governing law",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "These Terms are governed by the laws of the State of Missouri, United States, and applicable U.S. federal law, without regard to conflict-of-law principles. Mandatory consumer-protection and privacy laws of your place of residence continue to apply where they cannot lawfully be excluded, and Section 22 applies to Canadian and Indian residents.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "20. Dispute resolution",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "20.1 ",
+    false,
+    false
+   ],
+   [
+    "Informal resolution first.",
+    true,
+    false
+   ],
+   [
+    " Before starting any claim, you and we must send a written notice describing the dispute and the relief sought (to us at hello@doc2postdoc.com and our mailing address) and try in good faith to resolve it for 30 days. This step does not apply to urgent injunctive relief, a regulatory complaint, or a matter within a mandatory limitation period.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "20.2 ",
+    false,
+    false
+   ],
+   [
+    "Courts.",
+    true,
+    false
+   ],
+   [
+    " Any dispute will be heard exclusively in the state courts located in Cass County, Missouri, or the United States District Court for the Western District of Missouri, and you consent to their personal jurisdiction, subject to Section 22 and any mandatory right to sue in your home jurisdiction or to use a mandatory local dispute-resolution process.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "20.3 ",
+    false,
+    false
+   ],
+   [
+    "Small claims.",
+    true,
+    false
+   ],
+   [
+    " Either party may instead bring an individual claim in a small claims court in the county where you live, if the claim qualifies.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "21. General",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.1 ",
+    false,
+    false
+   ],
+   [
+    "Entire agreement.",
+    true,
+    false
+   ],
+   [
+    " These Terms, the Privacy Policy and any Additional Terms are the entire agreement between you and us concerning the Services.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.2 ",
+    false,
+    false
+   ],
+   [
+    "Changes.",
+    true,
+    false
+   ],
+   [
+    " We may update these Terms. We will post revised Terms with a new effective date and give advance notice of material changes by email or in-product notice where required or reasonably practicable. Where the law requires your affirmative consent, we will obtain it. Otherwise, continued use after the effective date means you accept the revised Terms. Changes to these Terms will not apply to disputes already notified.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.3 ",
+    false,
+    false
+   ],
+   [
+    "Severability.",
+    true,
+    false
+   ],
+   [
+    " If any provision is unenforceable, it will be modified to the minimum extent necessary or severed, and the rest continues in effect.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.4 ",
+    false,
+    false
+   ],
+   [
+    "No waiver.",
+    true,
+    false
+   ],
+   [
+    " A failure to enforce a provision is not a waiver.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.5 ",
+    false,
+    false
+   ],
+   [
+    "Assignment.",
+    true,
+    false
+   ],
+   [
+    " You may not assign these Terms without our written consent. We may assign them in connection with a merger, reorganization, financing or sale of assets, subject to applicable law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.6 ",
+    false,
+    false
+   ],
+   [
+    "Force majeure.",
+    true,
+    false
+   ],
+   [
+    " We are not liable for delay or failure caused by events beyond our reasonable control, including natural disasters, epidemics, war, terrorism, civil unrest, labour disputes, government action, internet, hosting or AI-provider outages, and cyberattacks.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.7 ",
+    false,
+    false
+   ],
+   [
+    "Electronic communications.",
+    true,
+    false
+   ],
+   [
+    " You consent to receive agreements, notices and disclosures electronically.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.8 ",
+    false,
+    false
+   ],
+   [
+    "Relationship.",
+    true,
+    false
+   ],
+   [
+    " No agency, partnership, joint venture, employment or fiduciary relationship is created by these Terms.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "21.9 ",
+    false,
+    false
+   ],
+   [
+    "Language.",
+    true,
+    false
+   ],
+   [
+    " These Terms are drafted in English. Any translation is for convenience, and the English version controls to the extent permitted by law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "22. Country addenda",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h3",
+  "runs": [
+   [
+    "22.1 Canada",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(a) Nothing in these Terms limits your right to bring proceedings in the courts of your province of residence where provincial consumer-protection law gives you that right.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(b) Nothing in Sections 15, 16, 17 or 18 limits any warranty, remedy or right that applicable provincial consumer-protection law makes non-waivable.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(c) Quebec. The Services are not directed at residents of Quebec. If we offer the Services in Quebec, we will make these Terms and related documents available in French as Quebec law requires.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(d) Commercial electronic messages are sent only with valid consent and include our identification and an unsubscribe mechanism.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h3",
+  "runs": [
+   [
+    "22.2 India",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(a) For Indian residents, these Terms are an electronic record under applicable Indian information-technology law and do not require physical or digital signatures.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(b) ",
+    false,
+    false
+   ],
+   [
+    "Grievance Officer.",
+    true,
+    false
+   ],
+   [
+    " Complaints about content, the Services or these Terms may be sent to our Grievance Officer: Ranjit Chauhan, grievance@doc2postdoc.org, I4I Sciences LLC dba Doc2Postdoc, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA. We will acknowledge a complaint within 24 hours and resolve it within 15 days of receipt, or within any shorter period that Indian law sets for the type of complaint.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(c) Nothing in these Terms limits any right you have to approach a consumer commission or other forum under applicable Indian consumer-protection law. Section 20 does not limit that right.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "(d) Payments, recurring mandates and refunds for Indian users will comply with applicable Reserve Bank of India and consumer-protection requirements, as disclosed at checkout.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "23. Contact",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "General questions: hello@doc2postdoc.com\nPrivacy requests: privacy@doc2postdoc.org\nLegal notices: hello@doc2postdoc.com\nMail: I4I Sciences LLC dba Doc2Postdoc, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA",
+    false,
+    false
+   ]
+  ]
+ }
+]

@@ -425,7 +425,7 @@ export function EyeweeSection() {
               </li>
             </ul>
             <div className="data-links">
-              <Link href="/terms">Terms of Service</Link>
+              <Link href="/terms">Terms of Use</Link>
               <span aria-hidden="true">|</span>
               <Link href="/privacy">Privacy Policy</Link>
             </div>

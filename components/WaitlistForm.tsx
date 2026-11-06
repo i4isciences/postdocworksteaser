@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ArchSuccess } from "@/components/ArchSuccess";
 import { captureAttribution, readAttribution } from "@/lib/waitlist/adTags";
-import { WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
+import { EMAIL_CONSENT_TEXT, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 
 function LinkedInIcon({ size = 16 }: { size?: number }) {
   return (
@@ -127,7 +127,8 @@ export function WaitlistForm() {
   const [waNumber, setWaNumber] = useState("");
   const [waConsent, setWaConsent] = useState(false);
   const [waError, setWaError] = useState("");
-  const [consentGiven, setConsentGiven] = useState(false);
+  const [consentGiven, setConsentGiven] = useState(false); // Box 1 (required)
+  const [emailConsent, setEmailConsent] = useState(false); // Box 2 (optional)
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -195,6 +196,7 @@ export function WaitlistForm() {
       feedback: read("feedback"),
     };
     const consent = (form.elements.namedItem("consent_given") as HTMLInputElement | null)?.checked === true;
+    const emailOk = (form.elements.namedItem("consent_email") as HTMLInputElement | null)?.checked === true;
 
     // Our own clear messages replace the browser's pop-up bubbles (easy to miss, and hidden in some browsers).
     const found: Record<string, string> = {};
@@ -204,12 +206,12 @@ export function WaitlistForm() {
     if (!values.country) found.country = "Please enter your country.";
     if (!consent) found.consent = "Please tick the box to agree before joining.";
 
-    // WhatsApp (only when switched on) is optional and separate from the email consent.
+    // WhatsApp (only when switched on) is optional. Its box (Box 3) appears once a number is typed. A number is only
+    // kept if that box is ticked; if the box stays unticked the number is simply not saved.
     const waTyped = WHATSAPP_ENABLED ? waNumber.trim() : "";
     const waE164 = waTyped ? toE164(waTyped) : null;
     let waProblem = "";
-    if (WHATSAPP_ENABLED && waTyped && !waConsent) waProblem = "Please tick the WhatsApp box, or clear the number.";
-    else if (WHATSAPP_ENABLED && waConsent && !waE164) waProblem = "Please enter a valid WhatsApp number with country code.";
+    if (WHATSAPP_ENABLED && waTyped && waConsent && !waE164) waProblem = "Please enter a valid WhatsApp number with country code.";
     setWaError(waProblem);
 
     const order: [string, string][] = [
@@ -240,8 +242,9 @@ export function WaitlistForm() {
         body: JSON.stringify({
           ...values,
           consent_given: consent,
-          whatsapp_consent_given: WHATSAPP_ENABLED && waConsent,
-          whatsapp_number: WHATSAPP_ENABLED && waConsent ? waE164 : "",
+          consent_email: emailOk,
+          whatsapp_consent_given: WHATSAPP_ENABLED && Boolean(waTyped) && waConsent,
+          whatsapp_number: WHATSAPP_ENABLED && waTyped && waConsent ? waE164 : "",
           ...readAttribution(),
           source: "eyewee-doc2postdoc-teaser",
         }),
@@ -366,6 +369,7 @@ export function WaitlistForm() {
               value={waNumber}
               onChange={(event) => {
                 setWaNumber(event.target.value);
+                if (!event.target.value.trim()) setWaConsent(false);
                 setWaError("");
               }}
               placeholder="+1 314 555 0100"
@@ -399,6 +403,7 @@ export function WaitlistForm() {
         </p>
       </div>
       <SocialSubscribeBox />
+      {/* Box 1 (required): the only box that unlocks the Join button */}
       <div className="teaser-consent-row">
         <input
           type="checkbox"
@@ -415,19 +420,33 @@ export function WaitlistForm() {
           aria-describedby={errors.consent ? "err-consent" : undefined}
         />
         <label htmlFor="wl-terms" style={{ display: "inline", margin: 0 }}>
-          I agree to receive early-access updates about Doc2Postdoc&#8480; at this email address, and I have read the{" "}
+          I am 18 or older, I agree to the{" "}
           <a href="/terms" target="_blank" rel="noreferrer">
-            Terms of Service
-          </a>{" "}
-          and{" "}
+            Terms of Use
+          </a>
+          , and I have read the{" "}
           <a href="/privacy" target="_blank" rel="noreferrer">
             Privacy Policy
           </a>
-          . I am 18 or older. I can unsubscribe at any time.
+          .
         </label>
       </div>
       {fieldError("consent")}
-      {WHATSAPP_ENABLED && (
+      {/* Box 2 (optional): news emails */}
+      <div className="teaser-consent-row">
+        <input
+          type="checkbox"
+          id="wl-email-consent"
+          name="consent_email"
+          checked={emailConsent}
+          onChange={(event) => setEmailConsent(event.target.checked)}
+        />
+        <label htmlFor="wl-email-consent" style={{ display: "inline", margin: 0 }}>
+          {EMAIL_CONSENT_TEXT}
+        </label>
+      </div>
+      {/* Box 3 (optional): shown only once a WhatsApp number has been typed */}
+      {WHATSAPP_ENABLED && waNumber.trim() && (
         <div className="teaser-consent-row consent-wa">
           <input
             type="checkbox"

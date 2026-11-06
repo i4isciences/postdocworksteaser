@@ -1,0 +1,982 @@
+[
+ {
+  "t": "h1",
+  "runs": [
+   [
+    "Privacy Policy",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "I4I Sciences LLC (Doc2Postdoc and eyewee)",
+    true,
+    false
+   ],
+   [
+    "\nVersion 5 | Effective date: ___________ | Last updated: ___________",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "1. Who we are and what this Policy covers",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.1 Doc2Postdoc and eyewee are operated by I4I Sciences LLC dba Doc2Postdoc, a Missouri limited liability company (\"i4iSciences,\" \"we,\" \"us\" or \"our\"), 117 S Lexington St STE 100, Harrisonville, MO 64701, USA. For Canadian law we are the organization accountable for your personal information. For Indian law we act as the Data Fiduciary.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.2 This Policy currently covers our early-access waitlist website and form only. It does not cover account registration, member profiles, messaging, AI conversations, matching, verification, mentorship sessions, travel-companion services, payments or subscriptions, because those features are not yet available.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.3 We will publish an updated notice, and obtain fresh consent where required, before collecting personal information through any new feature.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "1.4 ",
+    false,
+    false
+   ],
+   [
+    "Privacy contact and Privacy Officer:",
+    true,
+    false
+   ],
+   [
+    " Ranjit Chauhan, privacy@doc2postdoc.org. ",
+    false,
+    false
+   ],
+   [
+    "India Grievance Officer:",
+    true,
+    false
+   ],
+   [
+    " see Section 13.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "2. Information we collect",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.1 ",
+    false,
+    false
+   ],
+   [
+    "Information you provide.",
+    true,
+    false
+   ],
+   [
+    " Required: name, email address and country. Optional: career stage, research or professional field, institution, city or metro area, WhatsApp number and feedback.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.2 ",
+    false,
+    false
+   ],
+   [
+    "Consent records.",
+    true,
+    false
+   ],
+   [
+    " We record the date and time, the wording and version shown to you, and the status of each separate choice you make, including your acceptance of our Terms of Use, your confirmation that you are 18 or older, and your choices about email and WhatsApp updates.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.3 ",
+    false,
+    false
+   ],
+   [
+    "Technical information.",
+    true,
+    false
+   ],
+   [
+    " Our hosting, security and deployment providers may automatically record IP address, browser and device information, pages requested, the referring web page and access date and time. We use these logs for site operation, security, troubleshooting and abuse prevention.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.4 ",
+    false,
+    false
+   ],
+   [
+    "Referral and campaign information.",
+    true,
+    false
+   ],
+   [
+    " When you submit the waitlist form, we record the web page from which you arrived at our site and any campaign tag contained in the link you used, such as a tag identifying a newsletter, social-media post or partner announcement. We use this information only to understand, in aggregate, which announcements bring people to the waitlist.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.5 Cookies. The waitlist site uses only cookies and similar technologies that are strictly necessary for operation and security, including bot-protection checks that distinguish people from automated submissions. We do not use analytics, advertising or social-media tracking cookies, pixels or session-replay tools. If we add any such tool, we will update this Policy first and ask for your consent where the law requires it.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.6 ",
+    false,
+    false
+   ],
+   [
+    "What we do not collect.",
+    true,
+    false
+   ],
+   [
+    " We do not intentionally collect precise GPS location, government identification numbers, financial account numbers, biometric data, or health information through the waitlist.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.7 ",
+    false,
+    false
+   ],
+   [
+    "Email routing.",
+    true,
+    false
+   ],
+   [
+    " Waitlist submissions are also sent to authorized team email accounts so we can administer the waitlist. Your information may therefore exist in both the waitlist database and those accounts, and both are covered by our retention and deletion practices.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "2.8 ",
+    false,
+    false
+   ],
+   [
+    "Sensitive information.",
+    true,
+    false
+   ],
+   [
+    " Do not submit sensitive personal information in the feedback field, including health, mental-health, financial, government-identification, immigration, racial or ethnic origin, religious, sexual-orientation or similar details. If we discover it was submitted, we will take reasonable steps to delete or restrict it, subject to legal obligations and technical limits.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "3. How and why we use information",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.1 We use waitlist information only to: (a) administer your waitlist request; (b) send early-access and product updates through a channel you have separately opted in to; (c) understand aggregate interest by career stage, field and broad location, and which announcements or links bring people to the waitlist, to plan a launch; (d) respond to questions and requests; (e) operate, secure, troubleshoot and protect the website; and (f) comply with law and establish, exercise or defend legal claims.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.2 ",
+    false,
+    false
+   ],
+   [
+    "Legal basis and consent.",
+    true,
+    false
+   ],
+   [
+    " We collect optional information and send marketing updates based on your consent. You may withdraw consent at any time, without affecting processing that occurred before withdrawal. We process required information because it is necessary to provide the waitlist you requested, and technical logs for security and legal compliance. Where Indian law applies, we rely on the consent you give when you submit the form, except where that law permits processing without consent.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.3 ",
+    false,
+    false
+   ],
+   [
+    "Our commitments.",
+    true,
+    false
+   ],
+   [
+    " We do not sell personal information. We do not share it for cross-context behavioural advertising or targeted advertising. We do not share it with employers, universities, funders, other members or third parties for their own marketing. We do not use waitlist information to train any AI model.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "3.4 We may create aggregate or de-identified statistics for planning and reporting, using reasonable safeguards against re-identification. We will not attempt to re-identify such data, and no public report will intentionally identify an individual.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "4. When we share information",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.1 We disclose personal information only as necessary for the purposes in this Policy:",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "ul",
+  "items": [
+   [
+    [
+     "Service providers",
+     true,
+     false
+    ],
+    [
+     " that provide database, hosting, website deployment, security and email-delivery services, acting only on our written instructions under contracts that require confidentiality, security and use restrictions;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "WhatsApp",
+     true,
+     false
+    ],
+    [
+     " or its service providers, only if you opt in to WhatsApp updates;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "Professional advisers",
+     true,
+     false
+    ],
+    [
+     " such as lawyers, accountants and insurers, under confidentiality duties;",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "Authorities and others",
+     true,
+     false
+    ],
+    [
+     " when required by law or valid legal process, or where reasonably necessary to protect the rights, safety or security of any person, the Services or the public; and",
+     false,
+     false
+    ]
+   ],
+   [
+    [
+     "Corporate transactions",
+     true,
+     false
+    ],
+    [
+     ", as part of a proposed or completed merger, financing, reorganization, acquisition or asset sale, subject to confidentiality and applicable law. We will give any notice required by law if another company becomes responsible for your information.",
+     false,
+     false
+    ]
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "As of the effective date, our service providers for the waitlist are: Supabase (database); Vercel (website hosting and deployment); Resend, which uses Amazon Web Services mail infrastructure (welcome and service emails); our business email and domain providers; and a contract web developer who maintains the website. Before we add a provider that will receive your information, such as an email-marketing service or a payment processor, we will update this list.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "4.2 We do not authorize service providers to use waitlist information for their own advertising or unrelated purposes. We remain responsible for personal information processed by our service providers on our behalf.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "5. Artificial intelligence and future features",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.1 We do not collect waitlist information through eyewee and do not use waitlist submissions to train AI models.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.2 Before eyewee or any other feature opens, we will publish an updated notice describing the additional data, purposes, recipients, AI providers, retention periods, international transfers and choices, and obtain fresh consent where required.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.3 We expect to use eyewee conversations and feedback, after removing direct identifiers where reasonably practicable, to train, evaluate and improve eyewee and our own AI features. Removing names and other direct identifiers does not make a conversation anonymous, so we will treat this information as personal information. We will explain this use before eyewee opens. We will ask for your separate consent where the law requires it, including where you live in India or Canada and for any information about health, mental health or other sensitive matters, and you will be able to turn this use off at any time. We will not use private messages between members for this purpose, will not sell this information, and will not allow it to be used to train third-party general-purpose AI models. We will choose AI providers whose terms prohibit training their general-purpose models on your content where such terms are available.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "5.4 We do not use personal information to make decisions that produce legal or similarly significant effects about you based solely on automated processing.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "6. International processing",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.1 Waitlist information is stored and processed in the United States, including by service providers acting for us. If you are in Canada, India or elsewhere, your information will be transferred to and processed in the United States, where privacy laws may differ and where information may be accessible to U.S. courts, law-enforcement agencies and public authorities. Our contract web developer and some members of our team may access the information from India or other countries to maintain and support the website. That access is limited to what the work requires.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.2 We use contractual and organizational safeguards appropriate to the information and applicable law. We will not transfer personal information to any country to which transfer is restricted under applicable Indian law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "6.3 Our affiliated company in India does not collect, store or decide how waitlist information is used, and we have no Canadian entity. If an affiliate takes on any role in handling your information, we will update this Policy before that happens and put a written data-sharing agreement in place.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "7. Security",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "7.1 We use reasonable administrative, technical and organizational safeguards appropriate to the nature of the information, including encryption in transit, multi-factor authentication on administrative accounts, database access controls and access limited to people who need it for their work.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "7.2 No system or transmission is completely secure, and we cannot guarantee absolute security. You are responsible for keeping any credentials confidential.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "7.3 We maintain a written incident-response plan to detect, contain, assess and report suspected personal-information incidents. We will notify affected individuals and regulators when and as required by applicable law and within the timeframes it sets.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "8. Retention",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.1 We keep waitlist information only as long as reasonably necessary for the purposes in this Policy. We will delete or irreversibly de-identify your identifiable waitlist record at the earliest of: (a) when you ask us to delete it; (b) 12 months after Doc2Postdoc opens to members in your field; or (c) 12 months after we close the waitlist without launching. If Doc2Postdoc has not opened in your field within 24 months after you joined, we will delete your record or ask whether you want to remain on the waitlist.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.2 We may keep limited records of consent, opt-outs, requests, security incidents and legal matters longer where reasonably necessary to demonstrate compliance, honour suppression requests, or establish, exercise or defend legal claims. Breach records are kept for at least 24 months, and security logs for at least one year where Indian law requires it.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "8.3 Backup copies may remain until overwritten under our normal backup cycle, and remain protected while they exist.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "9. Your choices and rights",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.1 You may ask to access, correct, update or delete your personal information, withdraw consent, or raise a concern by contacting privacy@doc2postdoc.org. You may unsubscribe from emails using the link in each message and from WhatsApp updates by replying STOP or contacting us.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.2 We may need to verify your identity before acting on a request, using information we already hold. We will respond within the time required by applicable law, and our target is 30 days where practicable. Some rights vary by jurisdiction and are subject to legal exceptions. We will not discriminate against you for exercising your rights.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "9.3 If we decline a request, we will explain why where the law allows and tell you how to appeal or complain.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "10. United States residents",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.1 Depending on your state of residence and whether statutory thresholds are met, you may have rights to know and access, correct, delete, obtain a portable copy of, and opt out of the sale, sharing, targeted advertising or profiling use of your personal information, and to appeal our decision.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.2 ",
+    false,
+    false
+   ],
+   [
+    "Categories.",
+    true,
+    false
+   ],
+   [
+    " In the past 12 months we have collected identifiers (name, email, WhatsApp number, IP address), professional or education information (career stage, field, institution), general geolocation (country, city or metro area), internet activity information (log data, referring page and campaign tags) and consent records. We collected these from you and your device for the purposes in Section 3, and disclosed them for business purposes only to the recipients in Section 4.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.3 We do not sell or share personal information for cross-context behavioural advertising, and we do not knowingly sell or share the information of anyone under 16. We do not use or disclose sensitive personal information for purposes that would trigger a right to limit.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.4 You may use an authorized agent, subject to verification. To appeal a decision, reply to our response or email privacy@doc2postdoc.org with the subject \"Privacy Appeal.\" If your appeal is denied, you may contact your state attorney general.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "10.5 Because we do not sell or share personal information or use it for targeted advertising, a Global Privacy Control signal has nothing to opt you out of today. If our practices change, we will honour those signals as a valid opt-out request where the law requires.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "11. Canadian residents",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.1 Depending on your province and applicable law, you may access and correct your personal information, withdraw consent subject to legal or contractual restrictions, and challenge our compliance.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.2 Our Privacy Officer is accountable for compliance and can be reached at privacy@doc2postdoc.org.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.3 If your concern is unresolved, you may contact the Office of the Privacy Commissioner of Canada or the relevant provincial or territorial privacy regulator.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.4 Quebec. The waitlist is not directed at residents of Quebec, and we do not market to them. If you live in Quebec and choose to join, you may exercise the rights Quebec law gives you by writing to privacy@doc2postdoc.org. The person in charge of the protection of personal information is Ranjit Chauhan.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "11.5 We send commercial electronic messages, by email or WhatsApp, only to people who have given express consent by ticking the relevant box on our form. Each message identifies us, includes our mailing address and contact details, and contains an unsubscribe mechanism that we honour within 10 business days.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "12. Indian residents",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "12.1 We process your digital personal data under the Digital Personal Data Protection Act, 2023 and the Digital Personal Data Protection Rules, 2025, as their provisions become applicable to our processing.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "12.2 Where applicable, you may: obtain a summary of your personal data and the processing activities; obtain the identities of Data Processors and others with whom it has been shared; request correction, completion, updating and erasure; withdraw consent as easily as you gave it; nominate another individual to exercise your rights in the event of death or incapacity; and use our grievance redress mechanism.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "12.3 You may complain to the Data Protection Board of India only after exhausting our grievance mechanism, where the law so requires.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "12.4 You must not provide false information, impersonate another person, or file frivolous grievances, consistent with your duties under applicable Indian law.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "12.5 Our consent requests are presented in clear and plain language. On request, we will provide this Policy and our consent request in English or in any language specified in the Eighth Schedule to the Constitution of India.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "13. Grievance Officer (India) and Data Protection contact",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "Grievance Officer:",
+    true,
+    false
+   ],
+   [
+    " Ranjit Chauhan\n",
+    false,
+    false
+   ],
+   [
+    "Email:",
+    true,
+    false
+   ],
+   [
+    " grievance@doc2postdoc.org\n",
+    false,
+    false
+   ],
+   [
+    "Address:",
+    true,
+    false
+   ],
+   [
+    " I4I Sciences LLC dba \nDoc2Postdoc, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA",
+    false,
+    false
+   ],
+   [
+    "\n",
+    false,
+    false
+   ],
+   [
+    "Working hours:",
+    true,
+    false
+   ],
+   [
+    " Monday to Friday, 9:00 AM to 5:00 PM Central Time (U.S.)",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "We will acknowledge your grievance promptly and resolve it within 90 days, or any shorter period that Indian law sets for the type of grievance.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "14. Other jurisdictions",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "The waitlist is not directed at the European Economic Area, the United Kingdom or Switzerland. If we intentionally offer the Services there, or monitor behaviour in a way that brings those laws into scope, we will provide jurisdiction-specific disclosures, lawful-basis information, representative details where required, and appropriate transfer safeguards before that processing begins.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "15. Adults only",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "The waitlist is intended only for people aged 18 or older. We do not knowingly collect personal information from anyone under 18. If you believe a person under 18 has provided information, contact privacy@doc2postdoc.org and we will delete it. Any future program for minors will require a separate legal, privacy, safeguarding and verifiable parental-consent framework and is not authorized by this Policy.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "16. Changes to this Policy",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "We may update this Policy as our practices or legal requirements change. We will revise the date above and notify you of material changes by email or a prominent website notice. Where a change requires consent under applicable law, we will obtain it before applying the change. Continued use of the website does not replace consent where consent is legally required.",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "h2",
+  "runs": [
+   [
+    "17. Contact",
+    false,
+    false
+   ]
+  ]
+ },
+ {
+  "t": "p",
+  "runs": [
+   [
+    "Privacy requests and complaints: privacy@doc2postdoc.org\nGeneral questions: hello@doc2postdoc.com\nMail: I4I Sciences LLC dba Doc2Postdoc, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA",
+    false,
+    false
+   ]
+  ]
+ }
+]
