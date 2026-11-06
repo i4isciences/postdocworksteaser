@@ -1526,14 +1526,14 @@ button { cursor: pointer; }
 /* ---------------------------------------------------------------- */
 /* Hero: dark navy, centred; the buttons sit sheltered under one arch */
 /* ---------------------------------------------------------------- */
-.hero2 { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; min-height: max(calc(100dvh - 78px), 800px); padding: 0; box-sizing: border-box; text-align: center; color: #fff; background: #0B1A3E; }
+.hero2 { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; min-height: min(calc(100dvh - 78px), 720px); padding: 0; box-sizing: border-box; text-align: center; color: #fff; background: #0B1A3E; }
 .hero2-glow { position: absolute; z-index: -2; border-radius: 50%; filter: blur(90px); pointer-events: none; will-change: transform; }
 .hero2-glow-a { width: min(62vw, 820px); height: min(62vw, 820px); left: -12%; top: -34%; background: radial-gradient(circle, rgba(52, 96, 196, .55) 0%, rgba(52, 96, 196, 0) 70%); animation: hero2-drift-a 26s ease-in-out infinite alternate; }
 .hero2-glow-b { width: min(54vw, 720px); height: min(54vw, 720px); right: -10%; bottom: -30%; background: radial-gradient(circle, rgba(244, 167, 37, .2) 0%, rgba(244, 167, 37, 0) 70%); animation: hero2-drift-b 32s ease-in-out infinite alternate; }
 @keyframes hero2-drift-a { to { transform: translate3d(9%, 7%, 0); } }
 @keyframes hero2-drift-b { to { transform: translate3d(-8%, -6%, 0); } }
 
-.hero2-top { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 64px) 40px; }
+.hero2-top { flex: 1 1 auto; display: flex; align-items: flex-end; justify-content: center; padding: 72px clamp(20px, 5vw, 64px) 48px; }
 .hero2-inner { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
 .hero2-inner > *, .hero2-cta { animation: hero2-rise .9s cubic-bezier(.2, .7, .2, 1) both; }
 .hero2-inner > :nth-child(2) { animation-delay: .1s; }
@@ -1546,13 +1546,13 @@ button { cursor: pointer; }
 .hero2-sub { margin: 0 auto; max-width: 580px; color: #B9C6E4; font-family: 'Poppins', Arial, sans-serif; font-weight: 400; font-size: clamp(15px, 2vw, 18px); line-height: 1.7; text-wrap: balance; }
 
 /* The arch: full width, both legs run down past the bottom edge, the buttons sit in its hollow */
-.hero2-stage { position: relative; flex: 0 0 auto; width: 100%; height: clamp(330px, 34vw, 470px); }
+.hero2-stage { position: relative; flex: 0 0 auto; width: 100%; max-width: 1120px; margin: 0 auto; padding: 48px 20px; box-sizing: border-box; }
 .hero2-arch { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; clip-path: inset(0 100% 0 0); animation: hero2-reveal 2.8s cubic-bezier(.65, 0, .35, 1) .4s forwards; }
 @keyframes hero2-reveal { to { clip-path: inset(0 0 0 0); } }
 .hero2-arch path { vector-effect: non-scaling-stroke; stroke-linecap: round; }
 .hero2-arch .arch-fill { fill: url(#hero2-arch-fill); stroke: none; }
 .hero2-arch .arch-line { fill: none; stroke-width: 1.75; }
-.hero2-cta { position: absolute; left: 0; right: 0; top: 30%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; padding: 0 20px; }
+.hero2-cta { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
 .hero2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
 .hero2-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .hero2-btn-primary { background: #F4A725; color: #0B1A3E; }
@@ -1560,9 +1560,9 @@ button { cursor: pointer; }
 .hero2-btn-survey { color: #fff; border: 1px solid rgba(255, 255, 255, .34); }
 .hero2-btn-survey:hover { border-color: #F4A725; color: #F4A725; }
 @media (max-width: 600px) {
-  .hero2 { min-height: max(calc(100svh - 56px), 720px); }
-  .hero2-stage { height: 330px; }
-  .hero2-cta { top: 26%; flex-direction: column; gap: 12px; }
+  .hero2 { min-height: min(calc(100svh - 56px), 680px); }
+  .hero2-top { padding-top: 56px; }
+  .hero2-cta { flex-direction: column; }
   .hero2-btn { width: 100%; max-width: 320px; }
 }
 @media (prefers-reduced-motion: reduce) {
