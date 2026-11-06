@@ -1,0 +1,246 @@
+{
+  "formId": "doc2postdoc_pain_point_survey",
+  "version": "1.0.0",
+  "updated": "2026-10-27T22:13:00-05:00",
+  "title": "Doc2Postdoc — PhD & Postdoc Pain-Point Survey",
+  "questionCount": 35,
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Section 1 — Background",
+      "items": [
+        {
+          "id": "q1", "text": "What is your field or discipline?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Life Sciences / Biology", "Physical Sciences (Chemistry, Physics, Astronomy)", "Engineering", "Computer Science / Data Science", "Mathematics / Statistics", "Earth, Environmental & Ocean Sciences", "Medicine / Health Sciences", "Social Sciences", "Humanities"]
+        },
+        {
+          "id": "q2", "text": "How long have you been in your current postdoctoral position?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Less than 6 months", "6–12 months", "1–2 years", "2–3 years", "3–5 years", "More than 5 years"]
+        },
+        {
+          "id": "q3", "text": "Are you an international postdoc (i.e., not a citizen of the country where you currently work)?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Yes", "No"]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Section 2 — Funding & Compensation",
+      "items": [
+        {
+          "id": "q4", "text": "Is your funding tied to a specific grant or PI, or is it independent (e.g., your own fellowship)?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Tied to my PI's grant", "Tied to institutional/departmental funds", "My own independent fellowship or grant", "A mix of sources"]
+        },
+        {
+          "id": "q5", "text": "Have you experienced gaps, delays, or uncertainty in funding or pay?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Never", "Rarely (once)", "Occasionally (a few times)", "Frequently", "Currently experiencing this"]
+        },
+        {
+          "id": "q6", "text": "What financial pressures, if any, most affect your daily work or wellbeing?",
+          "type": "multi", "layout": "list", "other": true,
+          "options": ["Salary too low relative to cost of living", "Student loan debt", "Supporting family or dependents", "Visa, relocation, or immigration-related costs", "Healthcare costs", "Lack of retirement savings/benefits", "Housing costs", "None"]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Section 3 — Mentorship & PI Relationship",
+      "items": [
+        {
+          "id": "q7", "text": "How would you rate the quality of mentorship from your PI or supervisor?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Very poor", "Poor", "Fair", "Good", "Excellent"]
+        },
+        {
+          "id": "q8", "text": "How often do you have one-on-one conversations with your PI about career goals, not just research tasks?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Never", "Less than once a year", "A few times a year", "Monthly", "Weekly or more"]
+        },
+        {
+          "id": "q9", "text": "Do you feel comfortable raising concerns or disagreements with your PI?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Not at all comfortable", "Somewhat uncomfortable", "Neutral", "Somewhat comfortable", "Very comfortable"]
+        },
+        {
+          "id": "q10", "text": "Has your PI actively helped you build a professional network beyond the lab?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Not at all", "A little", "Somewhat", "Significantly", "Extensively"]
+        },
+        {
+          "id": "q11", "text": "Have you experienced or witnessed favoritism, exploitation, or unfair treatment in your lab?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Never", "Witnessed, but not personally experienced", "Experienced occasionally", "Experienced frequently", "Prefer not to say"]
+        },
+        {
+          "id": "q12", "text": "What is the single biggest gap in the mentorship you've received?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Guidance on non-academic career paths", "Feedback on my research", "Emotional or psychological support", "Networking opportunities", "Technical or skills training", "Time or availability from my PI", "No major gap"]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Section 4 — Career Development & Job Market",
+      "items": [
+        {
+          "id": "q13", "text": "What career path are you currently pursuing (academia, industry, government, nonprofit, other)?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Academia (tenure-track)", "Academia (teaching-focused)", "Industry / private sector", "Government or national lab", "Nonprofit", "Science policy or communication", "Entrepreneurship / startup", "Still deciding"]
+        },
+        {
+          "id": "q14", "text": "How prepared do you feel for the job market in your target career path?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Not at all prepared", "Slightly prepared", "Moderately prepared", "Well prepared", "Very well prepared"]
+        },
+        {
+          "id": "q15", "text": "Have you received formal career development training or resources from your institution?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Yes, extensively", "Yes, some", "No, but I sought it elsewhere", "No, none available", "Not sure"]
+        },
+        {
+          "id": "q16", "text": "How many hours per month do you spend on job-search activities (applications, networking, interviews)?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["0 hours", "1–5 hours", "6–10 hours", "11–20 hours", "More than 20 hours"]
+        },
+        {
+          "id": "q17", "text": "What skills do you feel you're missing that are needed for your desired next role?",
+          "type": "multi", "layout": "list", "other": true,
+          "options": ["Leadership or people management", "Business or commercial acumen", "Data science / technical skills", "Grant or proposal writing", "Networking", "Communication or presentation skills", "Negotiation", "Project management", "None"]
+        },
+        {
+          "id": "q18", "text": "What has been your biggest frustration in trying to move to your next career stage?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Lack of relevant job openings", "Lack of relevant experience", "Limited network or connections", "Visa or work-authorization barriers", "Unclear how to transition fields/sectors", "Time constraints while working full-time", "Rejections without feedback"]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Section 5 — Work-Life Balance & Wellbeing",
+      "items": [
+        {
+          "id": "q19", "text": "On average, how many hours per week do you work?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Less than 40", "40–50", "50–60", "60–70", "More than 70"]
+        },
+        {
+          "id": "q20", "text": "Do you feel you have enough time for personal life, family, or hobbies?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]
+        },
+        {
+          "id": "q21", "text": "Have you experienced burnout at any point during your postdoc?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Never", "Mild burnout", "Moderate burnout", "Severe burnout", "Currently experiencing burnout"]
+        },
+        {
+          "id": "q22", "text": "Have you sought mental health support during your postdoc? If so, was it accessible and adequate?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Haven't needed it", "Needed it but didn't seek it", "Sought it — accessible and adequate", "Sought it — accessible but not adequate", "Sought it — not accessible", "Prefer not to say"]
+        },
+        {
+          "id": "q23", "text": "What single change would most improve your work-life balance?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["Lower workload or clearer expectations", "More flexible working hours", "Better PI understanding of personal boundaries", "Paid time off / parental leave", "Childcare support", "Mental health resources"]
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Section 6 — Institutional Support & Training",
+      "items": [
+        {
+          "id": "q24", "text": "Does your institution have a dedicated postdoc office, association, or ombudsperson?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Yes, and I've used it", "Yes, but I haven't used it", "No", "Not sure"]
+        },
+        {
+          "id": "q25", "text": "How would you rate the quality of postdoc-specific training (grant writing, teaching, leadership, etc.)?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["Not offered at my institution", "Very poor", "Poor", "Fair", "Good", "Excellent"]
+        },
+        {
+          "id": "q26", "text": "Have you encountered administrative or bureaucratic obstacles specific to your postdoc status (e.g., visa sponsorship, benefits enrollment)?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Never", "Rarely", "Occasionally", "Frequently", "Constantly"]
+        },
+        {
+          "id": "q27", "text": "What one resource or program do you wish your institution offered but doesn't?",
+          "type": "single", "layout": "list", "other": true,
+          "options": ["A dedicated postdoc office", "Career coaching for non-academic paths", "Mental health services", "Childcare support", "Networking or social events", "Grant-writing workshops", "Legal / visa support"]
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Section 7 — Publishing & Research Pressure",
+      "items": [
+        {
+          "id": "q28", "text": "How much pressure do you feel to publish in high-impact journals?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["None", "Low", "Moderate", "High", "Extreme"]
+        },
+        {
+          "id": "q29", "text": "Has publishing pressure ever affected the quality or pace of your research decisions?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Never", "Rarely", "Sometimes", "Often", "Always"]
+        },
+        {
+          "id": "q30", "text": "Do you feel adequately credited (authorship, recognition) for your contributions?",
+          "type": "single", "layout": "inline", "other": false,
+          "options": ["Never", "Rarely", "Sometimes", "Usually", "Always"]
+        },
+        {
+          "id": "q31", "text": "How does research or publishing pressure affect your overall stress level?",
+          "type": "single", "layout": "list", "other": false,
+          "options": ["No effect", "Slight increase", "Moderate increase", "Significant increase", "Severe / overwhelming increase"]
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Section 8 — International / Visa Status",
+      "optional": true,
+      "items": [
+        {
+          "id": "q32", "text": "How much stress does your visa or immigration status add to your postdoc experience?",
+          "type": "single", "layout": "inline", "other": false, "optional": true,
+          "options": ["None", "Mild", "Moderate", "Significant", "Severe"]
+        },
+        {
+          "id": "q33", "text": "Has your visa status limited your job search or your ability to change institutions or labs?",
+          "type": "single", "layout": "inline", "other": false, "optional": true,
+          "options": ["Not at all", "Slightly", "Moderately", "Significantly", "Completely"]
+        },
+        {
+          "id": "q34", "text": "Have you faced delays or barriers due to sponsorship requirements?",
+          "type": "single", "layout": "list", "other": false, "optional": true,
+          "options": ["Never", "Rarely", "Occasionally", "Frequently", "Yes, currently experiencing this"]
+        },
+        {
+          "id": "q35", "text": "What would most reduce the burden of your visa or immigration situation?",
+          "type": "single", "layout": "list", "other": true, "optional": true,
+          "options": ["Faster or clearer institutional processes", "Access to legal/immigration counsel", "Employer-sponsored permanent-residency track", "More flexible institutional timelines", "Financial assistance for legal fees"]
+        }
+      ]
+    }
+  ],
+  "consent": {
+    "heading": "Consent & Privacy",
+    "paragraphs": [
+      "This survey is conducted by I4I Sciences LLC, operator of Doc2Postdoc. Participation is voluntary — you may skip any optional question (Section 8) or stop at any time. To withdraw a submitted response, contact us at [PRIVACY CONTACT EMAIL] before your response has been combined into aggregate findings; once responses are aggregated, we may no longer be able to isolate and remove an individual submission.",
+      "Your answers to the survey questions are collected without your name attached. If this survey is hosted on a platform that separately records your email address or IP address (for example, to prevent duplicate submissions), that information is kept apart from your answers and is never published or shared alongside them.",
+      "We use your responses to identify common challenges among PhDs and postdocs and to develop content, programs, and services for that community. We do not sell your responses. We may share de-identified, aggregated findings (for example, \"62% of respondents reported funding delays\") in reports, presentations, or with partner institutions. We do not share any individual, attributable response with a third party without your separate consent.",
+      "We retain individual responses for [RETENTION PERIOD], after which they are deleted or kept only in aggregated, de-identified form.",
+      "If you are located in the European Union, United Kingdom, Canada, India, or another jurisdiction with its own data protection law, you may have additional rights to access, correct, or request deletion of your data. To exercise these rights or ask a question about this notice, contact us at [PRIVACY CONTACT EMAIL].",
+      "By checking \"I agree\" below, you confirm that you are 18 years of age or older and that you have read and consent to the collection and use of your responses as described above."
+    ],
+    "checkboxLabel": "I agree",
+    "placeholders": ["[PRIVACY CONTACT EMAIL]", "[RETENTION PERIOD]"]
+  }
+}

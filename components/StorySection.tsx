@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 type StorySectionProps = {
@@ -60,9 +59,9 @@ export function StorySection({ id, theme, heading, sub, src, title, description 
           </span>
           <h2 id={`${id}-title`}>{heading}</h2>
           <p className="story-sub">{sub}</p>
-          <Link className="story-cta" href="/waitlist">
-            Join the waitlist
-          </Link>
+          <a className="story-cta" href="https://doc2postdoc.org">
+            Doc2Postdoc.org
+          </a>
         </div>
       </div>
     </section>

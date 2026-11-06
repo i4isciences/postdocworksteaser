@@ -62,14 +62,14 @@ SUBMISSION DETAILS:
 • Email: ${email}
 • Career Stage: ${careerStage}${fieldLine}
 • Country: ${country || "Not specified"}
-${city ? `• City: ${city}\n` : ""}${institution ? `• Institution: ${institution}\n` : ""}
+${city ? `• City: ${city}\n` : ""}${institution ? `• Institution or ORCID iD: ${institution}\n` : ""}
 WHAT YOU GET WITH DOC2POSTDOC:
 1. Peer matching: Connect directly with researchers and postdocs one step ahead of you who have already navigated your exact transition, discipline, and career stage.
 2. eyewee™ AI Guidance: Ask in plain text or voice — guidance and answers backed by verified postdoc experiences.
 3. Privacy by Default: Your conversations and work remain strictly yours. Sharing ideas or drafts never transfers ownership.
 
 EARLY ACCESS ROLLOUT:
-We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. You will receive an email as soon as connections in your discipline open.
+We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. You will receive an email as soon as connections in your discipline open. We'll be in touch when early access opens.
 
 Explore more anytime: ${SITE_URL}
 Questions or feedback? Just reply to this email or write to ${SUPPORT_EMAIL}
@@ -140,7 +140,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                       <td style="font-weight:600;padding:3px 0;">${h.careerStage}</td>
                     </tr>
                     ${researchField ? `<tr><td style="color:#6B768E;padding:3px 0;">Field:</td><td style="font-weight:600;padding:3px 0;">${h.researchField}</td></tr>` : ""}
-                    ${institution ? `<tr><td style="color:#6B768E;padding:3px 0;">Institution:</td><td style="font-weight:600;padding:3px 0;">${h.institution}</td></tr>` : ""}
+                    ${institution ? `<tr><td style="color:#6B768E;padding:3px 0;">Institution or ORCID iD:</td><td style="font-weight:600;padding:3px 0;">${h.institution}</td></tr>` : ""}
                     <tr>
                       <td style="color:#6B768E;padding:3px 0;">Country:</td>
                       <td style="font-weight:600;padding:3px 0;">${h.country || "—"}</td>
@@ -189,7 +189,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                 <!-- Rollout Notice -->
                 <div style="background-color:#FFF8EC;border-left:4px solid #F4A725;border-radius:4px;padding:14px 16px;margin-bottom:28px;">
                   <p style="margin:0;font-size:13.5px;line-height:1.6;color:#855507;">
-                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. When your field and region open, you&apos;ll receive your invite link directly at this email address.
+                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. When your field and region open, you&apos;ll receive your invite link directly at this email address. We&apos;ll be in touch when early access opens.
                   </p>
                 </div>
 
@@ -273,7 +273,7 @@ Time: ${new Date().toISOString()}`;
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Email:</strong></td><td style="padding:7px 0;"><a href="mailto:${esc(email)}" style="color:#182D5A;font-weight:600;">${esc(email)}</a></td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Career Stage:</strong></td><td style="padding:7px 0;">${esc(careerStage)}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Research Field:</strong></td><td style="padding:7px 0;">${esc(researchField) || "—"}</td></tr>
-        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Institution:</strong></td><td style="padding:7px 0;">${esc(institution) || "—"}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Institution / ORCID iD:</strong></td><td style="padding:7px 0;">${esc(institution) || "—"}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Country:</strong></td><td style="padding:7px 0;font-weight:600;">${esc(country) || "—"}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>City / Metro:</strong></td><td style="padding:7px 0;">${esc(city) || "—"}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>WhatsApp (opted in):</strong></td><td style="padding:7px 0;">${esc(whatsappNumber) || "—"}</td></tr>

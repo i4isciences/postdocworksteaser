@@ -1445,6 +1445,7 @@ button { cursor: pointer; }
 /* Waitlist form additions */
 .teaser-form .teaser-field-hint { color: var(--muted); font-size: 12px; font-weight: 400; margin: -2px 0 0; }
 .teaser-form-hint { color: var(--muted); font-size: 13px; font-style: italic; font-weight: 400; }
+.teaser-form-note { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; font-weight: 400; }
 .teaser-form-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .teaser-form-actions .teaser-form-submit { margin-top: 0; }
 .teaser-form-privacy { margin: 0; color: var(--navy); font-size: 13px; font-weight: 400; }

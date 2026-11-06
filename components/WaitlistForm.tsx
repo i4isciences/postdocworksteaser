@@ -271,7 +271,7 @@ export function WaitlistForm() {
           EARLY ACCESS
         </p>
         <h2>You&apos;re on the list.</h2>
-        <p>We&apos;ll email you when early access opens in your field.</p>
+        <p>We&apos;ll be in touch when early access opens.</p>
         <div style={{ marginTop: "26px", textAlign: "left" }}>
           <SocialSubscribeBox />
         </div>
@@ -334,8 +334,8 @@ export function WaitlistForm() {
       </div>
       <div className="teaser-form-grid" style={{ alignItems: "start" }}>
         <label>
-          <span>Institution</span>
-          <input name="institution" autoComplete="organization" defaultValue="" placeholder="Optional" />
+          <span>Institution or ORCID iD</span>
+          <input name="institution" autoComplete="organization" defaultValue="" placeholder="Optional" maxLength={200} />
         </label>
         <label>
           <span>Country <span style={{ color: "#d93829" }}>*</span></span>
@@ -455,6 +455,10 @@ export function WaitlistForm() {
           {message}
         </p>
       )}
+      <p className="teaser-form-note">
+        Heads up: Doc2Postdoc is for PhD students and postdocs. When we open, we&apos;ll ask you to confirm with your
+        institutional email. If you don&apos;t have one, your ORCID iD works.
+      </p>
       <div className="teaser-form-actions">
         <span className="teaser-submit-wrap">
           <button

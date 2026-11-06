@@ -106,6 +106,9 @@ export function LandingHeroAndServices() {
             <a href="/waitlist" className="btn navy" style={{ textDecoration: "none" }}>
               Join the waitlist
             </a>
+            <a href="/doc2postdoc/survey" className="btn gold" style={{ textDecoration: "none" }}>
+              Take the 3-Minute Survey
+            </a>
             <a href="#svc" className="btn out" style={{ textDecoration: "none" }}>
               See the three services
             </a>
@@ -537,6 +540,9 @@ export function LandingHeroAndServices() {
         <div className="teaser-video-action">
           <Link href="/waitlist" className="btn navy">
             Join the waitlist
+          </Link>
+          <Link href="/doc2postdoc/survey" className="btn gold">
+            Take the 3-Minute Survey
           </Link>
           <a href="#eyewee" className="btn out">
             Learn more about eyewee
