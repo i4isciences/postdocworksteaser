@@ -271,7 +271,7 @@ export default function SurveyForm() {
 
 function renderConsentParagraph(text: string) {
   // The privacy address and the Privacy Policy words become real links.
-  return text.split(/([PRIVACY CONTACT EMAIL]|Privacy Policy)/g).map((part, i) => {
+  return text.split(/(\[PRIVACY CONTACT EMAIL\]|Privacy Policy)/g).map((part, i) => {
     if (part === "[PRIVACY CONTACT EMAIL]") {
       return (
         <a key={i} href={`mailto:${PRIVACY_EMAIL}`}>
