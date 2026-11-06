@@ -236,11 +236,11 @@
       "This survey is conducted by I4I Sciences LLC, operator of Doc2Postdoc. Participation is voluntary — you may skip any optional question (Section 8) or stop at any time. To withdraw a submitted response, contact us at [PRIVACY CONTACT EMAIL] before your response has been combined into aggregate findings; once responses are aggregated, we may no longer be able to isolate and remove an individual submission.",
       "Your answers to the survey questions are collected without your name attached. If this survey is hosted on a platform that separately records your email address or IP address (for example, to prevent duplicate submissions), that information is kept apart from your answers and is never published or shared alongside them.",
       "We use your responses to identify common challenges among PhDs and postdocs and to develop content, programs, and services for that community. We do not sell your responses. We may share de-identified, aggregated findings (for example, \"62% of respondents reported funding delays\") in reports, presentations, or with partner institutions. We do not share any individual, attributable response with a third party without your separate consent.",
-      "We retain individual responses for [RETENTION PERIOD], after which they are deleted or kept only in aggregated, de-identified form.",
+      "We keep your answers until the earliest of: you ask us to delete them, 12 months after Doc2Postdoc opens to members in your field, or 12 months after we close the waitlist without launching. If Doc2Postdoc has not opened in your field within 24 months after you joined, we will delete your answers or ask whether you want to stay on the waitlist. See our Privacy Policy for more.",
       "If you are located in the European Union, United Kingdom, Canada, India, or another jurisdiction with its own data protection law, you may have additional rights to access, correct, or request deletion of your data. To exercise these rights or ask a question about this notice, contact us at [PRIVACY CONTACT EMAIL].",
       "By checking \"I agree\" below, you confirm that you are 18 years of age or older and that you have read and consent to the collection and use of your responses as described above."
     ],
     "checkboxLabel": "I agree",
-    "placeholders": ["[PRIVACY CONTACT EMAIL]", "[RETENTION PERIOD]"]
+    "placeholders": ["[PRIVACY CONTACT EMAIL]"]
   }
 }

@@ -462,7 +462,6 @@ export function EyeweeSection() {
             <Link href="/doc2postdoc/survey" className="eyewee-hero-btn">
               Take the 3-Minute Survey
             </Link>
-            <p className="cta-duo-micro">Anonymous &middot; No account needed &middot; 35 quick questions</p>
           </div>
         </div>
       </div>

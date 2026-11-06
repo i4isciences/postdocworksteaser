@@ -3,8 +3,6 @@
  * Renders from doc2postdoc-survey-schema.json (same folder). Edit question text/options in the JSON, not here.
  * POSTs to /api/doc2postdoc/survey.
  *
- * [PRIVACY CONTACT EMAIL] is filled in below. [RETENTION PERIOD] is still waiting on Ran: it stays highlighted
- * in yellow on the page so it cannot ship unnoticed.
  */
 "use client";
 
@@ -272,8 +270,8 @@ export default function SurveyForm() {
 }
 
 function renderConsentParagraph(text: string) {
-  // The privacy address is real. Any other [PLACEHOLDER] is highlighted so it cannot ship unfilled.
-  return text.split(/(\[PRIVACY CONTACT EMAIL\]|\[RETENTION PERIOD\])/g).map((part, i) => {
+  // The privacy address and the Privacy Policy words become real links.
+  return text.split(/([PRIVACY CONTACT EMAIL]|Privacy Policy)/g).map((part, i) => {
     if (part === "[PRIVACY CONTACT EMAIL]") {
       return (
         <a key={i} href={`mailto:${PRIVACY_EMAIL}`}>
@@ -281,13 +279,14 @@ function renderConsentParagraph(text: string) {
         </a>
       );
     }
-    return part.startsWith("[") ? (
-      <mark key={i} className={styles.placeholder}>
-        {part}
-      </mark>
-    ) : (
-      <span key={i}>{part}</span>
-    );
+    if (part === "Privacy Policy") {
+      return (
+        <a key={i} href="/privacy" target="_blank" rel="noreferrer">
+          Privacy Policy
+        </a>
+      );
+    }
+    return <span key={i}>{part}</span>;
   });
 }
 
