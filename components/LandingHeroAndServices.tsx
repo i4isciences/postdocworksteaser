@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { HeroBridges } from "@/components/HeroBridges";
+import { ArrowRight } from "lucide-react";
 import { StorySection } from "@/components/StorySection";
 
 const MOMENTS = [
@@ -97,8 +96,20 @@ export function LandingHeroAndServices() {
     <>
       {/* ================= HERO SECTION ================= */}
       <section className="hero2" aria-labelledby="hero-title">
-        <HeroBridges />
-        <div className="hero2-vignette" aria-hidden="true" />
+        <span className="hero2-glow hero2-glow-a" aria-hidden="true" />
+        <span className="hero2-glow hero2-glow-b" aria-hidden="true" />
+        <svg className="hero2-arch" viewBox="0 0 1200 182" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="hero2-arch-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#7FA0E8" stopOpacity=".55" />
+              <stop offset=".5" stopColor="#F4E2B4" stopOpacity=".7" />
+              <stop offset="1" stopColor="#F4A725" stopOpacity=".85" />
+            </linearGradient>
+          </defs>
+          <path className="arch-line" pathLength={1} d="M60 168 C330 8 870 8 1140 168" stroke="url(#hero2-arch-grad)" />
+          <circle className="arch-dot" cx="60" cy="168" r="4" />
+          <circle className="arch-dot" cx="1140" cy="168" r="4" />
+        </svg>
         <div className="hero2-inner">
           <p className="hero2-eyebrow">PEER MATCHING FOR THE NEXT STEP</p>
           <h1 id="hero-title">
@@ -119,9 +130,6 @@ export function LandingHeroAndServices() {
             </a>
           </div>
         </div>
-        <a href="#moments" className="hero2-scroll" aria-label="Scroll to the next section">
-          <ChevronDown size={22} />
-        </a>
       </section>
 
       {/* ================= INSERT A: FOUR MOMENTS (after the hero) ================= */}

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Eye } from "@/components/eye/Eye";
+import { ARCH_LOGO_STATIC } from "@/components/ArchLogoSvg";
 
 const ACCENT = "#F4A725";
 
@@ -435,18 +436,34 @@ export function EyeweeSection() {
 
       {/* ================= JOIN THE WAITLIST ================= */}
       <div id="waitlist" className="eyewee-waitlist-section">
-        <div className="eyewee-waitlist-card">
-          <div style={{ position: "relative", width: "84px", height: "54px", margin: "0 auto 18px" }}>
-            <Eye state="idle" size={84} interactive={false} />
+        <div className="eyewee-waitlist-card cta-duo">
+          <div className="cta-duo-col">
+            <div className="cta-duo-logo" role="img" aria-label="Doc2Postdoc" dangerouslySetInnerHTML={{ __html: ARCH_LOGO_STATIC }} />
+            <div className="cta-duo-eyebrow">EARLY ACCESS</div>
+            <h2>Join the waitlist.</h2>
+            <p className="cta-duo-text">
+              We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&rsquo;ll email you when it opens in your field.
+            </p>
+            <Link href="/waitlist" className="eyewee-hero-btn">
+              Join the waitlist
+            </Link>
           </div>
-          <div style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700, fontSize: "11px", letterSpacing: "0.14em", color: ACCENT, marginBottom: "8px", textTransform: "uppercase" }}>EARLY ACCESS</div>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 4vw, 26px)", color: "#182D5A", marginBottom: "14px" }}>Join the waitlist.</h2>
-          <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4B5468", maxWidth: "460px", margin: "0 auto 30px" }}>
-            We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&rsquo;ll email you when it opens in your field.
-          </p>
-          <Link href="/waitlist" className="eyewee-hero-btn">
-            Join the waitlist
-          </Link>
+          <div className="cta-duo-divider" aria-hidden="true" />
+          <div className="cta-duo-col">
+            <div className="cta-duo-eye">
+              <Eye state="idle" size={84} interactive={false} />
+            </div>
+            <span className="cta-duo-badge">Survey</span>
+            <h2>Tell us how it really feels.</h2>
+            <p className="cta-duo-jingle">&ldquo;Long nights, tight funds, dreams put on hold&mdash;<br />tell us the postdoc story, untold.&rdquo;</p>
+            <p className="cta-duo-text">
+              Built from real pain points&mdash;funding gaps, mentorship gaps, burnout, the whole messy truth behind the degree. Three minutes. Fully anonymous. Your answers shape what Doc2Postdoc builds next.
+            </p>
+            <Link href="/doc2postdoc/survey" className="eyewee-hero-btn">
+              Take the 3-Minute Survey
+            </Link>
+            <p className="cta-duo-micro">Anonymous &middot; No account needed &middot; 35 quick questions</p>
+          </div>
         </div>
       </div>
     </div>
