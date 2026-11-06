@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { StorySection } from "@/components/StorySection";
 
 const MOMENTS = [
   { text: "I need a lab or a facility, and I do not know who to ask.", label: "Find the right person" },
@@ -486,6 +487,26 @@ export function LandingHeroAndServices() {
           ))}
         </ol>
       </section>
+
+      {/* ================= STORY SECTIONS (animated, text on the left) ================= */}
+      <StorySection
+        id="story-weight"
+        theme="light"
+        heading="Shared, the weight gets lighter."
+        sub="Grants. Visas. Rejections. Rent. Nobody should carry it alone."
+        src="/animations/d2p-2-the-weight-shared.html"
+        title="Animation: a postdoc carries grants, visas, rejections and rent. Two friends arrive and the weight becomes light."
+        description="A postdoc stands holding up boxes labelled grant, visa, paper, rejected and rent. Two friendly rings roll in from either side and form an arch that carries the boxes, so the weight is shared."
+      />
+      <StorySection
+        id="story-company"
+        theme="dark"
+        heading="Someone sits beside you."
+        sub="No advice. No judgment. Just company."
+        src="/animations/d2p-1-someone-sits-beside-you.html"
+        title="Animation: a postdoc up late at night with a rejection on the screen, and a friendly ring who sits beside them."
+        description="Late at night a postdoc sits at a desk with a laptop that shows a rejection. A friendly ring sits beside them, and hearts rise. No advice, no judgment, just company."
+      />
 
       {/* ================= VIDEO SHOWCASE TEMPLATE ================= */}
       <section className="teaser-video-section" id="teaser-video">

@@ -1477,3 +1477,31 @@ button { cursor: pointer; }
 .teaser-form-error { font-size: 13px; font-weight: 500; }
 .teaser-submit-wrap { position: relative; display: inline-block; }
 .teaser-submit-guard { position: absolute; inset: 0; cursor: not-allowed; }
+
+/* ===== Animated story sections (text left, animation right) ===== */
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: local("Inter SemiBold"), local("Inter-SemiBold"), url("/animations/fonts/Inter-SemiBold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 700; font-display: swap; src: local("Inter Bold"), local("Inter-Bold"), url("/animations/fonts/Inter-Bold.woff") format("woff"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-display: swap; src: local("Inter ExtraBold"), local("Inter-ExtraBold"), url("/animations/fonts/Inter-ExtraBold.woff") format("woff"); }
+
+.story { --story-bg: #FFF3D6; --story-h: #182D5A; --story-sub: #B97A0B; position: relative; display: flex; align-items: center; min-height: clamp(540px, 45vw, 740px); background: var(--story-bg); font-family: Inter, "Liberation Sans", Arial, sans-serif; overflow: hidden; }
+.story-dark { --story-bg: #0C1B40; --story-h: #ffffff; --story-sub: #FFC95E; }
+.story-inner { position: relative; z-index: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 48px); box-sizing: border-box; }
+.story-copy { display: flex; flex-direction: column; align-items: flex-start; max-width: min(42%, 540px); }
+.story-logo { display: inline-flex; align-items: center; gap: 10px; background: #fff; border-radius: 999px; padding: 9px 22px 9px 14px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18); }
+.story-logo-name { font-weight: 800; font-size: 19px; color: #182D5A; letter-spacing: -0.01em; }
+.story h2 { margin: clamp(22px, 3vw, 34px) 0 0; color: var(--story-h); font-weight: 800; font-size: clamp(34px, 4.4vw, 62px); line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance; }
+.story-sub { margin: clamp(14px, 1.8vw, 22px) 0 0; color: var(--story-sub); font-weight: 600; font-size: clamp(17px, 1.8vw, 25px); line-height: 1.3; text-wrap: balance; }
+.story-cta { display: inline-block; margin-top: clamp(22px, 3vw, 34px); background: #182D5A; color: #F4A725; font-weight: 800; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: 0.02em; text-decoration: none; padding: 0.7em 1.7em; border-radius: 999px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.story-dark .story-cta { box-shadow: 0 0 0 1px rgba(244, 167, 37, 0.35), 0 2px 10px rgba(0, 0, 0, 0.3); }
+.story-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22); }
+.story-cta:focus-visible { outline: 3px solid #F4A725; outline-offset: 3px; }
+/* The animation bleeds to the top, right and bottom edge of the section and fades into the background on the left, like the banner mock-ups. */
+.story-frame { position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; width: 60%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%); mask-image: linear-gradient(90deg, transparent 0, #000 16%); }
+.story-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: var(--story-bg); }
+.story-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+@media (max-width: 900px) {
+  .story { display: block; min-height: 0; }
+  .story-frame { position: relative; top: auto; right: auto; bottom: auto; width: 100%; aspect-ratio: 4 / 3; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%); mask-image: linear-gradient(180deg, #000 78%, transparent 100%); }
+  .story-inner { padding-top: 6px; padding-bottom: 44px; }
+  .story-copy { max-width: none; }
+}

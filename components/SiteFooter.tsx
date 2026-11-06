@@ -33,11 +33,7 @@ export function SiteFooter() {
         <span>
           General: <a href="mailto:hello@doc2postdoc.com">hello@doc2postdoc.com</a>
         </span>
-        <span>
-          Phone: <a href="tel:+18167939105">+1 (816) 793-9105</a>
-        </span>
       </span>
-
     </footer>
   );
 }
