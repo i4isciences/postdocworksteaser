@@ -98,35 +98,39 @@ export function LandingHeroAndServices() {
       <section className="hero2" aria-labelledby="hero-title">
         <span className="hero2-glow hero2-glow-a" aria-hidden="true" />
         <span className="hero2-glow hero2-glow-b" aria-hidden="true" />
-        <svg className="hero2-arch" viewBox="0 0 1200 182" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-          <defs>
-            <linearGradient id="hero2-arch-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stopColor="#7FA0E8" stopOpacity=".55" />
-              <stop offset=".5" stopColor="#F4E2B4" stopOpacity=".7" />
-              <stop offset="1" stopColor="#F4A725" stopOpacity=".85" />
-            </linearGradient>
-          </defs>
-          <path className="arch-line" pathLength={1} d="M60 168 C330 8 870 8 1140 168" stroke="url(#hero2-arch-grad)" />
-          <circle className="arch-dot" cx="60" cy="168" r="4" />
-          <circle className="arch-dot" cx="1140" cy="168" r="4" />
-        </svg>
-        <div className="hero2-inner">
-          <p className="hero2-eyebrow">PEER MATCHING FOR THE NEXT STEP</p>
-          <h1 id="hero-title">
-            Where the Next Step Has <span className="hero2-gold">Already Been Taken.</span>
-          </h1>
-          <p className="hero2-sub">
-            Meet people one step ahead of you, and get help with everything that comes with the move, all the way to settled.
-          </p>
+        <div className="hero2-top">
+          <div className="hero2-inner">
+            <p className="hero2-eyebrow">PEER MATCHING FOR THE NEXT STEP</p>
+            <h1 id="hero-title">
+              Where the Next Step Has <span className="hero2-gold">Already Been Taken.</span>
+            </h1>
+            <p className="hero2-sub">
+              Meet people one step ahead of you, and get help with everything that comes with the move, all the way to settled.
+            </p>
+          </div>
+        </div>
+        <div className="hero2-stage">
+          <svg className="hero2-arch" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="hero2-arch-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stopColor="#7FA0E8" stopOpacity=".7" />
+                <stop offset=".5" stopColor="#F4E2B4" stopOpacity=".85" />
+                <stop offset="1" stopColor="#F4A725" stopOpacity=".95" />
+              </linearGradient>
+              <linearGradient id="hero2-arch-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#FFFFFF" stopOpacity=".07" />
+                <stop offset="1" stopColor="#FFFFFF" stopOpacity=".015" />
+              </linearGradient>
+            </defs>
+            <path className="arch-fill" d="M-10 410 C70 110 330 24 600 24 C870 24 1130 110 1210 410 Z" />
+            <path className="arch-line" d="M-10 410 C70 110 330 24 600 24 C870 24 1130 110 1210 410" stroke="url(#hero2-arch-grad)" />
+          </svg>
           <div className="hero2-cta">
             <a href="/waitlist" className="hero2-btn hero2-btn-primary">
               Join the waitlist <ArrowRight size={16} />
             </a>
             <a href="/doc2postdoc/survey" className="hero2-btn hero2-btn-survey">
               Take the 3-Minute Survey
-            </a>
-            <a href="#svc" className="hero2-btn hero2-btn-ghost">
-              See the three services
             </a>
           </div>
         </div>
