@@ -1506,3 +1506,11 @@ button { cursor: pointer; }
   .story-inner { padding-top: 6px; padding-bottom: 44px; }
   .story-copy { max-width: none; }
 }
+
+/* Success state: the animated Doc2Postdoc arch logo replaces the tick mark */
+.arch-success { text-align: center; }
+.arch-success-logo { width: min(100%, 520px); margin: 0 auto 22px; }
+.arch-success-logo svg { display: block; width: 100%; height: auto; }
+.arch-success-eyebrow { text-align: center; }
+.arch-success h2 { margin: 0 0 14px; color: var(--navy); font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.03em; }
+.arch-success p:not(.teaser-label) { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 14.5px; line-height: 1.65; }

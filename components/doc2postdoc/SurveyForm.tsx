@@ -9,6 +9,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ArchSuccess } from "@/components/ArchSuccess";
 import schema from "./doc2postdoc-survey-schema.json";
 import styles from "./SurveyForm.module.css";
 
@@ -189,12 +190,11 @@ export default function SurveyForm() {
 
   if (submitted) {
     return (
-      <div className={styles.thankYou} role="status">
-        <h2>Thank you.</h2>
-        <p>
-          Your responses help Doc2Postdoc identify the real challenges PhDs and postdocs face. We appreciate you taking
-          the time.
-        </p>
+      <div className={styles.thankYou}>
+        <ArchSuccess
+          heading="Thank you."
+          message="Your responses help Doc2Postdoc identify the real challenges PhDs and postdocs face. We appreciate you taking the time."
+        />
       </div>
     );
   }

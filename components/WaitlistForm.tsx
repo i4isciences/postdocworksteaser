@@ -1,7 +1,8 @@
 "use client";
 
-import { ArrowRight, Check, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { ArchSuccess } from "@/components/ArchSuccess";
 import { captureAttribution, readAttribution } from "@/lib/waitlist/adTags";
 import { WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 
@@ -264,14 +265,7 @@ export function WaitlistForm() {
   if (state === "success") {
     return (
       <div className="teaser-form-success">
-        <span className="teaser-success-icon">
-          <Check size={23} />
-        </span>
-        <p className="teaser-label" style={{ textAlign: "center" }}>
-          EARLY ACCESS
-        </p>
-        <h2>You&apos;re on the list.</h2>
-        <p>We&apos;ll be in touch when early access opens.</p>
+        <ArchSuccess eyebrow="EARLY ACCESS" heading="You&apos;re on the list." message="We&apos;ll be in touch when early access opens." />
         <div style={{ marginTop: "26px", textAlign: "left" }}>
           <SocialSubscribeBox />
         </div>
