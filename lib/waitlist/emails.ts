@@ -13,7 +13,9 @@ type WelcomeEmailParams = {
 
 // Physical mailing address for the email footer (a PO box is fine). Set MAILING_ADDRESS in the environment.
 // If it is not set the line is left out, so nothing like "[address]" is ever sent.
-const MAILING_ADDRESS = (process.env.MAILING_ADDRESS || "").trim();
+// Falls back to the company address in the Privacy Policy, so the footer is never without one.
+const DEFAULT_MAILING_ADDRESS = "I4I Sciences LLC dba Doc2Postdoc, 117 S Lexington St STE 100, Harrisonville, MO 64701, USA";
+const MAILING_ADDRESS = (process.env.MAILING_ADDRESS || "").trim() || DEFAULT_MAILING_ADDRESS;
 
 // "2026-11-07 14:05 UTC"
 function utcStamp(date = new Date()): string {

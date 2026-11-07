@@ -70,11 +70,12 @@ export async function POST(request: Request) {
         consent_text: TERMS_CONSENT_TEXT,
         consent_text_version: CONSENT_VERSION,
         consent_at_utc: now,
-        // Box 2: news emails. false = confirmation email only, no news emails.
+        // Box 2: news emails. The answer (yes or no) is always recorded with the time, the wording and the version.
+        // false = confirmation email only, no news emails.
         email_opt_in: emailConsent,
-        email_opt_in_at: emailConsent ? now : null,
-        email_opt_in_text: emailConsent ? EMAIL_CONSENT_TEXT : null,
-        email_opt_in_version: emailConsent ? CONSENT_VERSION : null,
+        email_opt_in_at: now,
+        email_opt_in_text: EMAIL_CONSENT_TEXT,
+        email_opt_in_version: CONSENT_VERSION,
         ...attribution,
         // Box 3: WhatsApp (only when a number was typed and its own box ticked)
         ...(waNumber

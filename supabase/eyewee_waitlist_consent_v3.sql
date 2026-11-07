@@ -15,3 +15,12 @@ update eyewee_waitlist set email_opt_in = false where email_opt_in is distinct f
 
 -- Row-level security: the public website must not be able to read or change this table.
 alter table eyewee_waitlist enable row level security;
+
+-- Launch emails: send ONLY to people who ticked the news-email box and have not unsubscribed.
+-- Use this view as the one and only recipient list for any launch or news email.
+create or replace view launch_email_recipients as
+  select id, email, full_name, email_opt_in_at, email_opt_in_version
+  from eyewee_waitlist
+  where email_opt_in = true
+    and coalesce(unsubscribed, false) = false;
+revoke all on launch_email_recipients from anon, authenticated;
