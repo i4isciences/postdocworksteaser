@@ -372,16 +372,16 @@ export function EyeweeSection() {
           <div style={{ textAlign: "center", marginBottom: "36px" }}>
             <PreviewKicker>PREVIEW · NAVIGATE</PreviewKicker>
             <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "clamp(22px, 3.5vw, 28px)", color: "#182D5A", lineHeight: 1.3, marginBottom: "14px" }}>
-              Real questions, from a real community.
+              Questions like these come up in postdoc groups every week.
             </h2>
             <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15px", lineHeight: 1.7, color: "#4B5468", maxWidth: "560px", margin: "0 auto" }}>
-              Not hypotheticals — this is what shows up in a postdoc group chat every week, and how eyewee actually answers.
+              Here is how eyewee actually answers.
             </p>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             <QuestionCard
-              quote="&ldquo;Is anyone currently staying at Maple Pine? I need info on the management before I sign.&rdquo;"
+              quote="&ldquo;Is anyone currently staying at Oakview Apartments? I need info on the management before I sign.&rdquo;"
               tone="brand"
               label="EYEWEE CONNECTS YOU"
               answer="Found a postdoc already living there, opted in to intros — matched through Doc2Postdoc, not a guess."
@@ -457,7 +457,7 @@ export function EyeweeSection() {
             <h2>Tell us how it really feels.</h2>
             <p className="cta-duo-jingle">&ldquo;Long nights, tight funds, dreams put on hold&mdash;<br />tell us the postdoc story, untold.&rdquo;</p>
             <p className="cta-duo-text">
-              Built from real pain points&mdash;funding gaps, mentorship gaps, burnout, the whole messy truth behind the degree. Three minutes. Fully anonymous. Your answers shape what Doc2Postdoc builds next.
+              Built from real pain points&mdash;funding gaps, mentorship gaps, burnout, the whole messy truth behind the degree. Three minutes. No name needed. Your answers shape what Doc2Postdoc builds next.
             </p>
             <Link href="/doc2postdoc/survey" className="eyewee-hero-btn">
               Take the 3-Minute Survey

@@ -59,8 +59,8 @@ export function StorySection({ id, theme, heading, sub, src, title, description 
           </span>
           <h2 id={`${id}-title`}>{heading}</h2>
           <p className="story-sub">{sub}</p>
-          <a className="story-cta" href="https://doc2postdoc.org">
-            Doc2Postdoc.org
+          <a className="story-cta" href="https://doc2postdoc.com">
+            Doc2Postdoc.com
           </a>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getAdminClient, insertSignup, isUnsubscribed, signupExists, updateConsent } from "@/lib/waitlist/db";
+import { normalizeCountry } from "@/lib/waitlist/countries";
 import { AD_TAG_FIELDS } from "@/lib/waitlist/adTags";
 import { CONSENT_VERSION, EMAIL_CONSENT_TEXT, TERMS_CONSENT_TEXT, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 import { buildWelcomeEmail, buildAdminNotificationEmail } from "@/lib/waitlist/emails";
@@ -17,7 +18,8 @@ export async function POST(request: Request) {
     const careerStage = typeof body.careerStage === "string" && CAREER_STAGES.has(body.careerStage) ? body.careerStage : "Postdoc";
     const researchField = typeof body.researchField === "string" ? body.researchField.trim() : "";
     const institution = typeof body.institution === "string" ? body.institution.trim() : "";
-    const country = typeof body.country === "string" ? body.country.trim() : "";
+    // Only a real country name is kept (a stray character or number is rejected, never saved).
+    const country = typeof body.country === "string" ? normalizeCountry(body.country) ?? "" : "";
     const city = typeof body.city === "string" ? body.city.trim() : "";
     const feedback = typeof body.feedback === "string" ? body.feedback.trim() : "";
     // Never trust the browser for consent: it must be exactly true (or the string "true").
@@ -39,7 +41,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Please add your name and email so we know where to send your invite." }, { status: 400 });
     }
     if (!country) {
-      return NextResponse.json({ success: false, error: "Please select or provide your country." }, { status: 400 });
+      return NextResponse.json({ success: false, error: "Please select your country from the list." }, { status: 400 });
     }
     if (!consentGiven) {
       return NextResponse.json({ success: false, error: "Please accept the Terms of Use and Privacy Policy to continue." }, { status: 400 });

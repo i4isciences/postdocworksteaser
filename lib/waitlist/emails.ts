@@ -15,6 +15,11 @@ type WelcomeEmailParams = {
 // If it is not set the line is left out, so nothing like "[address]" is ever sent.
 const MAILING_ADDRESS = (process.env.MAILING_ADDRESS || "").trim();
 
+// "2026-11-07 14:05 UTC"
+function utcStamp(date = new Date()): string {
+  return date.toISOString().replace("T", " ").slice(0, 16) + " UTC";
+}
+
 // Everything a visitor typed is escaped before it goes into HTML, so nobody can inject links or code.
 function esc(value: string | undefined | null): string {
   return String(value ?? "")
@@ -259,7 +264,7 @@ City: ${city || "Not specified"}
 WhatsApp (opted in): ${whatsappNumber || "None"}
 Feedback / Thoughts: ${feedback || "None provided"}
 Source: ${source || "Doc2Postdoc Waitlist"}
-Time: ${new Date().toISOString()}`;
+Time: ${utcStamp()}`;
 
   const html = `<!DOCTYPE html>
 <html>
@@ -288,7 +293,7 @@ Time: ${new Date().toISOString()}`;
           </td>
         </tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Source:</strong></td><td style="padding:7px 0;">${esc(source) || "Doc2Postdoc"}</td></tr>
-        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Timestamp:</strong></td><td style="padding:7px 0;">${new Date().toLocaleString()}</td></tr>
+        <tr><td style="color:#6B768E;padding:7px 0;"><strong>Timestamp:</strong></td><td style="padding:7px 0;">${utcStamp()}</td></tr>
       </table>
     </div>
   </body>

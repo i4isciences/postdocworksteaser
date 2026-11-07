@@ -3,6 +3,7 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ArchSuccess } from "@/components/ArchSuccess";
+import { COUNTRIES } from "@/lib/waitlist/countries";
 import { captureAttribution, readAttribution } from "@/lib/waitlist/adTags";
 import { EMAIL_CONSENT_TEXT, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
 
@@ -203,7 +204,7 @@ export function WaitlistForm() {
     if (values.fullName.length < 2) found.fullName = "Please enter your full name.";
     if (!values.email) found.email = "Please enter your email address.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) found.email = "Please enter a valid email address.";
-    if (!values.country) found.country = "Please enter your country.";
+    if (!values.country) found.country = "Please select your country.";
     if (!consent) found.consent = "Please tick the box to agree before joining.";
 
     // WhatsApp (only when switched on) is optional. Its box (Box 3) appears once a number is typed. A number is only
@@ -336,18 +337,26 @@ export function WaitlistForm() {
         </label>
         <label>
           <span>Country <span style={{ color: "#d93829" }}>*</span></span>
-          <input
+          <select
             id="wl-country"
             name="country"
             autoComplete="country-name"
             defaultValue=""
             onChange={() => clearError("country")}
-            placeholder="Required"
             required
             aria-required="true"
             aria-invalid={Boolean(errors.country)}
             aria-describedby={errors.country ? "err-country" : undefined}
-          />
+          >
+            <option value="" disabled>
+              Select your country
+            </option>
+            {COUNTRIES.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
           {fieldError("country")}
         </label>
       </div>
