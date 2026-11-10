@@ -72,11 +72,11 @@ SUBMISSION DETAILS:
 ${city ? `• City: ${city}\n` : ""}${institution ? `• Institution or ORCID iD: ${institution}\n` : ""}
 WHAT YOU GET WITH DOC2POSTDOC:
 1. Peer matching: When we open, you'll be able to connect with postdocs and researchers who have been through similar career moves.
-2. eyewee™ AI Guidance: Ask in plain text or voice for practical guidance drawn from the experience of postdocs and researchers.
-3. Privacy: Your ideas and drafts stay yours. Sharing them on Doc2Postdoc never transfers ownership. Our Privacy Policy explains how we handle your information.
+2. eyewee™ AI Guidance: Ask in plain text or voice for practical guidance for your research career.
+3. Privacy: You keep ownership of what you submit. Our Terms of Use and Privacy Policy explain how we use it.
 
 EARLY ACCESS ROLLOUT:
-We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. You will receive an email as soon as connections in your discipline open. We'll be in touch when early access opens.
+We're opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. If you ticked the news box, we'll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
 
 Explore more anytime: ${SITE_URL}
 Questions or feedback? Just reply to this email or write to ${SUPPORT_EMAIL}
@@ -177,7 +177,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                     <div>
                       <strong style="color:#182D5A;font-size:14px;">eyewee™ AI Guidance:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Ask in plain text or voice for practical guidance drawn from the experience of postdocs and researchers.
+                        Ask in plain text or voice for practical guidance for your research career.
                       </span>
                     </div>
                   </div>
@@ -187,7 +187,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                     <div>
                       <strong style="color:#182D5A;font-size:14px;">Privacy:</strong>
                       <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Your ideas and drafts stay yours. Sharing them on Doc2Postdoc never transfers ownership. Our <a href="${SITE_URL}/privacy" style="color:#182D5A;text-decoration:underline;">Privacy Policy</a> explains how we handle your information.
+                        You keep ownership of what you submit. Our <a href="${SITE_URL}/terms" style="color:#182D5A;text-decoration:underline;">Terms of Use</a> and <a href="${SITE_URL}/privacy" style="color:#182D5A;text-decoration:underline;">Privacy Policy</a> explain how we use it.
                       </span>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                 <!-- Rollout Notice -->
                 <div style="background-color:#FFF8EC;border-left:4px solid #F4A725;border-radius:4px;padding:14px 16px;margin-bottom:28px;">
                   <p style="margin:0;font-size:13.5px;line-height:1.6;color:#855507;">
-                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. When your field and region open, you&apos;ll receive your invite link directly at this email address. We&apos;ll be in touch when early access opens.
+                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
                   </p>
                 </div>
 

@@ -442,7 +442,7 @@ export function EyeweeSection() {
             <div className="cta-duo-eyebrow">EARLY ACCESS</div>
             <h2>Join the waitlist.</h2>
             <p className="cta-duo-text">
-              We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. Join the waitlist and we&rsquo;ll email you when it opens in your field.
+              We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. If you ticked the news box, we&rsquo;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
             </p>
             <Link href="/waitlist" className="eyewee-hero-btn">
               Join the waitlist

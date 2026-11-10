@@ -45,7 +45,7 @@ export function UnsubscribeClient({ e, t }: { e: string; t: string }) {
       {status === "done" && (
         <>
           <h2>You are unsubscribed.</h2>
-          <p>We will not email you again. If this was a mistake, write to hello@doc2postdoc.com.</p>
+          <p>You will not get news or launch emails from us. If this was a mistake, write to hello@doc2postdoc.com.</p>
         </>
       )}
       {status === "error" && (

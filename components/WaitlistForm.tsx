@@ -269,7 +269,7 @@ export function WaitlistForm() {
   if (state === "success") {
     return (
       <div className="teaser-form-success">
-        <ArchSuccess eyebrow="EARLY ACCESS" heading="You&apos;re on the list." message="We&apos;ll be in touch when early access opens." />
+        <ArchSuccess eyebrow="EARLY ACCESS" heading="You&apos;re on the list." message="If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime." />
         <div style={{ marginTop: "26px", textAlign: "left" }}>
           <SocialSubscribeBox />
         </div>
