@@ -43,6 +43,9 @@ export async function POST(request: Request) {
     if (!country) {
       return NextResponse.json({ success: false, error: "Please select your country from the list." }, { status: 400 });
     }
+    if (city.length < 2) {
+      return NextResponse.json({ success: false, error: "Please enter your city or metro area." }, { status: 400 });
+    }
     if (!consentGiven) {
       return NextResponse.json({ success: false, error: "Please accept the Terms of Use and Privacy Policy to continue." }, { status: 400 });
     }

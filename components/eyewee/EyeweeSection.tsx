@@ -121,7 +121,7 @@ export function EyeweeSection() {
         </div>
 
         <h1 className="eyewee-hero-h1">
-          You say it — eyewee carries it, guides it, and cracks the toughest problems.
+          You say it — eyewee carries it and guides it.
         </h1>
 
         <p className="eyewee-hero-lead">
@@ -145,7 +145,7 @@ export function EyeweeSection() {
           <div style={{ width: "64px", height: "3px", background: ACCENT, margin: "0 auto 22px" }} />
           <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "17px", color: "#6B7280", marginBottom: "18px" }}>Working alone isn&rsquo;t rigor. It&rsquo;s just noise.</p>
           <p style={{ fontFamily: "'Work Sans', sans-serif", fontSize: "15.5px", lineHeight: 1.7, color: "#384057", margin: 0 }}>
-            eyewee brings together the guidance, the connections, and the sparks of insight a postdoc needs to crack the project, find the way through, and stop
+            eyewee brings together the guidance, the connections, and the sparks of insight a postdoc needs to find the way through and stop
             carrying it alone.
           </p>
         </div>
@@ -156,7 +156,7 @@ export function EyeweeSection() {
         <div className="eyewee-preview-grid">
           <div className="eyewee-text-col">
             <PreviewKicker>PREVIEW · LEVERAGE</PreviewKicker>
-            <PreviewHeading>Your PI handed you the hard problem. eyewee helps you crack it.</PreviewHeading>
+            <PreviewHeading>Your PI handed you the hard problem.</PreviewHeading>
             <PreviewBody>
               200 papers deep, one clear next step. eyewee checks the places a literature search misses — sequence databases, not just journals — so you know
               within minutes whether your angle is actually new.
@@ -334,8 +334,7 @@ export function EyeweeSection() {
           <ChatCard>
             <UserBubble maxWidth="92%">My parents land in Chicago the same week as my grant deadline. I can&rsquo;t get to O&rsquo;Hare myself that day.</UserBubble>
             <EyeweeBubble>
-              Checking who else has a pickup near that date. Matched you with a connection also meeting someone at O&rsquo;Hare on the 18th — same
-              high-scrutiny safety check applies before any contact details are shared.
+              Checking who else has a pickup near that date. Matched you with a connection also meeting someone at O&rsquo;Hare on the 18th.
             </EyeweeBubble>
             <div style={{ background: "#FFFFFF", border: "1px solid #E7E9F0", borderRadius: "12px", padding: "16px 18px" }}>
               <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: "13.5px", color: "#182D5A", marginBottom: "10px" }}>Travel Companion match</div>
@@ -359,7 +358,7 @@ export function EyeweeSection() {
             <PreviewHeading>Someone at the gate, even when you can&rsquo;t be.</PreviewHeading>
             <PreviewBody>
               When your parents are flying in and a deadline won&rsquo;t let you leave the lab, Travel Companion matches you with someone else already headed
-              to the same airport — the same safety layer as every other Doc2Postdoc connection, and a badge for both of you once the trip is done.
+              to the same airport, and a badge for both of you once the trip is done.
             </PreviewBody>
             <IllustrativeNote>Illustrative example — Doc2Postdoc matching isn&rsquo;t open yet.</IllustrativeNote>
           </div>
@@ -436,31 +435,16 @@ export function EyeweeSection() {
 
       {/* ================= JOIN THE WAITLIST ================= */}
       <div id="waitlist" className="eyewee-waitlist-section">
-        <div className="eyewee-waitlist-card cta-duo">
+        <div className="eyewee-waitlist-card cta-duo cta-single">
           <div className="cta-duo-col">
             <div className="cta-duo-logo" role="img" aria-label="Doc2Postdoc" dangerouslySetInnerHTML={{ __html: ARCH_LOGO_STATIC }} />
             <div className="cta-duo-eyebrow">EARLY ACCESS</div>
             <h2>Join the waitlist.</h2>
             <p className="cta-duo-text">
-              We&rsquo;re opening Doc2Postdoc metro by metro, starting with Chicago and St. Louis. If you ticked the news box, we&rsquo;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
+              We&rsquo;re opening Doc2Postdoc metro by metro. If you ticked the news box, we&rsquo;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
             </p>
             <Link href="/waitlist" className="eyewee-hero-btn">
               Join the waitlist
-            </Link>
-          </div>
-          <div className="cta-duo-divider" aria-hidden="true" />
-          <div className="cta-duo-col">
-            <div className="cta-duo-eye">
-              <Eye state="idle" size={84} interactive={false} />
-            </div>
-            <span className="cta-duo-badge">Survey</span>
-            <h2>Tell us how it really feels.</h2>
-            <p className="cta-duo-jingle">&ldquo;Long nights, tight funds, dreams put on hold&mdash;<br />tell us the postdoc story, untold.&rdquo;</p>
-            <p className="cta-duo-text">
-              Built from real pain points&mdash;funding gaps, mentorship gaps, burnout, the whole messy truth behind the degree. Three minutes. No name needed. Your answers shape what Doc2Postdoc builds next.
-            </p>
-            <Link href="/doc2postdoc/survey" className="eyewee-hero-btn">
-              Take the 3-Minute Survey
             </Link>
           </div>
         </div>

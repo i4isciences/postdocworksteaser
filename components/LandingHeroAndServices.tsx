@@ -129,9 +129,6 @@ export function LandingHeroAndServices() {
             <a href="/waitlist" className="hero2-btn hero2-btn-primary">
               Join the waitlist <ArrowRight size={16} />
             </a>
-            <a href="/doc2postdoc/survey" className="hero2-btn hero2-btn-survey">
-              Take the 3-Minute Survey
-            </a>
           </div>
         </div>
       </section>
@@ -241,7 +238,7 @@ export function LandingHeroAndServices() {
               new city.
             </p>
             <ul>
-              <li>Safety check before contact is shared</li>
+              <li>Coming soon</li>
               <li>A simple step-by-step trip form</li>
             </ul>
             <div className="act">
@@ -311,7 +308,7 @@ export function LandingHeroAndServices() {
             </p>
             <ul>
               <li>Finds matches and tracks next steps</li>
-              <li>Tells you what is due next</li>
+              <li>Reminds you of the next steps you set</li>
             </ul>
             <div className="act">
               <Link href="/waitlist" className="btn out">
@@ -393,9 +390,6 @@ export function LandingHeroAndServices() {
         <div className="teaser-video-action">
           <Link href="/waitlist" className="btn navy">
             Join the waitlist
-          </Link>
-          <Link href="/doc2postdoc/survey" className="btn gold">
-            Take the 3-Minute Survey
           </Link>
           <a href="#eyewee" className="btn out">
             Learn more about eyewee

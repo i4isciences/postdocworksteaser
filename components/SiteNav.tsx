@@ -134,15 +134,6 @@ export function SiteNav({ active }: { active?: "home" | "doc2postdoc" | "eyewee"
             </Link>
 
             <Link
-              className="teaser-mobile-dropdown-link"
-              href="/doc2postdoc/survey"
-              onClick={() => setMenuOpen(false)}
-            >
-              <div className="teaser-mobile-dropdown-link-title">Survey</div>
-              <span className="teaser-mobile-dropdown-badge">3 minutes</span>
-            </Link>
-
-            <Link
               className="teaser-mobile-dropdown-btn teaser-blink"
               href="/waitlist"
               onClick={() => setMenuOpen(false)}

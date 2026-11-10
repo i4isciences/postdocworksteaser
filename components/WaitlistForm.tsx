@@ -205,6 +205,7 @@ export function WaitlistForm() {
     if (!values.email) found.email = "Please enter your email address.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) found.email = "Please enter a valid email address.";
     if (!values.country) found.country = "Please select your country.";
+    if (values.city.length < 2) found.city = "Please enter your city or metro area.";
     if (!consent) found.consent = "Please tick the box to agree before joining.";
 
     // WhatsApp (only when switched on) is optional. Its box (Box 3) appears once a number is typed. A number is only
@@ -219,6 +220,7 @@ export function WaitlistForm() {
       ["fullName", "wl-fullName"],
       ["email", "wl-email"],
       ["country", "wl-country"],
+      ["city", "wl-city"],
       ["consent", "wl-terms"],
     ];
     const firstBad = order.find(([key]) => found[key]);
@@ -269,7 +271,7 @@ export function WaitlistForm() {
   if (state === "success") {
     return (
       <div className="teaser-form-success">
-        <ArchSuccess eyebrow="EARLY ACCESS" heading="You&apos;re on the list." message="If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime." />
+        <ArchSuccess eyebrow="EARLY ACCESS" heading="You&apos;re on the list." message="We&apos;ve sent a confirmation to your email. If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime." />
         <div style={{ marginTop: "26px", textAlign: "left" }}>
           <SocialSubscribeBox />
         </div>
@@ -362,8 +364,20 @@ export function WaitlistForm() {
       </div>
       <div className="teaser-form-grid" style={WHATSAPP_ENABLED ? { alignItems: "start" } : { gridTemplateColumns: "1fr" }}>
         <label>
-          <span>City / metro area</span>
-          <input name="city" autoComplete="address-level2" defaultValue="" placeholder="Optional" />
+          <span>City / metro area <span style={{ color: "#d93829" }}>*</span></span>
+          <input
+            id="wl-city"
+            name="city"
+            autoComplete="address-level2"
+            defaultValue=""
+            onChange={() => clearError("city")}
+            placeholder="Required"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.city)}
+            aria-describedby={errors.city ? "err-city" : undefined}
+          />
+          {fieldError("city")}
         </label>
         {WHATSAPP_ENABLED && (
           <div style={{ display: "grid", gap: "7px" }}>

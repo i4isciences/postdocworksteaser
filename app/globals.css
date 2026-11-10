@@ -1557,8 +1557,6 @@ button { cursor: pointer; }
 .hero2-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .hero2-btn-primary { background: #F4A725; color: #0B1A3E; }
 .hero2-btn-primary:hover { background: #FFB93E; transform: translateY(-1px); }
-.hero2-btn-survey { color: #fff; border: 1px solid rgba(255, 255, 255, .34); }
-.hero2-btn-survey:hover { border-color: #F4A725; color: #F4A725; }
 @media (max-width: 600px) {
   .hero2 { min-height: min(calc(100svh - 56px), 680px); }
   .hero2-top { padding-top: 56px; }
@@ -1590,3 +1588,5 @@ button { cursor: pointer; }
   .cta-duo-divider { width: auto; height: 1px; margin: 34px 0; }
   .cta-duo-col { padding: 0 6px; }
 }
+
+.cta-single { grid-template-columns: 1fr; max-width: 620px; }
