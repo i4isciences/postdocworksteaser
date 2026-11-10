@@ -77,7 +77,7 @@ WHAT YOU GET WITH DOC2POSTDOC:
 3. Privacy: You keep ownership of what you submit. Our Terms of Use and Privacy Policy explain how we use it.
 
 EARLY ACCESS ROLLOUT:
-We're opening Doc2Postdoc metro by metro. If you ticked the news box, we'll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
+We're opening Doc2Postdoc metro by metro, based on where people join from. Tell us your city so we know where to open next. If you ticked the news box, we'll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
 
 Explore more anytime: ${SITE_URL}
 Questions or feedback? Just reply to this email or write to ${SUPPORT_EMAIL}
@@ -197,7 +197,7 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                 <!-- Rollout Notice -->
                 <div style="background-color:#FFF8EC;border-left:4px solid #F4A725;border-radius:4px;padding:14px 16px;margin-bottom:28px;">
                   <p style="margin:0;font-size:13.5px;line-height:1.6;color:#855507;">
-                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro. If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
+                    <strong>Next steps:</strong> We&apos;re opening Doc2Postdoc metro by metro, based on where people join from. Tell us your city so we know where to open next. If you ticked the news box, we&apos;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
                   </p>
                 </div>
 

@@ -205,7 +205,7 @@ export function WaitlistForm() {
     if (!values.email) found.email = "Please enter your email address.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) found.email = "Please enter a valid email address.";
     if (!values.country) found.country = "Please select your country.";
-    if (values.city.length < 2) found.city = "Please enter your city or metro area.";
+    if (values.city.length < 2) found.city = "Please tell us your city.";
     if (!consent) found.consent = "Please tick the box to agree before joining.";
 
     // WhatsApp (only when switched on) is optional. Its box (Box 3) appears once a number is typed. A number is only
@@ -371,7 +371,8 @@ export function WaitlistForm() {
             autoComplete="address-level2"
             defaultValue=""
             onChange={() => clearError("city")}
-            placeholder="Required"
+            placeholder="City or nearest big city"
+            maxLength={100}
             required
             aria-required="true"
             aria-invalid={Boolean(errors.city)}

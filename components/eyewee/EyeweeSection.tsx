@@ -332,15 +332,15 @@ export function EyeweeSection() {
       <div className="eyewee-preview-section">
         <div className="eyewee-preview-grid-reverse">
           <ChatCard>
-            <UserBubble maxWidth="92%">My parents land in Chicago the same week as my grant deadline. I can&rsquo;t get to O&rsquo;Hare myself that day.</UserBubble>
+            <UserBubble maxWidth="92%">My parents land in my city the same week as my grant deadline. I can&rsquo;t get to the airport myself that day.</UserBubble>
             <EyeweeBubble>
-              Checking who else has a pickup near that date. Matched you with a connection also meeting someone at O&rsquo;Hare on the 18th.
+              Checking who else has a pickup near that date. Matched you with a connection also meeting someone at the airport on the 18th.
             </EyeweeBubble>
             <div style={{ background: "#FFFFFF", border: "1px solid #E7E9F0", borderRadius: "12px", padding: "16px 18px" }}>
               <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, fontSize: "13.5px", color: "#182D5A", marginBottom: "10px" }}>Travel Companion match</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "13.5px", color: "#4B5468" }}>
                 <div>
-                  <span style={{ color: "#182D5A", fontWeight: 600 }}>Arrival:</span> O&rsquo;Hare (ORD) — Dec 18
+                  <span style={{ color: "#182D5A", fontWeight: 600 }}>Arrival:</span> Local airport — Dec 18
                 </div>
                 <div>
                   <span style={{ color: "#182D5A", fontWeight: 600 }}>Matched with:</span> Postdoc, same metro, pickup same day
@@ -441,7 +441,7 @@ export function EyeweeSection() {
             <div className="cta-duo-eyebrow">EARLY ACCESS</div>
             <h2>Join the waitlist.</h2>
             <p className="cta-duo-text">
-              We&rsquo;re opening Doc2Postdoc metro by metro. If you ticked the news box, we&rsquo;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
+              We&rsquo;re opening Doc2Postdoc metro by metro, based on where people join from. Tell us your city so we know where to open next. If you ticked the news box, we&rsquo;ll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
             </p>
             <Link href="/waitlist" className="eyewee-hero-btn">
               Join the waitlist

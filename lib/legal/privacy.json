@@ -118,7 +118,7 @@
     false
    ],
    [
-    " Required: name, email address and country. Optional: career stage, research or professional field, institution, city or metro area, WhatsApp number and feedback.",
+    " Required: name, email address, country and city or metro area. Optional: career stage, research or professional field, institution, WhatsApp number and feedback.",
     false,
     false
    ]
