@@ -118,7 +118,7 @@
     false
    ],
    [
-    " Required: name, email address, country and city or metro area. Optional: career stage, research or professional field, institution, WhatsApp number and feedback.",
+    " Required: name, email address, country and city or metro area. Optional: career stage, research or professional field, institution and feedback.",
     false,
     false
    ]
@@ -138,7 +138,7 @@
     false
    ],
    [
-    " We record the date and time, the wording and version shown to you, and the status of each separate choice you make, including your acceptance of our Terms of Use, your confirmation that you are 18 or older, and your choices about email and WhatsApp updates.",
+    " We record the date and time, the wording and version shown to you, and the status of each separate choice you make, including your acceptance of our Terms of Use, your confirmation that you are 18 or older, and your choices about email updates.",
     false,
     false
    ]
@@ -361,18 +361,6 @@
    ],
    [
     [
-     "WhatsApp",
-     true,
-     false
-    ],
-    [
-     " or its service providers, only if you opt in to WhatsApp updates;",
-     false,
-     false
-    ]
-   ],
-   [
-    [
      "Professional advisers",
      true,
      false
@@ -413,7 +401,7 @@
   "t": "p",
   "runs": [
    [
-    "As of the effective date, our service providers for the waitlist are: Supabase (database); Vercel (website hosting and deployment); Resend, which uses Amazon Web Services mail infrastructure (welcome and service emails); our business email and domain providers; and a contract web developer who maintains the website. Before we add a provider that will receive your information, such as an email-marketing service or a payment processor, we will update this list.",
+    "As of the effective date, our service providers for the waitlist are: Supabase (database); Vercel (website hosting and deployment); Resend, which uses Amazon Web Services mail infrastructure (welcome and service emails); Hostinger (email hosting for the Doc2Postdoc mailboxes); our business email and domain providers; and a contract web developer who maintains the website. Before we add a provider that will receive your information, such as an email-marketing service or a payment processor, we will update this list.",
     false,
     false
    ]
@@ -613,7 +601,7 @@
   "t": "p",
   "runs": [
    [
-    "9.1 You may ask to access, correct, update or delete your personal information, withdraw consent, or raise a concern by contacting privacy@doc2postdoc.org. You may unsubscribe from emails using the link in each message and from WhatsApp updates by replying STOP or contacting us.",
+    "9.1 You may ask to access, correct, update or delete your personal information, withdraw consent, or raise a concern by contacting privacy@doc2postdoc.org. You may unsubscribe from emails using the link in each message or by contacting us.",
     false,
     false
    ]
@@ -673,7 +661,7 @@
     false
    ],
    [
-    " In the past 12 months we have collected identifiers (name, email, WhatsApp number, IP address), professional or education information (career stage, field, institution), general geolocation (country, city or metro area), internet activity information (log data, referring page and campaign tags) and consent records. We collected these from you and your device for the purposes in Section 3, and disclosed them for business purposes only to the recipients in Section 4.",
+    " In the past 12 months we have collected identifiers (name, email, IP address), professional or education information (career stage, field, institution), general geolocation (country, city or metro area), internet activity information (log data, referring page and campaign tags) and consent records. We collected these from you and your device for the purposes in Section 3, and disclosed them for business purposes only to the recipients in Section 4.",
     false,
     false
    ]
@@ -763,7 +751,7 @@
   "t": "p",
   "runs": [
    [
-    "11.5 We send commercial electronic messages, by email or WhatsApp, only to people who have given express consent by ticking the relevant box on our form. Each message identifies us, includes our mailing address and contact details, and contains an unsubscribe mechanism that we honour within 10 business days.",
+    "11.5 We send commercial electronic messages by email only to people who have given express consent by ticking the relevant box on our form. Each message identifies us, includes our mailing address and contact details, and contains an unsubscribe mechanism that we honour within 10 business days.",
     false,
     false
    ]

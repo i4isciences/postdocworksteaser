@@ -354,9 +354,9 @@ export function LandingHeroAndServices() {
       <StorySection
         id="story-company"
         theme="dark"
-        heading="Someone sits beside you."
+        heading="Your next step is easier with someone who has taken it."
         sub="No advice. No judgment. Just company."
-        src="/animations/d2p-1-someone-sits-beside-you.html"
+        src="/animations/d2p-1-your-next-step.html"
         title="Animation: a postdoc up late at night with a rejection on the screen, and a friendly ring who sits beside them."
         description="Late at night a postdoc sits at a desk with a laptop that shows a rejection. A friendly ring sits beside them, and hearts rise. No advice, no judgment, just company."
       />

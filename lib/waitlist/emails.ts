@@ -71,10 +71,8 @@ SUBMISSION DETAILS:
 • Country: ${country || "Not specified"}
 • City: ${city || "Not specified"}
 ${institution ? `• Institution or ORCID iD: ${institution}\n` : ""}
-WHAT YOU GET WITH DOC2POSTDOC:
-1. Peer matching: When we open, you'll be able to connect with postdocs and researchers who have been through similar career moves.
-2. eyewee™ AI Guidance: Ask in plain text or voice for practical guidance for your research career.
-3. Privacy: You keep ownership of what you submit. Our Terms of Use and Privacy Policy explain how we use it.
+You're on the early-access list
+Doc2Postdoc is not open yet. We're opening it step by step, and we'll only email you about it if you ticked the news box. You keep ownership of what you submit. Our Terms of Use and Privacy Policy explain how we use your information.
 
 EARLY ACCESS ROLLOUT:
 We're opening Doc2Postdoc metro by metro, based on where people join from. Tell us your city so we know where to open next. If you ticked the news box, we'll email you when your field and region open. Otherwise, visit doc2postdoc.com anytime.
@@ -157,41 +155,14 @@ Unsubscribe: ${unsubscribeUrl}${MAILING_ADDRESS ? `\n${MAILING_ADDRESS}` : ""}`;
                   </table>
                 </div>
 
-                <!-- Marketing / Feature Highlights -->
+                <!-- Status / ownership -->
                 <div style="margin-bottom:28px;">
                   <h2 style="font-size:16px;font-weight:700;color:#182D5A;margin:0 0 14px;border-bottom:1px solid #E8ECF4;padding-bottom:8px;">
-                    What Doc2Postdoc Brings to Your Transition
+                    You&apos;re on the early-access list
                   </h2>
-
-                  <div style="margin-bottom:14px;display:flex;align-items:flex-start;">
-                    <div style="font-size:16px;color:#F4A725;margin-right:10px;line-height:1.2;">✦</div>
-                    <div>
-                      <strong style="color:#182D5A;font-size:14px;">Peer matching:</strong>
-                      <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        When we open, you&apos;ll be able to connect with postdocs and researchers who have been through similar career moves.
-                      </span>
-                    </div>
-                  </div>
-
-                  <div style="margin-bottom:14px;display:flex;align-items:flex-start;">
-                    <div style="font-size:16px;color:#F4A725;margin-right:10px;line-height:1.2;">✦</div>
-                    <div>
-                      <strong style="color:#182D5A;font-size:14px;">eyewee™ AI Guidance:</strong>
-                      <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        Ask in plain text or voice for practical guidance for your research career.
-                      </span>
-                    </div>
-                  </div>
-
-                  <div style="margin-bottom:14px;display:flex;align-items:flex-start;">
-                    <div style="font-size:16px;color:#F4A725;margin-right:10px;line-height:1.2;">✦</div>
-                    <div>
-                      <strong style="color:#182D5A;font-size:14px;">Privacy:</strong>
-                      <span style="color:#4B5468;font-size:13.5px;line-height:1.5;display:block;margin-top:2px;">
-                        You keep ownership of what you submit. Our <a href="${SITE_URL}/terms" style="color:#182D5A;text-decoration:underline;">Terms of Use</a> and <a href="${SITE_URL}/privacy" style="color:#182D5A;text-decoration:underline;">Privacy Policy</a> explain how we use it.
-                      </span>
-                    </div>
-                  </div>
+                  <p style="margin:0;font-size:13.5px;line-height:1.6;color:#4B5468;">
+                    Doc2Postdoc is not open yet. We&apos;re opening it step by step, and we&apos;ll only email you about it if you ticked the news box. You keep ownership of what you submit. Our <a href="${SITE_URL}/terms" style="color:#182D5A;text-decoration:underline;">Terms of Use</a> and <a href="${SITE_URL}/privacy" style="color:#182D5A;text-decoration:underline;">Privacy Policy</a> explain how we use your information.
+                  </p>
                 </div>
 
                 <!-- Rollout Notice -->
@@ -251,8 +222,7 @@ export function buildAdminNotificationEmail({
   city,
   feedback,
   source,
-  whatsappNumber,
-}: WelcomeEmailParams & { source?: string; whatsappNumber?: string }) {
+}: WelcomeEmailParams & { source?: string }) {
   const subject = `[Waitlist Submission] ${fullName} (${country ? `${country} · ` : ""}${careerStage}) - hello@doc2postdoc.com`;
 
   const text = `New waitlist submission received:
@@ -264,7 +234,6 @@ Research field: ${researchField || "Not specified"}
 Institution: ${institution || "Not specified"}
 Country: ${country || "Not specified"}
 City: ${city || "Not specified"}
-WhatsApp (opted in): ${whatsappNumber || "None"}
 Feedback / Thoughts: ${feedback || "None provided"}
 Source: ${source || "Doc2Postdoc Waitlist"}
 Time: ${utcStamp()}`;
@@ -284,7 +253,6 @@ Time: ${utcStamp()}`;
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Institution / ORCID iD:</strong></td><td style="padding:7px 0;">${esc(institution) || "—"}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>Country:</strong></td><td style="padding:7px 0;font-weight:600;">${esc(country) || "—"}</td></tr>
         <tr><td style="color:#6B768E;padding:7px 0;"><strong>City / Metro:</strong></td><td style="padding:7px 0;">${esc(city) || "—"}</td></tr>
-        <tr><td style="color:#6B768E;padding:7px 0;"><strong>WhatsApp (opted in):</strong></td><td style="padding:7px 0;">${esc(whatsappNumber) || "—"}</td></tr>
         <tr>
           <td style="color:#6B768E;vertical-align:top;padding:8px 0;"><strong>Feedback / Thoughts:</strong></td>
           <td style="padding:8px 0;">

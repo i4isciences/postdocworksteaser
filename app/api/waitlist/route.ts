@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getAdminClient, insertSignup, isUnsubscribed, signupExists, updateConsent } from "@/lib/waitlist/db";
+import { allowAttempt, clientAddress } from "@/lib/waitlist/rateLimit";
 import { normalizeCountry } from "@/lib/waitlist/countries";
 import { AD_TAG_FIELDS } from "@/lib/waitlist/adTags";
 import { CONSENT_VERSION, EMAIL_CONSENT_TEXT, TERMS_CONSENT_TEXT, WHATSAPP_CONSENT_TEXT, WHATSAPP_ENABLED, toE164 } from "@/lib/waitlist/consent";
@@ -11,7 +12,15 @@ const CAREER_STAGES = new Set(["Postdoc", "PhD student", "Medical resident / fel
 
 export async function POST(request: Request) {
   try {
+    // Brake against floods: at most 10 attempts per hour from one address.
+    if (!allowAttempt(clientAddress(request))) {
+      return NextResponse.json({ success: false, error: "Too many attempts. Please try again in a little while." }, { status: 429 });
+    }
     const body = (await request.json()) as Record<string, unknown>;
+    // Honeypot: real people never see or fill this hidden field, bots usually do. Pretend it worked, save and send nothing.
+    if (typeof body.company_website === "string" && body.company_website.trim() !== "") {
+      return NextResponse.json({ success: true });
+    }
 
     const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
@@ -169,7 +178,6 @@ export async function POST(request: Request) {
         country,
         city,
         feedback,
-        whatsappNumber: waNumber || undefined,
         source,
       });
 

@@ -195,6 +195,7 @@ export function WaitlistForm() {
       country: read("country"),
       city: read("city"),
       feedback: read("feedback"),
+      company_website: read("company_website"), // honeypot, hidden from people
     };
     const consent = (form.elements.namedItem("consent_given") as HTMLInputElement | null)?.checked === true;
     const emailOk = (form.elements.namedItem("consent_email") as HTMLInputElement | null)?.checked === true;
@@ -281,6 +282,8 @@ export function WaitlistForm() {
 
   return (
     <form className="teaser-form" onSubmit={submit} noValidate>
+      {/* Honeypot: hidden from people and screen readers; bots tend to fill every field */}
+      <input type="text" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" defaultValue="" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} />
       <div className="teaser-form-grid" style={{ alignItems: "start" }}>
         <label>
           <span>Full name <span style={{ color: "#d93829" }}>*</span></span>
