@@ -481,7 +481,7 @@
   "t": "p",
   "runs": [
    [
-    "6.1 Waitlist information is stored and processed in the United States, including by service providers acting for us. If you are in Canada, India or elsewhere, your information will be transferred to and processed in the United States, where privacy laws may differ and where information may be accessible to U.S. courts, law-enforcement agencies and public authorities. Our contract web developer and some members of our team may access the information from India or other countries to maintain and support the website. That access is limited to what the work requires.",
+    "6.1 Waitlist information is stored in Singapore (our database) and processed in the United States and other countries by our service providers acting for us. If you are in Canada, India or elsewhere, your information will be transferred to and processed in the United States, where privacy laws may differ and where information may be accessible to U.S. courts, law-enforcement agencies and public authorities. Our contract web developer and some members of our team may access the information from India or other countries to maintain and support the website. That access is limited to what the work requires.",
     false,
     false
    ]
@@ -581,7 +581,7 @@
   "t": "p",
   "runs": [
    [
-    "8.3 Backup copies may remain until overwritten under our normal backup cycle, and remain protected while they exist.",
+    "8.3 We keep daily exports of the waitlist in access-controlled storage for up to 7 days, then delete them. A deletion request is applied to those exports within 7 days. We do not rely on provider backups.",
     false,
     false
    ]

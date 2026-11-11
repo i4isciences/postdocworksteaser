@@ -7,9 +7,21 @@ import { LandingHeroAndServices } from "@/components/LandingHeroAndServices";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "Doc2Postdoc℠ | Where the Next Step Has Already Been Taken",
-  description:
-    "Meet people one step ahead of you, and get help with everything that comes with the move, all the way to settled. eyewee guides you through each service.",
+  title: { absolute: "Doc2Postdoc | Your next step is easier with someone who has taken it" },
+  description: "Connects PhDs and postdocs with someone one step ahead in their field. Free to join the waitlist.",
+  openGraph: {
+    title: "Doc2Postdoc | Your next step is easier with someone who has taken it",
+    description: "Connects PhDs and postdocs with someone one step ahead in their field. Free to join the waitlist.",
+    type: "website",
+    url: "https://doc2postdoc.com",
+    images: [{ url: "https://doc2postdoc.com/og.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Doc2Postdoc | Your next step is easier with someone who has taken it",
+    description: "Connects PhDs and postdocs with someone one step ahead in their field. Free to join the waitlist.",
+    images: ["https://doc2postdoc.com/og.jpg"],
+  },
 };
 
 export default function Home() {
