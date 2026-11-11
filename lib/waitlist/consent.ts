@@ -1,6 +1,6 @@
 // Consent wording. The server saves these exact strings (never text sent by the browser).
-// Each box is stored on its own with the date, time and this version. Change the version whenever a sentence changes.
-export const CONSENT_VERSION = "2026-11-06-v3";
+// Each box is stored on its own with the date, time and this version. Change the version whenever a sentence changes or the Terms or Privacy Policy version changes.
+export const CONSENT_VERSION = "2026-11-11 · Terms v6 · Privacy v5";
 
 // Box 1 (required): the only box that unlocks the Join button.
 export const TERMS_CONSENT_TEXT = "I am 18 or older, I agree to the Terms of Use, and I have read the Privacy Policy.";
