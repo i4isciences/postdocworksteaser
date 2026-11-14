@@ -40,7 +40,7 @@ export function SiteNav({ active }: { active?: "home" | "doc2postdoc" | "eyewee"
       <Link className="teaser-brand" href="/" aria-label="Home" style={{ textDecoration: "none" }}>
         <Image
           src="/doc2postdoc.png"
-          alt="Doc2Postdoc"
+          alt="Doc2Postdoc logo"
           width={72}
           height={60}
           priority

@@ -52,7 +52,7 @@ export function StorySection({ id, theme, heading, sub, src, title, description 
       <div className="story-inner">
         <div className="story-copy">
           <span className="story-logo">
-            <Image src="/doc2postdoc.png" alt="" width={72} height={60} style={{ height: "34px", width: "auto" }} />
+            <Image src="/doc2postdoc.png" alt="Doc2Postdoc logo" width={72} height={60} style={{ height: "34px", width: "auto" }} />
             <span className="story-logo-name">
               Doc<span className="teaser-brand-num">2</span>Postdoc<span className="teaser-brand-sm">℠</span>
             </span>

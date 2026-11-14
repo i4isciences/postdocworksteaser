@@ -517,7 +517,7 @@ export function WaitlistForm() {
         </span>
       </div>
       <p className="teaser-form-privacy">
-        Privacy questions: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>
+        Privacy questions: <a href="mailto:privacy@doc2postdoc.com">privacy@doc2postdoc.com</a>
       </p>
     </form>
   );

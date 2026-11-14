@@ -120,9 +120,9 @@ export function EyeweeSection() {
           EYEWEE<span style={{ fontSize: "9px", letterSpacing: 0, color: "#A8B0C0", verticalAlign: "super" }}>™</span>
         </div>
 
-        <h1 className="eyewee-hero-h1">
+        <h2 className="eyewee-hero-h1">
           You say it — eyewee carries it and guides it.
-        </h1>
+        </h2>
 
         <p className="eyewee-hero-lead">
           For the postdoc carrying someone else&rsquo;s unsolved dream project — alone, in a new country, with no time left over.
@@ -418,7 +418,7 @@ export function EyeweeSection() {
               <li>We email you only if you tick the box to agree. Every email has an unsubscribe link.</li>
               <li>You can ask us to delete your information at any time.</li>
               <li>
-                Privacy requests: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>. We respond within 30 days.
+                Privacy requests: <a href="mailto:privacy@doc2postdoc.com">privacy@doc2postdoc.com</a>. We respond within 30 days.
               </li>
               <li>
                 Other questions: <a href="mailto:hello@doc2postdoc.com">hello@doc2postdoc.com</a>
@@ -437,7 +437,7 @@ export function EyeweeSection() {
       <div id="waitlist" className="eyewee-waitlist-section">
         <div className="eyewee-waitlist-card cta-duo cta-single">
           <div className="cta-duo-col">
-            <div className="cta-duo-logo" role="img" aria-label="Doc2Postdoc" dangerouslySetInnerHTML={{ __html: ARCH_LOGO_STATIC }} />
+            <div className="cta-duo-logo" role="img" aria-label="Doc2Postdoc logo" dangerouslySetInnerHTML={{ __html: ARCH_LOGO_STATIC }} />
             <div className="cta-duo-eyebrow">EARLY ACCESS</div>
             <h2>Join the waitlist.</h2>
             <p className="cta-duo-text">

@@ -74,17 +74,33 @@ export function LandingHeroAndServices() {
         videoRef.current.play().catch(() => {});
       }
     };
-    playVideo();
+    // The video file is only fetched once the section is close to the screen.
     const vid = videoRef.current;
+    let videoObserver: IntersectionObserver | null = null;
     if (vid) {
-      vid.addEventListener("loadeddata", playVideo);
-      vid.addEventListener("canplay", playVideo);
+      if ("IntersectionObserver" in window) {
+        videoObserver = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              playVideo();
+              vid.addEventListener("loadeddata", playVideo);
+              vid.addEventListener("canplay", playVideo);
+              videoObserver?.disconnect();
+            }
+          },
+          { rootMargin: "300px 0px" }
+        );
+        videoObserver.observe(vid);
+      } else {
+        playVideo();
+      }
     }
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       clearTimeout(idle);
       if (observer) observer.disconnect();
+      if (videoObserver) videoObserver.disconnect();
       if (vid) {
         vid.removeEventListener("loadeddata", playVideo);
         vid.removeEventListener("canplay", playVideo);
@@ -375,11 +391,10 @@ export function LandingHeroAndServices() {
           <video
             ref={videoRef}
             className="teaser-video-player"
-            autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             poster="/doc2postdoc.png"
           >
             <source src="/teaser.mp4" type="video/mp4" />

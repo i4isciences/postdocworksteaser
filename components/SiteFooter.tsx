@@ -7,7 +7,7 @@ export function SiteFooter() {
       <Link className="teaser-brand" href="/" aria-label="Home" style={{ textDecoration: "none" }}>
         <Image
           src="/doc2postdoc.png"
-          alt="Doc2Postdoc"
+          alt="Doc2Postdoc logo"
           width={72}
           height={60}
           style={{ height: "46px", width: "auto", flexShrink: 0 }}
@@ -21,14 +21,18 @@ export function SiteFooter() {
           </div>
         </div>
       </Link>
-      <span className="teaser-footer-powered">Powered by i4iSciences&trade;</span>
+      <span className="teaser-footer-powered">Powered by{" "}
+        <a href="https://www.i4isciences.com" style={{ color: "inherit", textDecoration: "none" }}>
+          i4iSciences
+        </a>
+        &trade;</span>
       <nav className="teaser-footer-legal" aria-label="Legal">
         <Link href="/terms">Terms of Use</Link>
         <Link href="/privacy">Privacy Policy</Link>
       </nav>
       <span className="teaser-footer-contact">
         <span>
-          Privacy: <a href="mailto:privacy@doc2postdoc.org">privacy@doc2postdoc.org</a>
+          Privacy: <a href="mailto:privacy@doc2postdoc.com">privacy@doc2postdoc.com</a>
         </span>
         <span>
           General: <a href="mailto:hello@doc2postdoc.com">hello@doc2postdoc.com</a>

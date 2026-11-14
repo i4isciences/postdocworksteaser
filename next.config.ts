@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      // The animation files are shown inside the home page only; keep them out of search results.
+      { source: "/animations/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
       // Ask search engines not to index the old vercel address.
       {
         source: "/:path*",
