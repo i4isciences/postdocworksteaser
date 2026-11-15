@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data: only facts already on the page. sameAs (LinkedIn) is added once the exact URL is confirmed.
+// Structured data: only facts already on the page. sameAs is the LinkedIn Page, confirmed by Ranjit.
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -34,6 +34,7 @@ const structuredData = {
       name: "Doc2Postdoc",
       url: "https://doc2postdoc.com",
       logo: "https://doc2postdoc.com/doc2postdoc.png",
+      sameAs: ["https://www.linkedin.com/company/doc2postdoc/"],
     },
     {
       "@type": "WebSite",
