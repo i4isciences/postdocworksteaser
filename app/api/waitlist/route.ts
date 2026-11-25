@@ -17,10 +17,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Too many attempts. Please try again in a little while." }, { status: 429 });
     }
     const body = (await request.json()) as Record<string, unknown>;
-    // Honeypot: real people never see or fill this hidden field, bots usually do. Pretend it worked, save and send nothing.
-    if (typeof body.company_website === "string" && body.company_website.trim() !== "") {
-      return NextResponse.json({ success: true });
-    }
 
     const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
@@ -62,6 +58,7 @@ export async function POST(request: Request) {
     // 1. Save to Supabase database
     // If this person unsubscribed earlier we never email them again (they stay flagged, even if they sign up again).
     let previouslyUnsubscribed = false;
+    let saved = false; // true only when the database really stored (or updated) this signup
     try {
       const supabase = getAdminClient();
       previouslyUnsubscribed = await isUnsubscribed(supabase, email);
@@ -109,16 +106,20 @@ export async function POST(request: Request) {
         delete patch.full_name;
         if (!emailConsent) for (const k of ["email_opt_in", "email_opt_in_at", "email_opt_in_text", "email_opt_in_version"]) delete patch[k];
         const updated = await updateConsent(supabase, email, patch);
+        saved = updated.ok;
         if (!updated.ok) console.error("Returning signup consent was NOT saved:", updated.error);
         else if (updated.dropped.length) console.warn("Consent saved, but these columns are missing in eyewee_waitlist:", updated.dropped.join(", "));
       } else {
         // A missing column only drops that one column (see insertSignup), so nothing else is lost.
         const result = await insertSignup(supabase, row);
+        saved = result.ok;
         if (!result.ok) console.error("Signup was NOT saved to the database:", result.error);
         else if (result.dropped.length) console.warn("Signup saved, but these columns are missing in eyewee_waitlist:", result.dropped.join(", "));
       }
+      if (saved) console.log("Waitlist signup saved.");
     } catch (dbError) {
-      console.error("Database connection error (continuing to email delivery):", dbError);
+      saved = false;
+      console.error("Database connection error (the team is still alerted by email):", dbError);
     }
 
     // 2. Deliver submission emails via Resend
@@ -186,7 +187,7 @@ export async function POST(request: Request) {
           from: configuredFrom,
           to: adminRecipients,
           replyTo: email,
-          subject: adminEmail.subject,
+          subject: saved ? adminEmail.subject : "[NOT SAVED - contact this person] " + adminEmail.subject,
           html: adminEmail.html,
           text: adminEmail.text,
         })
@@ -205,7 +206,7 @@ export async function POST(request: Request) {
       });
 
       // Someone who unsubscribed earlier is never emailed again.
-      if (!previouslyUnsubscribed) {
+      if (saved && !previouslyUnsubscribed) {
         sends.push(
           sendSafe({
             from: configuredFrom,
@@ -234,6 +235,13 @@ export async function POST(request: Request) {
       }).catch(() => undefined);
     }
 
+    if (!saved) {
+      console.error("SIGNUP NOT SAVED: telling the visitor so that they can try again.");
+      return NextResponse.json(
+        { success: false, error: "We could not save your signup just now. Please try again in a few minutes, or email hello@doc2postdoc.com." },
+        { status: 500 }
+      );
+    }
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Waitlist submission overall handler failed:", error);
